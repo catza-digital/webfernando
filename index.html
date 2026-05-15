@@ -115,6 +115,38 @@
             z-index: -1;
             animation: pulse-animation 2s infinite;
         }
+
+        /* Redes Sociales Flotantes Izquierda */
+        .social-sidebar {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 1000;
+        }
+        .social-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: #94a3b8;
+        }
+        .social-icon:hover {
+            transform: translateX(8px) scale(1.1);
+            color: white;
+        }
+        .social-icon.facebook:hover { background: #1877F2; border-color: #1877F2; }
+        .social-icon.instagram:hover { background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); border-color: transparent; }
+        .social-icon.tiktok:hover { background: #000000; border-color: #ff0050; box-shadow: 2px 2px 0px #ff0050, -2px -2px 0px #00f2ea; }
+
         @keyframes pulse-animation {
             0% { transform: scale(1); opacity: 0.5; }
             100% { transform: scale(1.5); opacity: 0; }
@@ -138,6 +170,19 @@
             </a>
         </div>
     </nav>
+
+    <!-- Redes Sociales Flotantes (Izquierda) -->
+    <div class="social-sidebar">
+        <a href="https://facebook.com/catzadigital" target="_blank" class="social-icon facebook" title="Facebook Catzadigital">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,104H112v88H88V128H72V104H88V88c0-26.51,21.49-48,48-48h24v24H136a8,8,0,0,0-8,8v16h32l-8,24Z"></path></svg>
+        </a>
+        <a href="https://instagram.com/catzadigital" target="_blank" class="social-icon instagram" title="Instagram Catzadigital">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM172,36H84A48.05,48.05,0,0,0,36,84v88a48.05,48.05,0,0,0,48,48h88a48.05,48.05,0,0,0,48-48V84A48.05,48.05,0,0,0,172,36Zm32,136a32,32,0,0,1-32,32H84a32,32,0,0,1-32-32V84A32,32,0,0,1,84,52h88a32,32,0,0,1,32,32ZM192,72a12,12,0,1,1-12-12A12,12,0,0,1,192,72Z"></path></svg>
+        </a>
+        <a href="https://tiktok.com/@catzadigital" target="_blank" class="social-icon tiktok" title="TikTok Catzadigital">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,96a72.08,72.08,0,0,1-72-72,8,8,0,0,0-8-8H104a8,8,0,0,0-8,8V168a32,32,0,1,1-40-31.14V112.22c0-4.09,3.07-7.58,7.14-8A48,48,0,1,0,112,168V81.33A87.41,87.41,0,0,0,166.49,111,8,8,0,0,0,176,104V64.67a8,8,0,0,0-2.31-5.63,88.19,88.19,0,0,0,50.31-31.7,8,8,0,0,0,0-10.68,88.19,88.19,0,0,0-50.31,31.7A8,8,0,0,0,176,56V104a8,8,0,0,1-8,8,72.08,72.08,0,0,1,56,48,8,8,0,0,0,8-8V104A8,8,0,0,0,224,96Z"></path></svg>
+        </a>
+    </div>
 
     <!-- Hero Section con Imagen de Portada -->
     <section id="inicio" class="relative pt-40 pb-20 px-6 min-h-screen flex flex-col justify-center">
@@ -177,7 +222,6 @@
         </div>
 
         <div class="bento-grid">
-            <!-- Servicio: Creación de Tiendas Online con Imagen Referencial -->
             <div class="bento-item md:col-span-2 group">
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div>
@@ -194,7 +238,6 @@
                         </ul>
                     </div>
                     <div class="relative mt-8 md:mt-0">
-                        <!-- Imagen Referencial Solicitada -->
                         <div class="absolute -inset-2 bg-cyan-500/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                         <img src="https://lh3.googleusercontent.com/d/1Z-2kiuJmUFxNakS-LlFcbnU78-z4BUjh" 
                              class="relative rounded-2xl border border-white/10 shadow-2xl w-full h-64 object-cover transform group-hover:scale-[1.02] transition-transform duration-500" 
