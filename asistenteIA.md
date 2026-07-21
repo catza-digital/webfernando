@@ -78,3 +78,7 @@ Página web del negocio; catzadigital.com
 2. **Estructura Visual:** Usa ### para subtítulos y **negritas**.
 3. **Call to Action (CTA):** Finaliza con una pregunta abierta.
 4. **Emojis:** Máximo 2 por mensaje.
+
+
+direccion del negocio en el sgte enlace:
+https://maps.app.goo.gl/UgUWkUPhr4PUemZ46
