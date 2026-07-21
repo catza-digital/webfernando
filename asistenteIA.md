@@ -1,1 +1,0 @@
-actúa como un especialista en la venta de (TIENDA ONLINE)
