@@ -136,7 +136,7 @@
             position: relative;
         }
         .wa-btn:hover { transform: scale(1.1); }
-        
+
         /* Modal del Carrito */
         #cart-modal {
             position: fixed;
@@ -274,56 +274,8 @@
             <h3 class="text-5xl font-bold tracking-tight">Soluciones de Próxima Generación</h3>
         </div>
 
-        <div class="bento-grid">
-            <!-- Servicio: Tienda Online -->
-            <div class="bento-item md:col-span-2 group">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <div class="h-14 w-14 bg-cyan-500/10 rounded-2xl flex items-center justify-center mb-8">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="text-cyan-500" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 10-4 4-2-2"/></svg>
-                        </div>
-                        <div class="flex flex-wrap items-baseline gap-3 mb-5">
-                            <h4 class="text-3xl font-bold">Creación de Tiendas Online</h4>
-                            <span class="bg-cyan-500 text-black px-3 py-1 rounded-full text-sm font-black italic">2500 BS</span>
-                        </div>
-                        <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                            Desarrollo bajo estándares 2026. Optimización extrema de Core Web Vitals y arquitectura escalable.
-                        </p>
-                        <button onclick="addToCart('shop-001', 'Creación de Tienda Online', 2500)" class="bg-white text-black px-8 py-4 rounded-2xl font-black hover:bg-cyan-500 hover:text-white transition-all flex items-center gap-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-                            Añadir al pedido
-                        </button>
-                    </div>
-                    <div class="relative">
-                        <img src="https://lh3.googleusercontent.com/d/1Z-2kiuJmUFxNakS-LlFcbnU78-z4BUjh" class="rounded-2xl border border-white/10 shadow-2xl w-full h-64 object-cover" alt="Tienda Online">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Servicio: Asesorías -->
-            <div class="bento-item md:col-span-2 group">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <div class="h-14 w-14 bg-cyan-500/10 rounded-2xl flex items-center justify-center mb-8">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="text-cyan-500" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h.01"/><path d="M12 16h.01"/><path d="M12 12h.01"/></svg>
-                        </div>
-                        <div class="flex flex-wrap items-baseline gap-3 mb-5">
-                            <h4 class="text-3xl font-bold">Asesorías Estratégicas</h4>
-                            <span class="bg-cyan-500 text-black px-3 py-1 rounded-full text-sm font-black italic">100 BS / Hr</span>
-                        </div>
-                        <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                            Estrategia pura de CRO y UX para duplicar tus conversiones actuales. Sesiones de alta intensidad.
-                        </p>
-                        <button onclick="addToCart('consulting-001', 'Asesoría Estratégica (1 Hr)', 100)" class="bg-white text-black px-8 py-4 rounded-2xl font-black hover:bg-cyan-500 hover:text-white transition-all flex items-center gap-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-                            Añadir al pedido
-                        </button>
-                    </div>
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" class="rounded-2xl border border-white/10 shadow-2xl w-full h-64 object-cover" alt="Asesoría">
-                    </div>
-                </div>
-            </div>
+        <div class="bento-grid" id="servicios-container">
+            <!-- Los servicios se cargarán dinámicamente desde productos.json -->
         </div>
     </section>
 
@@ -389,7 +341,7 @@
             <p class="text-xs text-gray-500 mt-2">¿Estás listo para escalar tu negocio?</p>
             <button onclick="toggleBubble()" class="text-[10px] mt-4 uppercase font-black text-gray-600 hover:text-white">Cerrar</button>
         </div>
-        
+
         <!-- Botón de Carrito -->
         <div class="cart-btn" onclick="toggleCart()">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
@@ -433,6 +385,60 @@
     </footer>
 
     <script>
+        // CARGAR PRODUCTOS DESDE productos.json
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('productos.json?_t=' + Date.now())
+                .then(response => response.json())
+                .then(products => {
+                    const container = document.getElementById('servicios-container');
+                    if (!container) return;
+                    container.innerHTML = '';
+
+                    const svgs = {
+                        'shop-001': `<svg xmlns="http://www.w3.org/2000/svg" class="text-cyan-500" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 10-4 4-2-2"/></svg>`,
+                        'consulting-001': `<svg xmlns="http://www.w3.org/2000/svg" class="text-cyan-500" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h.01"/><path d="M12 16h.01"/><path d="M12 12h.01"/></svg>`
+                    };
+                    const defaultSvg = `<svg xmlns="http://www.w3.org/2000/svg" class="text-cyan-500" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`;
+
+                    products.forEach(product => {
+                        // Paso #3: Permitir ocultar el producto si la disponibilidad del mismo se encuentra en false, y mostrarlo en la web si está en true
+                        if (product.disponibilidad !== true) return;
+
+                        const itemEl = document.createElement('div');
+                        itemEl.className = 'bento-item md:col-span-2 group';
+
+                        const svgIcon = svgs[product.id] || defaultSvg;
+                        const priceSuffix = product.id === 'consulting-001' ? ' / Hr' : '';
+
+                        itemEl.innerHTML = `
+                            <div class="grid md:grid-cols-2 gap-8 items-center">
+                                <div>
+                                    <div class="h-14 w-14 bg-cyan-500/10 rounded-2xl flex items-center justify-center mb-8">
+                                        ${svgIcon}
+                                    </div>
+                                    <div class="flex flex-wrap items-baseline gap-3 mb-5">
+                                        <h4 class="text-3xl font-bold">${product.nombre}</h4>
+                                        <span class="bg-cyan-500 text-black px-3 py-1 rounded-full text-sm font-black italic">${product.precio} ${product.moneda}${priceSuffix}</span>
+                                    </div>
+                                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                                        ${product.descripcion}
+                                    </p>
+                                    <button onclick="addToCart('${product.id}', '${product.nombre}', ${product.precio})" class="bg-white text-black px-8 py-4 rounded-2xl font-black hover:bg-cyan-500 hover:text-white transition-all flex items-center gap-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                                        Añadir al pedido
+                                    </button>
+                                </div>
+                                <div class="relative">
+                                    <img src="${product.imagen_url}" class="rounded-2xl border border-white/10 shadow-2xl w-full h-64 object-cover" alt="${product.nombre}">
+                                </div>
+                            </div>
+                        `;
+                        container.appendChild(itemEl);
+                    });
+                })
+                .catch(err => console.error('Error al cargar productos:', err));
+        });
+
         // LÓGICA DEL CARRITO
         let cart = [];
 
@@ -444,10 +450,10 @@
                 cart.push({ id, name, price, quantity: 1 });
             }
             updateCartUI();
-            
+
             // ABRIR AUTOMÁTICAMENTE EL CARRITO AL AÑADIR UN ITEM
             document.getElementById('cart-modal').classList.add('open');
-            
+
             // Efecto visual en el badge del botón flotante
             const badge = document.getElementById('cart-count-badge');
             badge.classList.add('scale-125');
@@ -512,10 +518,10 @@
 
         function sendCartToWA() {
             if (cart.length === 0) return;
-            
+
             const phone = "59175069812";
             let message = "🚀 *NUEVO PEDIDO E-COMMERCE*\n\nHola Fernando, me interesa adquirir los siguientes servicios:\n\n";
-            
+
             let total = 0;
             cart.forEach(item => {
                 message += `• *${item.name}* x${item.quantity} - ${item.price * item.quantity} BS\n`;
@@ -523,7 +529,7 @@
             });
 
             message += `\n💰 *Inversión Total:* ${total} BS\n\nQuedo a la espera de los siguientes pasos para iniciar.`;
-            
+
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
@@ -559,6 +565,6 @@ src="https://catza-digital.github.io/catza-ai-widget/widget.js"
 data-client="cliente001"
 data-position="left">
 </script>
-    
+
 </body>
 </html>
