@@ -47,7 +47,7 @@ Enlaces clave: [Links].
 
 # INSTRUCCIONES COMPLEMENTARIAS
 Horario de atención: 8am a 7pm
-Productos y servicios: tienda online 3500 bs -  chatbot web con IA: 1500 bs 
+
 
 DIRECCIÓN: 4TO ANILLO Y DOBLE VIA LA GUARDIA
 
