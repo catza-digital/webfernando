@@ -215,6 +215,7 @@
             <div class="hidden md:flex gap-8 text-sm font-medium text-gray-400">
                 <a href="#inicio" class="hover:text-white transition-colors">Inicio</a>
                 <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
+                <a href="#trabajos" class="hover:text-white transition-colors">Trabajos Realizados</a>
                 <a href="#acerca" class="hover:text-white transition-colors">Acerca de mí</a>
                 <a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
                 <a href="ajedrez3D.html" class="hover:text-white transition-colors">Ajedrez 3D</a>
@@ -273,55 +274,21 @@
             <h3 class="text-5xl font-bold tracking-tight">Soluciones de Próxima Generación</h3>
         </div>
 
+        <div class="bento-grid" id="productos-grid">
+            <!-- Los productos se cargarán dinámicamente desde productos.json -->
+        </div>
+    </section>
+
+    <!-- Trabajos Realizados -->
+    <section id="trabajos" class="py-32 px-6 max-w-7xl mx-auto border-t border-white/5">
+        <div class="mb-20">
+            <h2 class="text-sm font-bold text-cyan-500 uppercase tracking-widest mb-4 italic">Portafolio</h2>
+            <h3 class="text-5xl font-bold tracking-tight">Trabajos Realizados</h3>
+        </div>
         <div class="bento-grid">
-            <!-- Servicio: Tienda Online -->
-            <div class="bento-item md:col-span-2 group">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <div class="h-14 w-14 bg-cyan-500/10 rounded-2xl flex items-center justify-center mb-8">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="text-cyan-500" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 10-4 4-2-2"/></svg>
-                        </div>
-                        <div class="flex flex-wrap items-baseline gap-3 mb-5">
-                            <h4 class="text-3xl font-bold">Creación de Tiendas Online</h4>
-                            <span class="bg-cyan-500 text-black px-3 py-1 rounded-full text-sm font-black italic">2500 BS</span>
-                        </div>
-                        <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                            Desarrollo bajo estándares 2026. Optimización extrema de Core Web Vitals y arquitectura escalable.
-                        </p>
-                        <button onclick="addToCart('shop-001', 'Creación de Tienda Online', 2500)" class="bg-white text-black px-8 py-4 rounded-2xl font-black hover:bg-cyan-500 hover:text-white transition-all flex items-center gap-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-                            Añadir al pedido
-                        </button>
-                    </div>
-                    <div class="relative">
-                        <img src="https://lh3.googleusercontent.com/d/1Z-2kiuJmUFxNakS-LlFcbnU78-z4BUjh" class="rounded-2xl border border-white/10 shadow-2xl w-full h-64 object-cover" alt="Tienda Online">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Servicio: Asesorías -->
-            <div class="bento-item md:col-span-2 group">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <div class="h-14 w-14 bg-cyan-500/10 rounded-2xl flex items-center justify-center mb-8">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="text-cyan-500" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h.01"/><path d="M12 16h.01"/><path d="M12 12h.01"/></svg>
-                        </div>
-                        <div class="flex flex-wrap items-baseline gap-3 mb-5">
-                            <h4 class="text-3xl font-bold">Asesorías Estratégicas</h4>
-                            <span class="bg-cyan-500 text-black px-3 py-1 rounded-full text-sm font-black italic">100 BS / Hr</span>
-                        </div>
-                        <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                            Estrategia pura de CRO y UX para duplicar tus conversiones actuales. Sesiones de alta intensidad.
-                        </p>
-                        <button onclick="addToCart('consulting-001', 'Asesoría Estratégica (1 Hr)', 100)" class="bg-white text-black px-8 py-4 rounded-2xl font-black hover:bg-cyan-500 hover:text-white transition-all flex items-center gap-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-                            Añadir al pedido
-                        </button>
-                    </div>
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" class="rounded-2xl border border-white/10 shadow-2xl w-full h-64 object-cover" alt="Asesoría">
-                    </div>
-                </div>
+            <div class="bento-item group">
+                <h4 class="text-3xl font-bold mb-4">Proyecto E-Commerce</h4>
+                <p class="text-gray-400 text-lg leading-relaxed">Implementacion de ecosistema digital de alto rendimiento para marca personal.</p>
             </div>
         </div>
     </section>
@@ -536,6 +503,85 @@
                 document.getElementById('wa-bubble').classList.add('show');
             }, 3500);
         });
+
+        // LÓGICA DE CARGA DINÁMICA DE PRODUCTOS DESDE productos.json
+        async function loadProducts() {
+            try {
+                const response = await fetch('productos.json?t=' + Date.now());
+                if (!response.ok) throw new Error('Error al cargar productos.json');
+                const products = await response.json();
+                renderProducts(products);
+            } catch (error) {
+                console.error("Error cargando productos:", error);
+            }
+        }
+
+        function renderProducts(products) {
+            const grid = document.getElementById('productos-grid');
+            if (!grid) return;
+
+            // Filtrar productos por disponibilidad === true
+            const availableProducts = products.filter(p => p.disponibilidad === true);
+
+            const iconMapping = {
+                'shop-001': `<circle cx="12" cy="12" r="10"/><path d="m16 10-4 4-2-2"/>`,
+                'consulting-001': `<path d="M12 20h.01"/><path d="M12 16h.01"/><path d="M12 12h.01"/>`
+            };
+            const defaultIcon = `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>`;
+
+            const html = availableProducts.map(product => {
+                const innerIcon = iconMapping[product.id] || defaultIcon;
+                const escapedNombre = product.nombre.replace(/'/g, "\\'");
+                const escapedDesc = product.descripcion || '';
+                const baseCurrency = product.moneda || 'BS';
+                const imageSrc = product.imagen_url || 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800';
+
+                return `
+            <div class="bento-item md:col-span-2 group">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="h-14 w-14 bg-cyan-500/10 rounded-2xl flex items-center justify-center mb-8">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="text-cyan-500" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                ${innerIcon}
+                            </svg>
+                        </div>
+                        <div class="flex flex-wrap items-baseline gap-3 mb-5">
+                            <h4 class="text-3xl font-bold">${product.nombre}</h4>
+                            <span class="bg-cyan-500 text-black px-3 py-1 rounded-full text-sm font-black italic">${product.precio} ${baseCurrency}</span>
+                        </div>
+                        <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                            ${escapedDesc}
+                        </p>
+                        <button onclick="addToCart('${product.id}', '${escapedNombre}', ${product.precio})" class="bg-white text-black px-8 py-4 rounded-2xl font-black hover:bg-cyan-500 hover:text-white transition-all flex items-center gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                            Añadir al pedido
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <img src="${imageSrc}" class="rounded-2xl border border-white/10 shadow-2xl w-full h-64 object-cover" alt="${product.nombre}">
+                    </div>
+                </div>
+            </div>
+                `;
+            }).join('');
+
+            grid.innerHTML = html;
+        }
+
+        // Cargar productos al inicio y establecer polling
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProducts();
+            setInterval(loadProducts, 3000);
+        });
     </script>
+
+
+<script
+src="https://catza-digital.github.io/catza-ai-widget/widget.js"
+data-client="cliente001"
+data-position="left"
+data-message="🚀 ¿Quieres conseguir más clientes con una página web que venda por ti?">
+</script>
+    
 </body>
 </html>
