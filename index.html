@@ -504,7 +504,11 @@
             }, 3500);
         });
 
-        // LÓGICA DE CARGA DINÁMICA DE PRODUCTOS DESDE productos.json
+        // ==========================================
+        // IMPLEMENTACIÓN DE PASO #2 Y PASO #3:
+        // Carga dinámica de productos desde productos.json con detección de cambios
+        // en tiempo real (polling de 3s) y filtrado de disponibilidad.
+        // ==========================================
         async function loadProducts() {
             try {
                 const response = await fetch('productos.json?t=' + Date.now());

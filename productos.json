@@ -1,16 +1,16 @@
 [
   {
     "id": "shop-001",
-    "nombre": "Creación de Tiendas Online",
+    "nombre": "Creaci\u00f3n de Tiendas Online",
     "precio": 2500,
     "moneda": "BS",
-    "descripcion": "Desarrollo bajo estándares 2026. Optimización extrema de Core Web Vitals y arquitectura escalable.",
+    "descripcion": "Desarrollo bajo est\u00e1ndares 2026. Optimizaci\u00f3n extrema de Core Web Vitals y arquitectura escalable.",
     "imagen_url": "https://lh3.googleusercontent.com/d/1Z-2kiuJmUFxNakS-LlFcbnU78-z4BUjh",
     "disponibilidad": true
   },
   {
     "id": "consulting-001",
-    "nombre": "Asesorías Estratégicas",
+    "nombre": "Asesor\u00edas Estrat\u00e9gicas",
     "precio": 100,
     "moneda": "BS",
     "descripcion": "Estrategia pura de CRO y UX para duplicar tus conversiones actuales. Sesiones de alta intensidad.",
