@@ -274,6 +274,11 @@
             <h3 class="text-5xl font-bold tracking-tight">Soluciones de Próxima Generación</h3>
         </div>
 
+        <!-- Menú de Categorías -->
+        <div id="categorias-menu" class="flex flex-wrap gap-3 mb-12">
+            <!-- Se cargará dinámicamente -->
+        </div>
+
         <div class="bento-grid" id="productos-grid">
             <!-- Los productos se cargarán dinámicamente desde productos.json -->
         </div>
@@ -505,23 +510,93 @@
         });
 
         // LÓGICA DE CARGA DINÁMICA DE PRODUCTOS DESDE productos.json
+        let currentCategory = 'Todas';
+        let allLoadedProducts = [];
+
+        function compareIds(idA, idB) {
+            const numA = Number(idA);
+            const numB = Number(idB);
+            if (!isNaN(numA) && !isNaN(numB)) {
+                return numB - numA;
+            }
+            return String(idB).localeCompare(String(idA), undefined, { numeric: true, sensitivity: 'base' });
+        }
+
         async function loadProducts() {
             try {
                 const response = await fetch('productos.json?t=' + Date.now());
                 if (!response.ok) throw new Error('Error al cargar productos.json');
                 const products = await response.json();
-                renderProducts(products);
+                allLoadedProducts = products;
+                renderCategoriesMenu();
+                renderProducts();
             } catch (error) {
                 console.error("Error cargando productos:", error);
             }
         }
 
-        function renderProducts(products) {
+        function renderCategoriesMenu() {
+            const menu = document.getElementById('categorias-menu');
+            if (!menu) return;
+
+            const categoriesSet = new Set();
+            allLoadedProducts.forEach(product => {
+                const cat = product.categoria !== undefined ? product.categoria : "General";
+                categoriesSet.add(cat);
+            });
+
+            const otherCategories = Array.from(categoriesSet).filter(c => c !== "General" && c !== "Todas");
+            otherCategories.sort((a, b) => a.localeCompare(b));
+
+            const categoriesList = ["Todas", "General", ...otherCategories];
+
+            const html = categoriesList.map(cat => {
+                const isActive = cat === currentCategory;
+                const activeClass = "bg-cyan-500 text-white border-cyan-500 shadow-lg shadow-cyan-500/20";
+                const inactiveClass = "bg-white/5 text-gray-400 border-white/10 hover:border-cyan-500 hover:text-white";
+                return `
+                    <button onclick="selectCategory('${cat.replace(/'/g, "\\'")}')" class="px-6 py-3 rounded-xl border text-sm font-semibold transition-all cursor-pointer ${isActive ? activeClass : inactiveClass}">
+                        ${cat}
+                    </button>
+                `;
+            }).join('');
+
+            menu.innerHTML = html;
+        }
+
+        function selectCategory(cat) {
+            currentCategory = cat;
+            renderCategoriesMenu();
+            renderProducts();
+        }
+
+        function renderProducts() {
             const grid = document.getElementById('productos-grid');
             if (!grid) return;
 
+            // Normalizar y aplicar compatibilidad de atributos
+            const normalizedProducts = allLoadedProducts.map(p => ({
+                ...p,
+                categoria: p.categoria !== undefined ? p.categoria : "General",
+                destacado: p.destacado !== undefined ? p.destacado : false
+            }));
+
             // Filtrar productos por disponibilidad === true
-            const availableProducts = products.filter(p => p.disponibilidad === true);
+            const availableProducts = normalizedProducts.filter(p => p.disponibilidad === true);
+
+            // Filtrar por categoría seleccionada
+            let filteredProducts = availableProducts;
+            if (currentCategory !== "Todas") {
+                filteredProducts = availableProducts.filter(p => p.categoria === currentCategory);
+            }
+
+            // Ordenar productos: destacado=true primero, luego destacado=false, cada grupo por ID descendente
+            filteredProducts.sort((a, b) => {
+                if (a.destacado !== b.destacado) {
+                    return a.destacado ? -1 : 1;
+                }
+                return compareIds(a.id, b.id);
+            });
 
             const iconMapping = {
                 'shop-001': `<circle cx="12" cy="12" r="10"/><path d="m16 10-4 4-2-2"/>`,
@@ -529,7 +604,7 @@
             };
             const defaultIcon = `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>`;
 
-            const html = availableProducts.map(product => {
+            const html = filteredProducts.map(product => {
                 const innerIcon = iconMapping[product.id] || defaultIcon;
                 const escapedNombre = product.nombre.replace(/'/g, "\\'");
                 const escapedDesc = product.descripcion || '';
@@ -567,7 +642,6 @@
 
             grid.innerHTML = html;
         }
-
         // Cargar productos al inicio y establecer polling
         document.addEventListener('DOMContentLoaded', () => {
             loadProducts();
