@@ -6,7 +6,9 @@
     "moneda": "BS",
     "descripcion": "Desarrollo bajo estándares 2026. Optimización extrema de Core Web Vitals y arquitectura escalable.",
     "imagen_url": "https://lh3.googleusercontent.com/d/1Z-2kiuJmUFxNakS-LlFcbnU78-z4BUjh",
-    "disponibilidad": true
+    "disponibilidad": true,
+    "categoria": "Tiendas Online",
+    "destacado": true
   },
   {
     "id": "consulting-001",
@@ -15,7 +17,9 @@
     "moneda": "BS",
     "descripcion": "Estrategia pura de CRO y UX para duplicar tus conversiones actuales. Sesiones de alta intensidad.",
     "imagen_url": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800",
-    "disponibilidad": true
+    "disponibilidad": true,
+    "categoria": "Asesorías",
+    "destacado": false
   },
   {
     "id": "consulting-002",
@@ -24,7 +28,8 @@
     "moneda": "BS",
     "descripcion": "Sesiones de alta intensidad.",
     "imagen_url": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800",
-    "disponibilidad": true
+    "disponibilidad": true,
+    "categoria": "General",
+    "destacado": true
   }
-  
 ]
