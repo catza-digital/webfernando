@@ -4,34 +4,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acerca de tu acceso...</title>
 
 ```
-<script>
-    // Enlace del grupo de WhatsApp
-    const whatsappGroup = "https://chat.whatsapp.com/L0BfffMGJKm2oaYUT5Ql5N";
+<title>ACELERA TU NEGOCIO DIGITAL</title>
 
-    // Redirección automática
-    window.location.replace(whatsappGroup);
-</script>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        text-align: center;
+    }
+
+    .contenedor {
+        background: white;
+        padding: 40px 25px;
+        border-radius: 15px;
+        max-width: 450px;
+        width: 90%;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    p {
+        color: #555;
+        line-height: 1.5;
+    }
+
+    .boton {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 15px 25px;
+        background: #25D366;
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 8px;
+    }
+
+    .boton:hover {
+        background: #1ebe5d;
+    }
+</style>
 ```
 
 </head>
 
 <body>
-    <div style="text-align:center; margin-top:80px; font-family:Arial,sans-serif;">
-        <h2>🚀 Redirigiendo...</h2>
-        <p>Estamos llevándote al grupo oficial de WhatsApp.</p>
+
+<div class="contenedor">
 
 ```
-    <p>
-        Si no eres redirigido automáticamente,
-        <a href="https://chat.whatsapp.com/L0BfffMGJKm2oaYUT5Ql5N">
-            haz clic aquí
-        </a>.
-    </p>
-</div>
+<h1>🚀 ACELERA TU NEGOCIO DIGITAL</h1>
+
+<p>
+    Serás redirigido al grupo oficial de WhatsApp.
+</p>
+
+<p>
+    Si WhatsApp no se abre automáticamente, presiona el botón:
+</p>
+
+<a
+    id="botonWhatsApp"
+    class="boton"
+    href="https://chat.whatsapp.com/L0BfffMGJKm2oaYUT5Ql5N"
+    target="_blank"
+    rel="noopener noreferrer">
+    📲 INGRESAR AL GRUPO
+</a>
 ```
+
+</div>
+
+<script>
+
+    const grupoWhatsApp =
+        "https://chat.whatsapp.com/L0BfffMGJKm2oaYUT5Ql5N";
+
+    // Intentar abrir WhatsApp en una nueva pestaña
+    setTimeout(function() {
+
+        const nuevaVentana = window.open(
+            grupoWhatsApp,
+            "_blank",
+            "noopener,noreferrer"
+        );
+
+        // Si el navegador bloquea la ventana,
+        // el botón seguirá disponible.
+        if (!nuevaVentana) {
+            console.log("El navegador bloqueó la nueva pestaña.");
+        }
+
+    }, 500);
+
+</script>
 
 </body>
 </html>
