@@ -2,13 +2,105 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=https://wa.me/59175069812?text=herramientas.pro">
-    <title>Redirigiendo...</title>
-    <script>
-        window.location.replace("https://wa.me/59175069812?text=herramientas.pro");
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Exclusivo - Herramientas PRO</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #0b0f19 0%, #1e293b 100%);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 40px 30px;
+            max-width: 480px;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+        }
+
+        .aviso {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.4;
+            margin: 0 0 28px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-btn {
+            background: linear-gradient(180deg, #25D366 0%, #1ebe5d 100%);
+            color: #ffffff;
+            border: none;
+            padding: 18px 24px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 12px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+            transition: all 0.2s ease;
+            width: 100%;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+            background: linear-gradient(180deg, #2ae06c 0%, #1db85a 100%);
+        }
+
+        .cta-btn:active {
+            transform: translateY(1px);
+        }
+
+        .cta-icon {
+            font-size: 1.35rem;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.25); }
+            100% { transform: scale(1); }
+        }
+    </style>
 </head>
 <body>
-    <p>Redirigiendo a WhatsApp... Si no se abre automáticamente, <a href="https://wa.me/59175069812?text=herramientas.pro">haz clic aquí</a>.</p>
+
+    <div class="card">
+        <p class="aviso">
+            🚀 TRANSFORMA TU NEGOCIO CON SOLUCIONES DIGITALES DE ALTA CONVERSIÓN 📈⚡
+        </p>
+
+        <button class="cta-btn" onclick="redirigirWhatsApp()">
+            <span class="cta-icon">👉</span> ¡HAZ CLIC AQUÍ Y ACCEDE A HERRAMIENTAS PRO!
+        </button>
+    </div>
+
+    <script>
+        function redirigirWhatsApp() {
+            const mensaje = "Vas a ser redirigido al WhatsApp oficial para activar tu acceso a Herramientas PRO. ¿Deseas continuar?";
+            
+            if (confirm(mensaje)) {
+                window.location.href = "https://wa.me/59175069812?text=herramientas.pro";
+            }
+        }
+    </script>
+
 </body>
 </html>
