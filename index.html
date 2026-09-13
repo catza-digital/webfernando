@@ -1,541 +1,756 @@
-
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fernando Yupanqui | Estratega E-Commerce 2026</title>
+    <title>Fernando Yupanqui Rojas - Soluciones Digitales & CRO</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            dark: '#090d16',
+                            card: '#111827',
+                            border: '#1f2937'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body {
-            font-family: 'Plus+Jakarta+Sans', sans-serif;
-            background-color: #0a0a0a;
-            color: #f5f5f5;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(1.15); }
         }
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        .bento-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            overflow: hidden;
-        }
-        .bento-item:hover {
-            border-color: #06b6d4;
-            background: rgba(6, 182, 212, 0.05);
-            transform: translateY(-5px);
-        }
-        .gradient-text {
-            background: linear-gradient(90deg, #fff, #06b6d4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        input, select, textarea {
-            background: rgba(255, 255, 255, 0.05) !important;
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
-            color: white !important;
-        }
-        input:focus, select:focus, textarea:focus {
-            border-color: #06b6d4 !important;
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.2);
+        .animate-pulse-glow {
+            animation: pulse-glow 2.5s infinite ease-in-out;
         }
 
-        /* Hero Background Image */
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-image: linear-gradient(to bottom, rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 1)), url('https://lh3.googleusercontent.com/d/1nMB9_AKDHyYrCGGtKQ7rnM_fqtTDqmhv');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+        .glass-card {
+            background: rgba(17, 24, 39, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        /* Estilos del Carrito y WhatsApp */
-        #ui-layer {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: flex-end;
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card-hover:hover {
+            transform: translateY(-4px);
+            border-color: rgba(16, 185, 129, 0.4);
+            box-shadow: 0 20px 30px -10px rgba(16, 185, 129, 0.15);
         }
 
-        .cart-btn {
-            background: #06b6d4;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 15px rgba(6, 182, 212, 0.3);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
+        /* Estilos de scrollbar personalizados */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-        .cart-count {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: white;
-            color: black;
-            font-size: 10px;
-            font-weight: 800;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid #0a0a0a;
+        ::-webkit-scrollbar-track {
+            background: #090d16;
         }
-
-        .chat-bubble {
-            background: #1a1a1a;
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 20px;
-            padding: 15px 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            max-width: 250px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            pointer-events: none;
+        ::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 4px;
         }
-        .chat-bubble.show {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-        .wa-btn {
-            background: #25D366;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-        }
-        .wa-btn:hover { transform: scale(1.1); }
-        
-        /* Modal del Carrito */
-        #cart-modal {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 100%;
-            max-width: 400px;
-            height: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(20px);
-            z-index: 2000;
-            transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-            border-left: 1px solid rgba(255,255,255,0.1);
-            display: flex;
-            flex-direction: column;
-        }
-        #cart-modal.open { right: 0; }
-
-        .cart-item {
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding: 1.5rem 0;
-        }
-
-        /* Redes Sociales Flotantes Izquierda */
-        .social-sidebar {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            z-index: 1000;
-        }
-        .social-icon {
-            width: 48px;
-            height: 48px;
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            color: #94a3b8;
-        }
-        .social-icon:hover {
-            transform: translateX(8px) scale(1.1);
-            color: white;
-        }
-        .social-icon.facebook:hover { background: #1877F2; border-color: #1877F2; }
-        .social-icon.instagram:hover { background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); border-color: transparent; }
-        .social-icon.tiktok:hover { background: #000000; border-color: #ff0050; box-shadow: 2px 2px 0px #ff0050, -2px -2px 0px #00f2ea; }
-
-        @keyframes pulse-animation {
-            0% { transform: scale(1); opacity: 0.5; }
-            100% { transform: scale(1.5); opacity: 0; }
-        }
-        .pulse {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: #25D366;
-            border-radius: 50%;
-            z-index: -1;
-            animation: pulse-animation 2s infinite;
+        ::-webkit-scrollbar-thumb:hover {
+            background: #10b981;
         }
     </style>
 </head>
-<body class="antialiased">
+<body class="bg-[#090d16] text-slate-100 font-sans antialiased selection:bg-emerald-500 selection:text-slate-950 min-h-screen flex flex-col justify-between overflow-x-hidden">
 
-    <!-- Navegación -->
-    <nav class="fixed w-full z-50 bg-black/30 backdrop-blur-md border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <span class="text-xl font-extrabold tracking-tighter">FYR<span class="text-cyan-500">.</span></span>
-            <div class="hidden md:flex gap-8 text-sm font-medium text-gray-400">
-                <a href="#inicio" class="hover:text-white transition-colors">Inicio</a>
-                <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
-                <a href="#acerca" class="hover:text-white transition-colors">Acerca de mí</a>
-                <a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
-                <a href="ajedrez3D.html" class="hover:text-white transition-colors">Ajedrez 3D</a>
-            </div>
-            <div class="flex items-center gap-4">
-                <button onclick="toggleCart()" class="relative p-2 text-gray-400 hover:text-white transition-colors md:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-                    <span id="nav-cart-count" class="absolute top-0 right-0 bg-cyan-500 text-black text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center">0</span>
-                </button>
-                <a href="#contacto" class="bg-white text-black px-5 py-2.5 rounded-full text-sm font-bold hover:bg-cyan-500 hover:text-white transition-all duration-300">
-                    Contactar
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Redes Sociales Flotantes (Izquierda) -->
-    <div class="social-sidebar">
-        <a href="https://facebook.com/catzadigital" target="_blank" class="social-icon facebook" title="Facebook Catzadigital">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,104H112v88H88V128H72V104H88V88c0-26.51,21.49-48,48-48h24v24H136a8,8,0,0,0-8,8v16h32l-8,24Z"></path></svg>
-        </a>
-        <a href="https://instagram.com/catzadigital" target="_blank" class="social-icon instagram" title="Instagram Catzadigital">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM172,36H84A48.05,48.05,0,0,0,36,84v88a48.05,48.05,0,0,0,48,48h88a48.05,48.05,0,0,0,48-48V84A48.05,48.05,0,0,0,172,36Zm32,136a32,32,0,0,1-32,32H84a32,32,0,0,1-32-32V84A32,32,0,0,1,84,52h88a32,32,0,0,1,32,32ZM192,72a12,12,0,1,1-12-12A12,12,0,0,1,192,72Z"></path></svg>
-        </a>
-        <a href="https://tiktok.com/@catzadigital" target="_blank" class="social-icon tiktok" title="TikTok Catzadigital">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,96a72.08,72.08,0,0,1-72-72,8,8,0,0,0-8-8H104a8,8,0,0,0-8,8V168a32,32,0,1,1-40-31.14V112.22c0-4.09,3.07-7.58,7.14-8A48,48,0,1,0,112,168V81.33A87.41,87.41,0,0,0,166.49,111,8,8,0,0,0,176,104V64.67a8,8,0,0,0-2.31-5.63,88.19,88.19,0,0,0,50.31-31.7,8,8,0,0,0,0-10.68,88.19,88.19,0,0,0-50.31,31.7A8,8,0,0,0,176,56V104a8,8,0,0,1-8,8,72.08,72.08,0,0,1,56,48,8,8,0,0,0,8-8V104A8,8,0,0,0,224,96Z"></path></svg>
-        </a>
-    </div>
-
-    <!-- Hero Section -->
-    <section id="inicio" class="relative pt-40 pb-20 px-6 min-h-screen flex flex-col justify-center">
-        <div class="hero-bg"></div>
-        <div class="max-w-4xl mx-auto md:mx-0 relative z-10">
-            <div class="inline-block px-4 py-1.5 bg-cyan-500/20 backdrop-blur-sm border border-cyan-500/30 rounded-full text-cyan-400 text-xs font-bold uppercase tracking-widest mb-8">
-                Estratega Full-Stack E-Commerce
-            </div>
-            <h1 class="text-7xl md:text-9xl font-extrabold leading-none mb-8 tracking-tighter">
-                <span class="gradient-text">Fernando Yupanqui.</span>
-            </h1>
-            <p class="text-xl md:text-3xl text-gray-200 mb-10 leading-relaxed font-light max-w-3xl drop-shadow-lg">
-                Arquitecto de ecosistemas digitales. Transformo visiones en <span class="text-cyan-400 font-semibold italic">tiendas de alto rendimiento</span> que escalan tu marca personal.
-            </p>
-            <div class="flex flex-wrap gap-4">
-                <a href="#servicios" class="bg-cyan-500 text-white px-10 py-5 rounded-2xl font-bold text-xl hover:bg-cyan-400 transition-all flex items-center gap-3 shadow-xl shadow-cyan-500/20">
-                    Ver Catálogo
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Servicios -->
-    <section id="servicios" class="py-32 px-6 max-w-7xl mx-auto">
-        <div class="mb-20">
-            <h2 class="text-sm font-bold text-cyan-500 uppercase tracking-widest mb-4 italic">Servicios Especializados</h2>
-            <h3 class="text-5xl font-bold tracking-tight">Soluciones de Próxima Generación</h3>
-        </div>
-
-        <div class="bento-grid">
-            <!-- Servicio: Tienda Online -->
-            <div class="bento-item md:col-span-2 group">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <div class="h-14 w-14 bg-cyan-500/10 rounded-2xl flex items-center justify-center mb-8">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="text-cyan-500" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 10-4 4-2-2"/></svg>
-                        </div>
-                        <div class="flex flex-wrap items-baseline gap-3 mb-5">
-                            <h4 class="text-3xl font-bold">Creación de Tiendas Online</h4>
-                            <span class="bg-cyan-500 text-black px-3 py-1 rounded-full text-sm font-black italic">2500 BS</span>
-                        </div>
-                        <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                            Desarrollo bajo estándares 2026. Optimización extrema de Core Web Vitals y arquitectura escalable.
-                        </p>
-                        <button onclick="addToCart('shop-001', 'Creación de Tienda Online', 2500)" class="bg-white text-black px-8 py-4 rounded-2xl font-black hover:bg-cyan-500 hover:text-white transition-all flex items-center gap-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-                            Añadir al pedido
-                        </button>
-                    </div>
-                    <div class="relative">
-                        <img src="https://lh3.googleusercontent.com/d/1Z-2kiuJmUFxNakS-LlFcbnU78-z4BUjh" class="rounded-2xl border border-white/10 shadow-2xl w-full h-64 object-cover" alt="Tienda Online">
-                    </div>
-                </div>
-            </div>
+    <!-- Header / Barra de Navegación -->
+    <header class="sticky top-0 z-40 bg-[#090d16]/85 backdrop-blur-md border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
-            <!-- Servicio: Asesorías -->
-            <div class="bento-item md:col-span-2 group">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <div class="h-14 w-14 bg-cyan-500/10 rounded-2xl flex items-center justify-center mb-8">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="text-cyan-500" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h.01"/><path d="M12 16h.01"/><path d="M12 12h.01"/></svg>
+            <!-- Logotipo y Nombre de Marca -->
+            <a href="#inicio" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center font-black text-slate-950 text-xl shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+                    FY
+                </div>
+                <div>
+                    <span class="font-extrabold text-base sm:text-lg text-white block leading-tight group-hover:text-emerald-400 transition-colors">
+                        Fernando Yupanqui
+                    </span>
+                    <span class="text-[11px] font-mono text-emerald-400 font-medium tracking-wide">
+                        Soluciones Digitales & CRO
+                    </span>
+                </div>
+            </a>
+
+            <!-- Menú Desktop -->
+            <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+                <a href="#inicio" class="hover:text-emerald-400 transition-colors">Inicio</a>
+                <a href="#servicios" class="hover:text-emerald-400 transition-colors">Servicios</a>
+                <a href="#talleres" class="hover:text-emerald-400 transition-colors">Talleres y Seminarios</a>
+                <a href="#herramientas-pro" class="hover:text-emerald-400 transition-colors">Herramientas PRO</a>
+                <a href="#sobre-mi" class="hover:text-emerald-400 transition-colors">Sobre Mí</a>
+                <a href="#testimonios" class="hover:text-emerald-400 transition-colors">Testimonios</a>
+                <a href="#contacto" class="hover:text-emerald-400 transition-colors">Ubicación y Contacto</a>
+            </nav>
+
+            <!-- CTA Menú Superior -->
+            <div class="flex items-center gap-3">
+                <button onclick="sendWhatsApp('General - Header')" class="hidden sm:inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-emerald-500/20 text-xs sm:text-sm">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <span>Contactar Ahora</span>
+                </button>
+
+                <!-- Botón Menú Mobile -->
+                <button onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white p-2 rounded-lg bg-slate-900 border border-slate-800">
+                    <i class="fa-solid fa-bars text-lg" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menú Mobile Desplegable -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 border-b border-slate-800 px-4 py-5 space-y-3">
+            <a href="#inicio" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-300 hover:text-emerald-400 py-1.5">Inicio</a>
+            <a href="#servicios" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-300 hover:text-emerald-400 py-1.5">Servicios</a>
+            <a href="#talleres" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-300 hover:text-emerald-400 py-1.5">Talleres y Seminarios</a>
+            <a href="#herramientas-pro" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-300 hover:text-emerald-400 py-1.5">Herramientas PRO</a>
+            <a href="#sobre-mi" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-300 hover:text-emerald-400 py-1.5">Sobre Mí</a>
+            <a href="#testimonios" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-300 hover:text-emerald-400 py-1.5">Testimonios</a>
+            <a href="#contacto" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-300 hover:text-emerald-400 py-1.5">Ubicación y Contacto</a>
+            <button onclick="sendWhatsApp('General - Mobile Menu')" class="w-full mt-3 flex items-center justify-center gap-2 bg-emerald-500 text-slate-950 font-bold py-3 rounded-xl text-sm">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>Enviar WhatsApp Directo</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- SECCIÓN HERO (Modelo AIDA: Atención) -->
+        <section id="inicio" class="relative pt-12 pb-20 md:pt-24 md:pb-32 overflow-hidden">
+            <!-- Luces Neón de Fondo -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+            <div class="absolute top-1/3 right-10 w-[350px] h-[350px] bg-teal-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                
+                <!-- Badge de Disponibilidad y Estado Online -->
+                <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-900/90 border border-slate-800 mb-8 shadow-inner">
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-pulse-glow absolute inline-flex h-full w-full rounded-full bg-emerald-400"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                    </span>
+                    <span class="text-xs font-semibold text-slate-300">
+                        Disponible para proyectos en Santa Cruz, Bolivia & Online
+                    </span>
+                </div>
+
+                <!-- Headline Persuasivo -->
+                <h1 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight mb-6 text-white">
+                    Transforma tu Negocio con <br class="hidden sm:inline"/>
+                    <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
+                        Soluciones Digitales de Alta Conversión
+                    </span>
+                </h1>
+
+                <!-- Sub-headline de Beneficios -->
+                <p class="text-slate-400 text-base sm:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
+                    Diseño estrategias de marketing, tiendas virtuales integradas con WhatsApp y Chatbots con Inteligencia Artificial para acelerar tus ventas y automatizar la atención a clientes.
+                </p>
+
+                <!-- Botones Call to Action Principal -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button onclick="sendWhatsApp('Atención - Hero Principal')" class="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold px-8 py-4 rounded-xl transition-all transform hover:-translate-y-1 shadow-xl shadow-emerald-500/25 flex items-center justify-center gap-3 text-base">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        <span>Iniciar Proyecto por WhatsApp</span>
+                    </button>
+                    <a href="#servicios" class="w-full sm:w-auto glass-card hover:bg-slate-800 text-slate-200 font-semibold px-8 py-4 rounded-xl transition-all text-base text-center border border-slate-800">
+                        Ver Servicios & Cotizaciones
+                    </a>
+                </div>
+
+                <!-- Métricas e Indicadores de Confianza -->
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto mt-16 pt-10 border-t border-slate-800/80">
+                    <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/50">
+                        <span class="block text-2xl sm:text-3xl font-black text-emerald-400 mb-1">+100%</span>
+                        <span class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">Enfoque en Ventas</span>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/50">
+                        <span class="block text-2xl sm:text-3xl font-black text-white mb-1">WhatsApp</span>
+                        <span class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">Integración Directa</span>
+                    </div>
+                    <div class="col-span-2 md:col-span-1 p-4 rounded-xl bg-slate-900/40 border border-slate-800/50">
+                        <span class="block text-2xl sm:text-3xl font-black text-cyan-400 mb-1">IA Nativa</span>
+                        <span class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">Atención 24/7</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECCIÓN HERRAMIENTAS DIGITALES PRO -->
+        <section id="herramientas-pro" class="py-20 bg-slate-900/40 relative border-b border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-2 block">Recursos de Inteligencia Artificial</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Herramientas Digitales PRO</h2>
+                    <p class="text-slate-400 text-sm mt-3">Accede directamente a nuestros generadores impulsados por IA para optimizar la creación de tu negocio digital.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Herramienta 1 -->
+                    <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-2xl mb-6">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Generador de Sitios Web</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                                Herramienta de IA diseñada para estructurar y crear landing pages y sitios web optimizados para la conversión de manera rápida y eficiente.
+                            </p>
                         </div>
-                        <div class="flex flex-wrap items-baseline gap-3 mb-5">
-                            <h4 class="text-3xl font-bold">Asesorías Estratégicas</h4>
-                            <span class="bg-cyan-500 text-black px-3 py-1 rounded-full text-sm font-black italic">100 BS / Hr</span>
+                        <a href="https://gemini.google.com/gem/1RryDrDj5YoSziwz2h7p_Q3ODhdYL4XOH?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-800 hover:bg-emerald-500 text-slate-200 hover:text-slate-950 font-bold py-3.5 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm border border-slate-700 hover:border-emerald-500 group">
+                            <span>Abrir Herramienta</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                        </a>
+                    </div>
+
+                    <!-- Herramienta 2 -->
+                    <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-2xl mb-6">
+                                <i class="fa-solid fa-pen-nib"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Generador de Copywriting y Video Marketing Publicitario</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                                Crea guiones persuasivos, textos publicitarios y estructuras de video marketing enfocadas en captar la atención de tus clientes ideales.
+                            </p>
                         </div>
-                        <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                            Estrategia pura de CRO y UX para duplicar tus conversiones actuales. Sesiones de alta intensidad.
-                        </p>
-                        <button onclick="addToCart('consulting-001', 'Asesoría Estratégica (1 Hr)', 100)" class="bg-white text-black px-8 py-4 rounded-2xl font-black hover:bg-cyan-500 hover:text-white transition-all flex items-center gap-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-                            Añadir al pedido
+                        <a href="https://gemini.google.com/share/27e76b236b5f" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-800 hover:bg-emerald-500 text-slate-200 hover:text-slate-950 font-bold py-3.5 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm border border-slate-700 hover:border-emerald-500 group">
+                            <span>Abrir Herramienta</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                        </a>
+                    </div>
+
+                    <!-- Herramienta 3 -->
+                    <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-2xl mb-6">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Generador de Chatbot con IA</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                                Configura prompts y flujos de conversación inteligentes para automatizar el servicio al cliente y las ventas en tu negocio 24/7.
+                            </p>
+                        </div>
+                        <a href="https://gemini.google.com/share/ed976fcad1c3" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-800 hover:bg-emerald-500 text-slate-200 hover:text-slate-950 font-bold py-3.5 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm border border-slate-700 hover:border-emerald-500 group">
+                            <span>Abrir Herramienta</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE SERVICIOS (Modelo AIDA: Interés) -->
+        <section id="servicios" class="py-20 bg-slate-900/40 relative border-y border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-2 block">Catálogo de Servicios</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Soluciones Especializadas para tu Empresa</h2>
+                    <p class="text-slate-400 text-sm mt-3">Diseñadas para maximizar la tasa de conversión y eliminar la fricción en la venta.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Servicio 1 -->
+                    <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl mb-6">
+                                <i class="fa-solid fa-chart-pie"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Soluciones Digitales para Marketing y Negocios</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                                Estrategias digitales integrales enfocadas en la optimización de la tasa de conversión (CRO), embudos de ventas eficaces, posicionamiento de marca y captación de clientes potenciales de alto valor.
+                            </p>
+                            <ul class="space-y-2 text-xs text-slate-300 mb-8">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Optimización de Landing Pages (AIDA)</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Auditoría de Embudos de Conversión</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Carga Ultra Rápida (Core Web Vitals)</li>
+                            </ul>
+                        </div>
+                        <button onclick="sendWhatsApp('Soluciones Digitales para Marketing y Negocios')" class="w-full bg-slate-800 hover:bg-emerald-500 text-slate-200 hover:text-slate-950 font-bold py-3.5 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm border border-slate-700 hover:border-emerald-500">
+                            <span>Solicitar Cotización</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
                         </button>
                     </div>
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" class="rounded-2xl border border-white/10 shadow-2xl w-full h-64 object-cover" alt="Asesoría">
+
+                    <!-- Servicio 2 (Destacado) -->
+                    <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden border-emerald-500/40 shadow-xl shadow-emerald-500/5">
+                        <div class="absolute -top-3 right-6 bg-emerald-500 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md">
+                            Más Solicitado
+                        </div>
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center text-2xl mb-6">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Creación de Tiendas Online para WhatsApp</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                                E-commerce ágil e interactivo con catálogo de productos y carrito de compra. Tus clientes seleccionan sus ítems y te envían el pedido desglosado directamente a tu WhatsApp.
+                            </p>
+                            <ul class="space-y-2 text-xs text-slate-300 mb-8">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Carrito Interactivo en Tiempo Real</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Desglose de Pedido Formateado</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Cero comisiones por pasarela</li>
+                            </ul>
+                        </div>
+                        <button onclick="sendWhatsApp('Creación de Tiendas Online para WhatsApp')" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-3.5 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm shadow-lg shadow-emerald-500/20">
+                            <span>Cotizar Tienda en WhatsApp</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+
+                    <!-- Servicio 3 -->
+                    <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl mb-6">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Chatbots con Inteligencia Artificial</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                                Automatiza la atención de tu negocio las 24 horas del día. Respuestas contextuales inteligentes, calificación automática de prospectos y agendamiento de citas sin intervención humana constante.
+                            </p>
+                            <ul class="space-y-2 text-xs text-slate-300 mb-8">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Respuestas automatizadas con IA</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Calificación previa de clientes</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Operación continua 24/7</li>
+                            </ul>
+                        </div>
+                        <button onclick="sendWhatsApp('Chatbots con Inteligencia Artificial')" class="w-full bg-slate-800 hover:bg-emerald-500 text-slate-200 hover:text-slate-950 font-bold py-3.5 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm border border-slate-700 hover:border-emerald-500">
+                            <span>Implementar Chatbot IA</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN TALLERES Y SEMINARIOS -->
+        <section id="talleres" class="py-20 bg-slate-900/60 relative border-b border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-2 block">Capacitación Especializada</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Talleres y Seminarios</h2>
+                    <p class="text-slate-400 text-sm mt-3">Aprende de forma práctica a potenciar tu negocio con herramientas digitales e Inteligencia Artificial.</p>
+                </div>
+
+                <div class="max-w-4xl mx-auto">
+                    <div class="glass-card glass-card-hover rounded-3xl p-8 sm:p-10 border-emerald-500/30 relative overflow-hidden shadow-2xl shadow-emerald-500/5">
+                        
+                        <!-- Badge destacado -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-6">
+                            <i class="fa-solid fa-graduation-cap text-sm"></i>
+                            <span>Taller Online en Vivo</span>
+                        </div>
+
+                        <!-- Título del Taller -->
+                        <h3 class="text-2xl sm:text-3xl font-black text-white mb-6 leading-tight">
+                            CREA TU TIENDA ONLINE CON IA Y VENDE CON FACEBOOK ADS + WHATSAPP
+                        </h3>
+
+                        <!-- Detalles del Taller Grid -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                            <div class="flex items-start gap-3 p-4 rounded-xl bg-slate-950/60 border border-slate-800">
+                                <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 text-lg">
+                                    <i class="fa-solid fa-calendar-check"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-[11px] uppercase font-bold text-slate-400">Inicio del Taller</span>
+                                    <span class="text-sm font-bold text-white">Lunes 3 de Agosto</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 p-4 rounded-xl bg-slate-950/60 border border-slate-800">
+                                <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 text-lg">
+                                    <i class="fa-solid fa-video"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-[11px] uppercase font-bold text-slate-400">Modalidad</span>
+                                    <span class="text-sm font-bold text-white">3 Clases Online en Vivo</span>
+                                    <span class="block text-xs text-slate-400">(Lunes - Miércoles - Viernes)</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 p-4 rounded-xl bg-slate-950/60 border border-slate-800">
+                                <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 text-lg">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-[11px] uppercase font-bold text-slate-400">Horario</span>
+                                    <span class="text-sm font-bold text-white">8:00 PM a 10:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTA del Taller -->
+                        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-800/80">
+                            <p class="text-slate-300 text-xs sm:text-sm">
+                                <i class="fa-solid fa-circle-info text-emerald-400 mr-1"></i>
+                                Cupos limitados para garantizar atención personalizada durante las sesiones en vivo.
+                            </p>
+                            <button onclick="sendWhatsApp('Taller: Crea tu Tienda Online con IA y Facebook Ads')" class="w-full sm:w-auto shrink-0 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-6 py-3.5 rounded-xl transition-all shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2 text-sm">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>Inscribirme por WhatsApp</span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECCIÓN SOBRE MÍ (Modelo AIDA: Deseo) -->
+        <section id="sobre-mi" class="py-20 relative">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="glass-card rounded-3xl p-8 sm:p-12 relative overflow-hidden border border-slate-800">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        
+                        <!-- Avatar & Perfil -->
+                        <div class="md:col-span-5 text-center">
+                            <div class="w-44 h-44 sm:w-52 sm:h-52 mx-auto rounded-full bg-gradient-to-tr from-emerald-500 via-teal-400 to-cyan-500 p-1.5 shadow-2xl shadow-emerald-500/20">
+                                <div class="w-full h-full bg-slate-950 rounded-full flex flex-col items-center justify-center overflow-hidden border border-slate-800">
+                                    <img src="fernando.jpg" alt="Fernando Yupanqui Rojas" class="w-full h-full object-cover object-center">
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mt-5">Fernando Yupanqui Rojas</h3>
+                            <p class="text-xs font-mono text-emerald-400 mt-1">Especialista en Soluciones Digitales</p>
+                            <p class="text-[11px] text-slate-400 mt-0.5">Santa Cruz de la Sierra, Bolivia</p>
+                        </div>
+
+                        <!-- Biografía y Propuesta de Valor -->
+                        <div class="md:col-span-7">
+                            <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-2 block">Perfil Profesional</span>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">Ingeniería Web orientada a Resultados Comerciales</h2>
+                            
+                            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                                Mi objetivo principal es eliminar la complejidad tecnológica para que emprendedores y empresas puedan implementar herramientas digitales simples, veloces y enfocadas en cerrar ventas.
+                            </p>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                                Aplico arquitectura limpia HTML5, metodologías CRO (Optimización de Tasa de Conversión), diseño de interacción amigable e integración nativa con la API de WhatsApp para convertir cada visita en una oportunidad real de negocio.
+                            </p>
+
+                            <div class="grid grid-cols-2 gap-4 text-xs font-medium text-slate-300 border-t border-slate-800/80 pt-4">
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-location-dot text-emerald-400 text-sm"></i>
+                                    <span>Santa Cruz, Bolivia</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-bolt text-emerald-400 text-sm"></i>
+                                    <span>Respuesta Inmediata</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-code text-emerald-400 text-sm"></i>
+                                    <span>Frontend Nativo</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+                                    <span>Ventas por WhatsApp</span>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Acerca de Mí -->
-    <section id="acerca" class="py-32 px-6 max-w-7xl mx-auto border-t border-white/5">
-        <div class="grid md:grid-cols-12 gap-16 items-center">
-            <div class="md:col-span-6">
-                <div class="inline-block px-4 py-1.5 bg-cyan-500/10 border border-cyan-500/20 rounded-full text-cyan-500 text-xs font-bold uppercase tracking-widest mb-6">Trayectoria</div>
-                <h2 class="text-5xl md:text-6xl font-extrabold mb-10 tracking-tighter">Detrás del Código.</h2>
-                <div class="space-y-6 text-gray-400 text-xl leading-relaxed">
-                    <p>Soy <span class="text-white font-semibold">Fernando Yupanqui Rojas</span>, un apasionado por la ingeniería de software y el crecimiento de negocios.</p>
+        <!-- SECCIÓN DE TESTIMONIOS (Modelo AIDA: Prueba Social) -->
+        <section id="testimonios" class="py-20 bg-slate-900/40 border-y border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-2 block">Prueba Social</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Lo que Dicen Quienes Ya Trabajaron Conmigo</h2>
+                    <p class="text-slate-400 text-sm mt-3">Experiencias reales de clientes que impulsaron su canal digital.</p>
                 </div>
-            </div>
-            <div class="md:col-span-6 grid grid-cols-2 gap-6">
-                <div class="bento-item text-center"><span class="text-5xl font-extrabold">99+</span><br><span class="text-xs uppercase text-cyan-500">Performance</span></div>
-                <div class="bento-item text-center"><span class="text-5xl font-extrabold">CRO</span><br><span class="text-xs uppercase text-cyan-500">Optimización</span></div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Contacto -->
-    <section id="contacto" class="py-32 px-6 max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-20">
-            <div>
-                <img src="https://lh3.googleusercontent.com/d/1CDqtFvibxW0oTkPeXwksZ_Xb4b4GMh2f" class="w-full h-[550px] object-cover rounded-[2.2rem] border border-white/10 grayscale hover:grayscale-0 transition-all duration-1000 shadow-3xl" alt="Fernando Yupanqui">
-                <h3 class="text-5xl font-extrabold mt-8 tracking-tighter italic">Hablemos de negocios.</h3>
-                <div class="flex items-center gap-5 text-cyan-400 font-black text-2xl mt-4"><span>+591 75069812</span></div>
-            </div>
-            <div class="bento-item bg-black/40 backdrop-blur-xl p-10 h-fit">
-                <form id="whatsappForm" class="space-y-8">
-                    <div>
-                        <label class="block text-xs font-black uppercase text-cyan-500 mb-4">¿Quién eres?</label>
-                        <input type="text" id="name" required class="w-full px-8 py-5 rounded-3xl" placeholder="Tu nombre">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-slate-300 text-xs italic leading-relaxed mb-4">
+                                "La tienda online de WhatsApp que implementó Fernando duplicó la velocidad en que tomamos pedidos. Nuestros clientes quedan encantados con el carrito."
+                            </p>
+                        </div>
+                        <div class="border-t border-slate-800 pt-3">
+                            <p class="font-bold text-white text-xs">Carlos Mendoza</p>
+                            <p class="text-[10px] text-emerald-400">Comercializador - Sta. Cruz</p>
+                        </div>
                     </div>
-                    <div>
-                        <label class="block text-xs font-black uppercase text-cyan-500 mb-4">Proyecto</label>
-                        <textarea id="message" rows="4" class="w-full px-8 py-5 rounded-3xl" placeholder="Cuéntame sobre tus objetivos..."></textarea>
+
+                    <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-slate-300 text-xs italic leading-relaxed mb-4">
+                                "El chatbot con IA responde consultas a cualquier hora de la noche. Pasamos de perder prospectos fuera de horario a agendar citas en automático."
+                            </p>
+                        </div>
+                        <div class="border-t border-slate-800 pt-3">
+                            <p class="font-bold text-white text-xs">Valeria Ríos</p>
+                            <p class="text-[10px] text-emerald-400">Centro Médico Estético</p>
+                        </div>
                     </div>
-                    <button type="submit" class="w-full bg-cyan-500 text-white py-6 rounded-3xl font-black text-2xl shadow-2xl">Enviar Mensaje</button>
-                </form>
+
+                    <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-slate-300 text-xs italic leading-relaxed mb-4">
+                                "Excelente atención y rápida entrega. Entendió exactamente lo que nuestro negocio necesitaba para captar leads en redes sociales."
+                            </p>
+                        </div>
+                        <div class="border-t border-slate-800 pt-3">
+                            <p class="font-bold text-white text-xs">Roberto Aguilera</p>
+                            <p class="text-[10px] text-emerald-400">Inmobiliaria y Raíces</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-slate-300 text-xs italic leading-relaxed mb-4">
+                                "La landing page carga instantáneamente en teléfonos móviles. Se notó de inmediato el incremento en mensajes recibidos por WhatsApp."
+                            </p>
+                        </div>
+                        <div class="border-t border-slate-800 pt-3">
+                            <p class="font-bold text-white text-xs">Mariana Suárez</p>
+                            <p class="text-[10px] text-emerald-400">Servicios Financieros</p>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CAPA DE UI (BOTONES FLOTANTES) -->
-    <div id="ui-layer">
-        <div class="chat-bubble" id="wa-bubble">
-            <p class="text-sm text-gray-200 font-bold">👋 ¡Hola! Soy Fernando.</p>
-            <p class="text-xs text-gray-500 mt-2">¿Estás listo para escalar tu negocio?</p>
-            <button onclick="toggleBubble()" class="text-[10px] mt-4 uppercase font-black text-gray-600 hover:text-white">Cerrar</button>
-        </div>
-        
-        <!-- Botón de Carrito -->
-        <div class="cart-btn" onclick="toggleCart()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-            <span id="cart-count-badge" class="cart-count">0</span>
-        </div>
+        <!-- SECCIÓN UBICACIÓN Y FORMULARIO DE CONTACTO (Modelo AIDA: Acción) -->
+        <section id="contacto" class="py-20 relative">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-2 block">Contacto Directo</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">¿Listo para Impulsar tu Negocio?</h2>
+                    <p class="text-slate-400 text-sm mt-3">Envía un mensaje para analizar tus requerimientos y definir la mejor estrategia.</p>
+                </div>
 
-        <!-- Botón de WhatsApp -->
-        <div class="wa-btn" onclick="openWA()">
-            <div class="pulse"></div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="white" viewBox="0 0 256 256"><path d="M187.58,144.84l-32-16a8,8,0,0,0-8,1l-14.3,10.73a74.48,74.48,0,0,1-32.23-32.23l10.73-14.3a8,8,0,0,0,1-8l-16-32a8,8,0,0,0-9-4.69c-22.7,5.55-42.6,33-42.6,58.67,0,45.41,36.84,82.25,82.25,82.25,25.67,0,53.12-19.9,58.67-42.6a8,8,0,0,0-4.69-9ZM128,216c-41,0-74.25-33.25-74.25-74.25,0-21.55,17.2-46.7,35.32-52L102.53,117l-13.62,18.16a8,8,0,0,0-1,8.93,89.52,89.52,0,0,0,36,36,8,8,0,0,0,8.93-1L151,145.47l27.32,13.66C173,177.33,147.88,199.33,128,216ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path></svg>
-        </div>
-    </div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    
+                    <!-- Tarjeta de Información Física y Atributos -->
+                    <div class="lg:col-span-5 space-y-6">
+                        
+                        <div class="glass-card p-6 rounded-2xl border border-slate-800">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 text-xl">
+                                    <i class="fa-solid fa-map-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-base">Ubicación Física</h4>
+                                    <p class="text-slate-300 text-sm mt-1 leading-relaxed">
+                                        4to anillo doble vía La Guardia
+                                    </p>
+                                    <p class="text-slate-400 text-xs">Santa Cruz de la Sierra, Bolivia</p>
+                                </div>
+                            </div>
+                        </div>
 
-    <!-- MODAL DE CARRITO -->
-    <div id="cart-modal">
-        <div class="p-8 border-b border-white/10 flex justify-between items-center">
-            <h3 class="text-2xl font-black tracking-tighter">Tu Pedido</h3>
-            <button onclick="toggleCart()" class="text-gray-500 hover:text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-            </button>
-        </div>
-        <div id="cart-items-container" class="flex-1 overflow-y-auto p-8">
-            <!-- Items aparecerán aquí -->
-            <p id="empty-cart-msg" class="text-gray-500 italic">No has añadido servicios aún.</p>
-        </div>
-        <div class="p-8 bg-white/5 border-t border-white/10">
-            <div class="flex justify-between items-center mb-8">
-                <span class="text-gray-400 font-bold uppercase tracking-widest text-xs">Inversión Total</span>
-                <span id="cart-total" class="text-3xl font-black text-cyan-500">0 BS</span>
+                        <div class="glass-card p-6 rounded-2xl border border-slate-800">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 text-xl">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-base">Atención Directa por WhatsApp</h4>
+                                    <p class="text-slate-300 text-sm mt-1 font-mono">+591 75069812</p>
+                                    <p class="text-emerald-400 text-xs font-semibold mt-1">
+                                        <i class="fa-solid fa-circle text-[8px] animate-pulse"></i> Online y Disponible
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Botón directo de acción rápida -->
+                        <button onclick="sendWhatsApp('Contacto Directo desde Ubicación')" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-4 rounded-xl transition-all shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-3 text-sm">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <span>Abrir Chat Directo en WhatsApp</span>
+                        </button>
+
+                    </div>
+
+                    <!-- Formulario Interactivo con API Forms HTML5 (Validación JS en tiempo real) -->
+                    <div class="lg:col-span-7">
+                        <div class="glass-card p-8 rounded-2xl border border-slate-800">
+                            <h3 class="text-xl font-bold text-white mb-2">Envía una Consulta Rápida</h3>
+                            <p class="text-slate-400 text-xs mb-6">El mensaje se formateará automáticamente y se abrirá en tu WhatsApp.</p>
+
+                            <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2" for="user-name">Tu Nombre Completo *</label>
+                                    <input type="text" id="user-name" required placeholder="Ej. Ana María Gutiérrez" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 transition-colors">
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2" for="user-service">Servicio de Interés *</label>
+                                    <select id="user-service" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 transition-colors">
+                                        <option value="Soluciones Digitales para Marketing y Negocios">Soluciones Digitales para Marketing y Negocios</option>
+                                        <option value="Creación de Tiendas Online para WhatsApp">Creación de Tiendas Online para WhatsApp</option>
+                                        <option value="Chatbots con Inteligencia Artificial">Chatbots con Inteligencia Artificial</option>
+                                        <option value="Taller: Crea tu Tienda Online con IA">Taller: Crea tu Tienda Online con IA</option>
+                                        <option value="Herramientas Digitales PRO">Herramientas Digitales PRO</option>
+                                        <option value="Consulta General">Otra consulta / Asesoría personalizada</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2" for="user-message">Detalles del Proyecto *</label>
+                                    <textarea id="user-message" required rows="4" placeholder="Cuéntame brevemente sobre tu negocio o qué objetivo deseas lograr..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 transition-colors"></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-black py-4 rounded-xl transition-all shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2 text-sm">
+                                    <i class="fa-paper-plane"></i>
+                                    <span>Enviar Mensaje a WhatsApp</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
-            <button onclick="sendCartToWA()" class="w-full bg-cyan-500 text-white py-6 rounded-3xl font-black text-xl shadow-xl hover:bg-cyan-400 transition-all flex items-center justify-center gap-3">
-                Confirmar por WhatsApp
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-            </button>
-        </div>
-    </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="py-24 px-6 text-center border-t border-white/5 bg-black">
-        <p class="text-gray-500 text-xs font-black uppercase tracking-[0.3em] mb-6">Fernando Yupanqui Rojas &copy; 2026 • Bolivia</p>
+    <footer class="py-8 bg-slate-950 border-t border-slate-800 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>© 2026 Fernando Yupanqui Rojas. Todos los derechos reservados.</p>
+            <p class="font-mono text-[11px] text-slate-400">Santa Cruz de la Sierra, Bolivia • GitHub Pages Ready</p>
+        </div>
     </footer>
 
+    <!-- BOTÓN FLOTANTE DE WHATSAPP CON BADGE DINÁMICO "• ONLINE" -->
+    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+        <!-- Globito informativo de estado -->
+        <div class="hidden sm:flex items-center gap-2 bg-slate-900/95 border border-slate-700 text-slate-200 text-xs font-medium py-2 px-3.5 rounded-2xl shadow-2xl backdrop-blur-md">
+            <span class="relative flex h-2.5 w-2.5">
+                <span class="animate-pulse-glow absolute inline-flex h-full w-full rounded-full bg-emerald-400"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <span class="font-semibold text-slate-200">¡Hola! Estoy online</span>
+        </div>
+
+        <!-- Botón flotante interactivo -->
+        <button onclick="sendWhatsApp('Widget Flotante')" aria-label="Contacto WhatsApp" class="relative group w-14 h-14 bg-emerald-500 hover:bg-emerald-400 text-slate-950 rounded-full flex items-center justify-center text-3xl shadow-2xl shadow-emerald-500/50 transition-all transform hover:scale-110 active:scale-95">
+            <i class="fa-brands fa-whatsapp"></i>
+            
+            <!-- Badge Pequeño de Notificación -->
+            <span class="absolute -top-1 -right-1 flex h-4 w-4">
+                <span class="animate-pulse-glow absolute inline-flex h-full w-full rounded-full bg-emerald-400"></span>
+                <span class="relative inline-flex rounded-full h-4 w-4 bg-emerald-600 text-[9px] text-white font-bold items-center justify-center">1</span>
+            </span>
+        </button>
+    </div>
+
+    <!-- Script Vanilla JS para Integración de WhatsApp y Validación HTML5 -->
     <script>
-        // LÓGICA DEL CARRITO
-        let cart = [];
+        const whatsappNumber = "59175069812";
 
-        function addToCart(id, name, price) {
-            const existingItem = cart.find(item => item.id === id);
-            if (existingItem) {
-                existingItem.quantity += 1;
+        // Función para enviar mensaje directo a WhatsApp
+        function sendWhatsApp(serviceName) {
+            let message = "";
+            
+            if (serviceName.includes('General') || serviceName.includes('Hero') || serviceName.includes('Widget')) {
+                message = "Hola Fernando, estuve revisando tu sitio web personal y me gustaría recibir información sobre tus soluciones digitales.";
             } else {
-                cart.push({ id, name, price, quantity: 1 });
+                message = `Hola Fernando, estoy interesado en recibir información y cotización sobre el servicio de: *${serviceName}*. ¿Podríamos agendar una conversación?`;
             }
-            updateCartUI();
-            
-            // ABRIR AUTOMÁTICAMENTE EL CARRITO AL AÑADIR UN ITEM
-            document.getElementById('cart-modal').classList.add('open');
-            
-            // Efecto visual en el badge del botón flotante
-            const badge = document.getElementById('cart-count-badge');
-            badge.classList.add('scale-125');
-            setTimeout(() => badge.classList.remove('scale-125'), 200);
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
         }
 
-        function removeFromCart(id) {
-            const index = cart.findIndex(item => item.id === id);
-            if (index !== -1) {
-                if (cart[index].quantity > 1) {
-                    cart[index].quantity -= 1;
+        // Manejo del formulario con validación HTML5
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('user-name').value;
+            const service = document.getElementById('user-service').value;
+            const messageText = document.getElementById('user-message').value;
+
+            const fullMessage = `Hola Fernando, mi nombre es *${name}*.\n\nEstoy interesado en: *${service}*.\n\nDetalles de mi consulta:\n${messageText}`;
+            
+            const encodedMessage = encodeURIComponent(fullMessage);
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Validación dinámica de inputs usando ValidityState API
+        document.querySelectorAll('#contact-form input, #contact-form textarea').forEach(input => {
+            input.addEventListener('input', function(e) {
+                const element = e.target;
+                if (element.validity.valid) {
+                    element.classList.remove('border-red-500');
+                    element.classList.add('border-emerald-500');
                 } else {
-                    cart.splice(index, 1);
+                    element.classList.remove('border-emerald-500');
+                    element.classList.add('border-red-500');
                 }
-            }
-            updateCartUI();
-        }
-
-        function updateCartUI() {
-            const container = document.getElementById('cart-items-container');
-            const totalElement = document.getElementById('cart-total');
-            const badge = document.getElementById('cart-count-badge');
-            const navBadge = document.getElementById('nav-cart-count');
-            const emptyMsg = document.getElementById('empty-cart-msg');
-
-            container.innerHTML = '';
-            let total = 0;
-            let count = 0;
-
-            if (cart.length === 0) {
-                container.appendChild(emptyMsg);
-            } else {
-                cart.forEach(item => {
-                    total += item.price * item.quantity;
-                    count += item.quantity;
-
-                    const itemEl = document.createElement('div');
-                    itemEl.className = 'cart-item flex justify-between items-center';
-                    itemEl.innerHTML = `
-                        <div>
-                            <h4 class="font-bold text-white">${item.name}</h4>
-                            <p class="text-cyan-500 text-sm font-black">${item.price} BS</p>
-                        </div>
-                        <div class="flex items-center gap-4 bg-white/5 px-4 py-2 rounded-2xl border border-white/10">
-                            <button onclick="removeFromCart('${item.id}')" class="text-gray-400 hover:text-white">-</button>
-                            <span class="font-black text-sm w-4 text-center">${item.quantity}</span>
-                            <button onclick="addToCart('${item.id}', '${item.name}', ${item.price})" class="text-gray-400 hover:text-white">+</button>
-                        </div>
-                    `;
-                    container.appendChild(itemEl);
-                });
-            }
-
-            totalElement.innerText = `${total} BS`;
-            badge.innerText = count;
-            navBadge.innerText = count;
-        }
-
-        function toggleCart() {
-            document.getElementById('cart-modal').classList.toggle('open');
-        }
-
-        function sendCartToWA() {
-            if (cart.length === 0) return;
-            
-            const phone = "59175069812";
-            let message = "🚀 *NUEVO PEDIDO E-COMMERCE*\n\nHola Fernando, me interesa adquirir los siguientes servicios:\n\n";
-            
-            let total = 0;
-            cart.forEach(item => {
-                message += `• *${item.name}* x${item.quantity} - ${item.price * item.quantity} BS\n`;
-                total += item.price * item.quantity;
             });
+        });
 
-            message += `\n💰 *Inversión Total:* ${total} BS\n\nQuedo a la espera de los siguientes pasos para iniciar.`;
+        // Alternar Menú Móvil
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
             
-            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            }
         }
-
-        // Form Logic (Sección Contacto general)
-        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const msg = document.getElementById('message').value;
-            const phone = "59175069812";
-            const text = `Hola Fernando, soy ${name}. Quería consultarte lo siguiente: ${msg}`;
-            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
-        });
-
-        // WhatsApp Widget Logic
-        function openWA() {
-            window.open(`https://wa.me/59175069812?text=Hola Fernando, vi tu portafolio y me gustaría agendar una consulta estratégica.`, '_blank');
-        }
-
-        function toggleBubble() {
-            document.getElementById('wa-bubble').classList.toggle('show');
-        }
-
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('wa-bubble').classList.add('show');
-            }, 3500);
-        });
     </script>
 </body>
 </html>
