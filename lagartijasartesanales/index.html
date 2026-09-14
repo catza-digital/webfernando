@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lagartijas Artesanales en Mostacilla | Hecho a Mano en Santa Cruz</title>
+  <meta name="description" content="Lagartijas artesanales tejidas en mostacillas. Accesorios únicos, llaveros y colgantes hechos a mano en Santa Cruz, Bolivia.">
+  <style>
+    :root {
+      --primary: #047857;
+      --primary-hover: #065f46;
+      --accent: #f59e0b;
+      --accent-hover: #d97706;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --card-bg: #ffffff;
+      --whatsapp: #25d366;
+      --whatsapp-hover: #1ebd56;
+      --text-muted: #64748b;
+      --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+      padding-bottom: 80px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Hero / Título Persuasivo */
+    .hero {
+      text-align: center;
+      padding: 40px 0 20px;
+    }
+
+    .badge-artesania {
+      display: inline-block;
+      background: #e0f2fe;
+      color: #0369a1;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+      display: inline-block;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Contenedor Multimedia */
+    .media-section {
+      margin: 28px auto;
+      max-width: 760px;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+      background: #000;
+    }
+
+    .video-wrapper iframe,
+    .video-wrapper .media-placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .media-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #065f46 0%, #0f172a 100%);
+      color: #ffffff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .media-placeholder .icon-play {
+      width: 68px;
+      height: 68px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+    }
+
+    /* Botones CTA */
+    .cta-container {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background-color: var(--whatsapp);
+      color: #ffffff;
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 18px 36px;
+      border-radius: 9999px;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
+      transition: all 0.2s ease-in-out;
+    }
+
+    .btn-cta:hover {
+      background-color: var(--whatsapp-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(37, 211, 102, 0.45);
+    }
+
+    .cta-subtext {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Beneficios */
+    .benefits-section {
+      padding: 50px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 1.85rem;
+      font-weight: 800;
+      margin-bottom: 36px;
+      color: var(--dark);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .benefit-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+    }
+
+    .benefit-icon {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .benefit-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--dark);
+    }
+
+    .benefit-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .pricing-highlight {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+    }
+
+    /* Testimonios / Prueba Social */
+    .reviews-section {
+      padding: 50px 0;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .review-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+      border-left: 4px solid var(--primary);
+    }
+
+    .review-stars {
+      color: #fbbf24;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .review-card p {
+      font-size: 0.95rem;
+      color: #334155;
+      font-style: italic;
+      margin-bottom: 14px;
+    }
+
+    .reviewer-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .reviewer-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--dark);
+    }
+
+    .reviewer-location {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Botón Flotante WhatsApp con Badge */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: var(--whatsapp);
+      color: #ffffff;
+      border-radius: 50px;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+      z-index: 1000;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .whatsapp-float:hover {
+      background-color: var(--whatsapp-hover);
+      transform: scale(1.04);
+    }
+
+    .whatsapp-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      background-color: #22c55e;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .whatsapp-float {
+        bottom: 16px;
+        right: 16px;
+        padding: 8px 14px;
+      }
+      .whatsapp-badge span:last-child {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    <!-- 1. TÍTULO PERSUASIVO -->
+    <header class="hero">
+      <div class="badge-artesania">Arte Hecho a Mano • Santa Cruz, Bolivia</div>
+      <h1>Dale Vida y Estilo a tus Accesorios con <span>Lagartijas Artesanales</span> en Mostacilla</h1>
+      <p>Piezas exclusivas tejidas con dedicación para mochilas, llaveros y pecheras. Diseños vibrantes, duraderos y 100% bolivianos.</p>
+    </header>
+
+    <!-- 2. CONTENEDOR MULTIMEDIA -->
+    <section class="media-section">
+      <div class="video-wrapper">
+        <!-- Reemplaza el enlace a continuación por tu video público de Google Drive -->
+        <div class="media-placeholder">
+          <div class="icon-play">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+          <p style="font-weight: 700; font-size: 1.1rem; margin-bottom: 4px;">Demostración del Tejido Artesanal</p>
+          <p style="font-size: 0.85rem; opacity: 0.85;">Lagartijas en mostacilla • 100% Hecho a mano</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FIRST CALL TO ACTION (CTA) -->
+    <section class="cta-container">
+      <a href="https://wa.me/59178914551?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20lagartijas%20artesanales%20en%20mostacilla" target="_blank" rel="noopener noreferrer" class="btn-cta">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 18.06c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.1 8.1 0 0 1-1.25-4.29c0-4.49 3.65-8.14 8.14-8.14 2.17 0 4.21.85 5.75 2.39 1.54 1.54 2.39 3.58 2.39 5.75 0 4.49-3.65 8.14-8.14 8.14zm4.46-6.1c-.24-.12-1.45-.72-1.68-.8-.23-.08-.39-.12-.56.12-.17.24-.64.8-.79.96-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.21-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.11-.11.24-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.32-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.34 1 2.5c.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.45-.59 1.65-1.17.2-.57.2-1.07.14-1.17-.05-.1-.21-.16-.45-.28z"/>
+        </svg>
+        ¡Pide las Tuyas Ahora por WhatsApp!
+      </a>
+      <span class="cta-subtext">Respuesta rápida • Envíos y entregas en Santa Cruz, Bolivia</span>
+    </section>
+
+    <!-- 4. SECCIÓN DE BENEFICIOS -->
+    <section class="benefits-section">
+      <h2 class="section-title">¿Por Qué Elegir Nuestras Lagartijas?</h2>
+      <div class="benefits-grid">
+        <article class="benefit-card">
+          <div class="benefit-icon">✋</div>
+          <h3>100% Hechas a Mano</h3>
+          <p>Cada lagartija es una obra de arte única elaborada con paciencia, precisión y mostacillas seleccionadas de alta calidad.</p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="benefit-icon">🦎</div>
+          <h3>Versatilidad Total</h3>
+          <p>Llévalas como llaveros, adorno para tu mochila, accesorios para tus audífonos o colgante en bolsos y pecheras.</p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="benefit-icon">🌈</div>
+          <h3>Diseños Coloridos</h3>
+          <p>Combinaciones vivas y originales que resaltan tu estilo personal y no pasan desapercibidas en ningún lugar.</p>
+        </article>
+
+        <article class="benefit-card pricing-highlight">
+          <div class="benefit-icon">💰</div>
+          <h3>Precios Accesibles</h3>
+          <p>Tamaño pequeño a sólo <strong>10 Bs.</strong> y tamaño grande a <strong>20 Bs.</strong> Precios especiales por docena para mayoristas.</p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="benefit-icon">🎁</div>
+          <h3>El Regalo Ideal</h3>
+          <p>Un detalle creativo, significativo y económico, perfecto para obsequiar a amigos, familiares o compañeros.</p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="benefit-icon">🇧🇴</div>
+          <h3>Talento Local</h3>
+          <p>Apoyas el trabajo artesanal independiente hecho con pasión y orgullo directamente en Santa Cruz, Bolivia.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5. PRUEBA SOCIAL / RESEÑAS -->
+    <section class="reviews-section">
+      <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+      <div class="reviews-grid">
+        <article class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"Compré una pequeña para las llaves y otra grande para mi mochila. El tejido es súper resistente y los colores están increíbles."</p>
+          <div class="reviewer-meta">
+            <div>
+              <div class="reviewer-name">Camila R.</div>
+              <div class="reviewer-location">Santa Cruz</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"Pedí una docena para dar como souvenirs creativos a mis amigos de la universidad. Quedaron fascinados y el precio por docena es excelente."</p>
+          <div class="reviewer-meta">
+            <div>
+              <div class="reviewer-name">Jorge M.</div>
+              <div class="reviewer-location">Santa Cruz</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"El detalle del tejido de las mostacillas es impecable. Se nota el trabajo artesanal en cada patita y en el cuerpo de la lagartija."</p>
+          <div class="reviewer-meta">
+            <div>
+              <div class="reviewer-name">Valeria S.</div>
+              <div class="reviewer-location">Santa Cruz</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"La atención por WhatsApp fue muy rápida y amable. Me mostraron las combinaciones de colores disponibles y coordinamos la entrega sin líos."</p>
+          <div class="reviewer-meta">
+            <div>
+              <div class="reviewer-name">Mateo D.</div>
+              <div class="reviewer-location">Santa Cruz</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 6. SECOND CALL TO ACTION (CTA) -->
+    <section class="cta-container" style="margin: 50px 0 30px;">
+      <h2 style="font-size: 1.6rem; margin-bottom: 12px;">¿Listo para llevarte tu lagartija artesanal?</h2>
+      <p style="color: var(--text-muted); margin-bottom: 24px;">Contáctanos directamente para elegir tus colores favoritos o solicitar tu pedido por docena.</p>
+      <a href="https://wa.me/59178914551?text=Hola%2C%20quiero%20coordinar%20mi%20pedido%20de%20lagartijas%20artesanales" target="_blank" rel="noopener noreferrer" class="btn-cta">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 18.06c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.1 8.1 0 0 1-1.25-4.29c0-4.49 3.65-8.14 8.14-8.14 2.17 0 4.21.85 5.75 2.39 1.54 1.54 2.39 3.58 2.39 5.75 0 4.49-3.65 8.14-8.14 8.14zm4.46-6.1c-.24-.12-1.45-.72-1.68-.8-.23-.08-.39-.12-.56.12-.17.24-.64.8-.79.96-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.21-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.11-.11.24-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.32-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.34 1 2.5c.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.45-.59 1.65-1.17.2-.57.2-1.07.14-1.17-.05-.1-.21-.16-.45-.28z"/>
+        </svg>
+        Comprar por WhatsApp (78914551)
+      </a>
+    </section>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <p>Artesanía Boliviana • Santa Cruz, Bolivia • Teléfono: +591 78914551</p>
+    <p style="margin-top: 6px;">&copy; Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE WHATSAPP CON BADGE ONLINE -->
+  <a href="https://wa.me/59178914551?text=¡Hola!%20Estoy%20interesado%20en%20las%20lagartijas%20artesanales" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+    <span class="status-dot"></span>
+    <div class="whatsapp-badge">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 18.06c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.1 8.1 0 0 1-1.25-4.29c0-4.49 3.65-8.14 8.14-8.14 2.17 0 4.21.85 5.75 2.39 1.54 1.54 2.39 3.58 2.39 5.75 0 4.49-3.65 8.14-8.14 8.14z"/>
+      </svg>
+      <span>• Online</span>
+    </div>
+  </a>
+
+  <script>
+    // Optimización interactiva y mapeo de video dinámico
+    document.addEventListener('DOMContentLoaded', () => {
+      const driveVideoUrl = ""; // Pega aquí el enlace de Google Drive si cuentas con él (formato /preview)
+      
+      if (driveVideoUrl && driveVideoUrl.trim() !== "") {
+        const mediaContainer = document.querySelector('.video-wrapper');
+        let embedUrl = driveVideoUrl;
+        
+        if (embedUrl.includes('drive.google.com/file/d/')) {
+          embedUrl = embedUrl.replace(/\/view.*$/, '/preview');
+        }
+
+        mediaContainer.innerHTML = `<iframe src="${embedUrl}" allow="autoplay" allowfullscreen></iframe>`;
+      }
+    });
+  </script>
+</body>
+</html>
