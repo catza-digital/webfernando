@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -350,16 +351,13 @@
     <!-- 2. CONTENEDOR MULTIMEDIA -->
     <section class="media-section">
       <div class="video-wrapper">
-        <!-- Reemplaza el enlace a continuación por tu video público de Google Drive -->
-        <div class="media-placeholder">
-          <div class="icon-play">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-          </div>
-          <p style="font-weight: 700; font-size: 1.1rem; margin-bottom: 4px;">Demostración del Tejido Artesanal</p>
-          <p style="font-size: 0.85rem; opacity: 0.85;">Lagartijas en mostacilla • 100% Hecho a mano</p>
-        </div>
+        <iframe 
+          src="https://player.vimeo.com/video/1228636747?title=0&byline=0&portrait=0" 
+          frameborder="0" 
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+          allowfullscreen 
+          title="Demostración de Lagartijas Artesanales">
+        </iframe>
       </div>
     </section>
 
@@ -496,22 +494,6 @@
     </div>
   </a>
 
-  <script>
-    // Optimización interactiva y mapeo de video dinámico
-    document.addEventListener('DOMContentLoaded', () => {
-      const driveVideoUrl = ""; // Pega aquí el enlace de Google Drive si cuentas con él (formato /preview)
-      
-      if (driveVideoUrl && driveVideoUrl.trim() !== "") {
-        const mediaContainer = document.querySelector('.video-wrapper');
-        let embedUrl = driveVideoUrl;
-        
-        if (embedUrl.includes('drive.google.com/file/d/')) {
-          embedUrl = embedUrl.replace(/\/view.*$/, '/preview');
-        }
-
-        mediaContainer.innerHTML = `<iframe src="${embedUrl}" allow="autoplay" allowfullscreen></iframe>`;
-      }
-    });
-  </script>
 </body>
 </html>
+```
