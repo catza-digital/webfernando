@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Llaves Artesanales | Llaveros Exclusivos Hechos a Mano en Santa Cruz</title>
+  <meta name="description" content="Llaveros artesanales únicos hechos a mano en Santa Cruz, Bolivia. Diseños exclusivos, máxima durabilidad y pedidos directos por WhatsApp.">
+  
+  <style>
+    :root {
+      --primary: #c2410c;
+      --primary-hover: #9a3412;
+      --accent: #25D366;
+      --accent-hover: #1eb954;
+      --text-dark: #1f2937;
+      --text-muted: #4b5563;
+      --bg-light: #fafaf9;
+      --bg-white: #ffffff;
+      --border-color: #e5e7eb;
+      --radius: 12px;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* 1. TITULO PERSUASIVO (H1) */
+    .hero-header {
+      padding: 48px 0 24px 0;
+      text-align: center;
+    }
+
+    .badge-pill {
+      display: inline-block;
+      background-color: #ffedd5;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-size: clamp(1.9rem, 4.5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.2;
+      color: #111827;
+      max-width: 800px;
+      margin: 0 auto 16px auto;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* 2. CONTENEDOR MULTIMEDIA (VIDEO EMBED) */
+    .media-section {
+      padding: 16px 0 32px 0;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: #000;
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-wrapper iframe,
+    .video-wrapper video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-fallback {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      background: linear-gradient(135deg, #292524 0%, #1c1917 100%);
+      color: #fff;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .video-fallback svg {
+      width: 64px;
+      height: 64px;
+      fill: #ea580c;
+      margin-bottom: 12px;
+    }
+
+    /* 3 & 6. BOTONES CALL TO ACTION (CTA) */
+    .cta-container {
+      text-align: center;
+      padding: 24px 0 40px 0;
+    }
+
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background-color: var(--accent);
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 18px 36px;
+      border-radius: 50px;
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-cta:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(37, 211, 102, 0.45);
+    }
+
+    .btn-cta svg {
+      width: 26px;
+      height: 26px;
+      fill: currentColor;
+    }
+
+    .cta-subtext {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* 4. SECCIÓN DE BENEFICIOS */
+    .benefits-section {
+      padding: 56px 0;
+      background-color: var(--bg-white);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      font-size: 1.05rem;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .benefit-card {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .benefit-icon {
+      width: 48px;
+      height: 48px;
+      background-color: #ffedd5;
+      color: var(--primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .benefit-icon svg {
+      width: 26px;
+      height: 26px;
+      fill: currentColor;
+    }
+
+    .benefit-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #111827;
+    }
+
+    .benefit-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* 5. PRUEBA SOCIAL / RESEÑAS */
+    .reviews-section {
+      padding: 60px 0;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .review-card {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 24px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .stars {
+      color: #f59e0b;
+      margin-bottom: 14px;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+    }
+
+    .review-text {
+      color: var(--text-dark);
+      font-size: 0.95rem;
+      font-style: italic;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+
+    .reviewer-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .reviewer-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #fed7aa;
+      color: #9a3412;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    .reviewer-info h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .reviewer-info span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* PIE DE PÁGINA */
+    footer {
+      background: #111827;
+      color: #9ca3af;
+      padding: 32px 0;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: #d1d5db;
+      text-decoration: none;
+    }
+
+    /* BOTÓN FLOTANTE WHATSAPP CON BADGE ONLINE */
+    .wa-floating-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--accent);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 50px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      transition: transform 0.25s ease, background-color 0.25s ease;
+    }
+
+    .wa-floating-btn:hover {
+      transform: scale(1.05);
+      background-color: var(--accent-hover);
+    }
+
+    .wa-floating-btn svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+
+    .badge-online-pulse {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 3px 8px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .dot-pulse {
+      width: 8px;
+      height: 8px;
+      background-color: #4ade80;
+      border-radius: 50%;
+      box-shadow: 0 0 0 rgba(74, 222, 128, 0.7);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 7px rgba(74, 222, 128, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .wa-text-label {
+        display: none;
+      }
+      .wa-floating-btn {
+        padding: 14px;
+        border-radius: 50%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. TITULO PERSUASIVO (H1) -->
+  <header class="hero-header">
+    <div class="container">
+      <span class="badge-pill">Artesanías Exclusivas • Santa Cruz, Bolivia</span>
+      <h1 class="hero-title">Llaveros Artesanales Únicos Hechos a Mano: Dale Identidad y Estilo Propio a tus Llaves</h1>
+      <p class="hero-subtitle">Basta de llaveros plásticos desechables. Diseños resistentes, auténticos y tallados con dedicación local para acompañarte todos los días.</p>
+    </div>
+  </header>
+
+  <!-- 2. CONTENEDOR MULTIMEDIA -->
+  <section class="media-section">
+    <div class="container">
+      <div class="video-wrapper">
+        <!-- Reemplazar TU_ID_DE_DRIVE con el ID del archivo de Google Drive configurado en PÚBLICO -->
+        <iframe 
+          id="heroVideo"
+          src="https://drive.google.com/file/d/TU_ID_DE_DRIVE/preview" 
+          allow="autoplay"
+          title="Video de Presentación Llaves Artesanales"
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. FIRST CALL TO ACTION (CTA) -->
+  <section class="cta-container">
+    <div class="container">
+      <a href="https://api.whatsapp.com/send?phone=59178914551&text=Hola%20Llaves%20Artesanales!%20Quiero%20solicitar%20el%20cat%C3%A1logo%20y%20precios%20de%20los%20llaveros%20artesanales." 
+         class="btn-cta" 
+         target="_blank" 
+         rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        <span>Pedir Mis Llaveros por WhatsApp</span>
+      </a>
+      <p class="cta-subtext">Respuesta inmediata • Envíos directos en Santa Cruz y a toda Bolivia</p>
+    </div>
+  </section>
+
+  <!-- 4. SECCIÓN DE BENEFICIOS -->
+  <section class="benefits-section">
+    <div class="container">
+      <h2 class="section-title">¿Por Qué Elegir Nuestros Llaveros Artesanales?</h2>
+      <p class="section-subtitle">Soluciones duraderas con valor estético y significado real.</p>
+      
+      <div class="benefits-grid">
+        <article class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3>100% Hecho a Mano</h3>
+          <p>Cada pieza se elabora de manera individual con técnicas artesanales auténticas. No son copias industriales en serie.</p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+          </div>
+          <h3>Materiales de Alta Resistencia</h3>
+          <p>Herrajes firmes y acabados diseñados para soportar el roce constante en bolsillos o carteras sin romperse ni perder color.</p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <h3>Identidad Cruceña</h3>
+          <p>Fabricados directamente en Santa Cruz, Bolivia, impulsando el talento artesanal y la producción local de calidad.</p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/></svg>
+          </div>
+          <h3>El Regalo Perfecto</h3>
+          <p>Un detalle memorable, utilitario y con personalidad para regalar a amigos, familiares o en eventos especiales.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PRUEBA SOCIAL / RESEÑAS -->
+  <section class="reviews-section">
+    <div class="container">
+      <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+      <p class="section-subtitle">Personas que ya tienen sus llaves organizadas con estilo propio.</p>
+
+      <div class="reviews-grid">
+        <article class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Pedí una docena de llaveros para souvenirs de un evento familiar y a todos les encantaron. Los detalles son prolijos y el acabado es impecable."</p>
+          <div class="reviewer-meta">
+            <div class="reviewer-avatar">MM</div>
+            <div class="reviewer-info">
+              <h4>Mariana Méndez</h4>
+              <span>Santa Cruz de la Sierra</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Cansado de los llaveros de plástico que se rompen al mes. El mío lleva 4 meses de uso diario con las llaves del auto y sigue impecable."</p>
+          <div class="reviewer-meta">
+            <div class="reviewer-avatar">CV</div>
+            <div class="reviewer-info">
+              <h4>Carlos Valverde</h4>
+              <span>Equipetrol, SCZ</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Excelente atención por WhatsApp. Me mandaron fotos de las opciones disponibles y coordinamos la entrega súper rápido."</p>
+          <div class="reviewer-meta">
+            <div class="reviewer-avatar">VS</div>
+            <div class="reviewer-info">
+              <h4>Valeria Saucedo</h4>
+              <span>Santa Cruz de la Sierra</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Muy buen trabajo artesanal boliviano. Compré dos para mí y tres para regalar. Precio justo y gran calidad."</p>
+          <div class="reviewer-meta">
+            <div class="reviewer-avatar">RJ</div>
+            <div class="reviewer-info">
+              <h4>Roberto Justiniano</h4>
+              <span>Santa Cruz de la Sierra</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. SECOND CALL TO ACTION (CTA) -->
+  <section class="cta-container" style="background-color: var(--bg-white); border-top: 1px solid var(--border-color); padding: 56px 0;">
+    <div class="container">
+      <h2 class="section-title" style="margin-bottom: 16px;">¿Listo para Llevar tus Llaveros Artesanales?</h2>
+      <p class="section-subtitle" style="margin-bottom: 28px;">Contáctanos directamente y te enviaremos el stock y modelos disponibles hoy mismo.</p>
+      
+      <a href="https://api.whatsapp.com/send?phone=59178914551&text=Hola%20Llaves%20Artesanales!%20Deseo%20hacer%20un%20pedido%20de%20llaveros%20artesanales." 
+         class="btn-cta" 
+         target="_blank" 
+         rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        <span>Hablar con un Asesor por WhatsApp</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <div class="container">
+      <p><strong>Llaves Artesanales</strong> • Santa Cruz - Bolivia</p>
+      <p style="margin-top: 6px;">Atención y pedidos: WhatsApp <a href="https://wa.me/59178914551">+591 78914551</a></p>
+      <p style="margin-top: 12px; font-size: 0.78rem; color: #6b7280;">© 2026 Llaves Artesanales. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE WHATSAPP CON BADGE ONLINE PERMANENTE -->
+  <a href="https://api.whatsapp.com/send?phone=59178914551&text=Hola%20Llaves%20Artesanales!%20Vengo%20desde%20la%20p%C3%A1gina%20web%20y%20quiero%20hacer%20una%20consulta." 
+     class="wa-floating-btn" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     aria-label="Contactar por WhatsApp">
+    <div class="badge-online-pulse">
+      <span class="dot-pulse"></span>
+      <span>• Online</span>
+    </div>
+    <span class="wa-text-label">¿Consultas? Escríbenos</span>
+    <svg viewBox="0 0 24 24">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+    </svg>
+  </a>
+
+  <!-- VANILLA JS INTERACCIONES CRO -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Seguimiento e interactividad de CTAs
+      const ctaButtons = document.querySelectorAll(".btn-cta, .wa-floating-btn");
+      
+      ctaButtons.forEach(button => {
+        button.addEventListener("click", function () {
+          console.info("Conversión iniciada: Redirigiendo a WhatsApp Business");
+        });
+      });
+    });
+  </script>
+</body>
+</html>
