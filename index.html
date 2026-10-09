@@ -102,6 +102,9 @@
                 <a href="#servicios" class="hover:text-emerald-400 transition-colors">Servicios</a>
                 <a href="#talleres" class="hover:text-emerald-400 transition-colors">Talleres y Seminarios</a>
                 <a href="#herramientas-pro" class="hover:text-emerald-400 transition-colors">Herramientas PRO</a>
+                <a href="#herramientas-gold" class="text-amber-400 hover:text-amber-300 font-bold transition-colors flex items-center gap-1.5">
+                    <i class="fa-solid fa-crown text-xs"></i> GOLD PRO
+                </a>
                 <a href="#sobre-mi" class="hover:text-emerald-400 transition-colors">Sobre Mí</a>
                 <a href="#testimonios" class="hover:text-emerald-400 transition-colors">Testimonios</a>
                 <a href="#contacto" class="hover:text-emerald-400 transition-colors">Ubicación y Contacto</a>
@@ -127,6 +130,9 @@
             <a href="#servicios" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-300 hover:text-emerald-400 py-1.5">Servicios</a>
             <a href="#talleres" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-300 hover:text-emerald-400 py-1.5">Talleres y Seminarios</a>
             <a href="#herramientas-pro" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-300 hover:text-emerald-400 py-1.5">Herramientas PRO</a>
+            <a href="#herramientas-gold" onclick="toggleMobileMenu()" class="block text-sm font-semibold text-amber-400 hover:text-amber-300 py-1.5 flex items-center gap-2">
+                <i class="fa-solid fa-crown text-xs"></i> Herramientas GOLD PRO
+            </a>
             <a href="#sobre-mi" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-300 hover:text-emerald-400 py-1.5">Sobre Mí</a>
             <a href="#testimonios" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-300 hover:text-emerald-400 py-1.5">Testimonios</a>
             <a href="#contacto" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-300 hover:text-emerald-400 py-1.5">Ubicación y Contacto</a>
@@ -210,56 +216,77 @@
                     <p class="text-slate-400 text-sm mt-3">Accede directamente a nuestros generadores impulsados por IA para optimizar la creación de tu negocio digital.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Grid adaptado a 4 columnas en pantallas grandes -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     
                     <!-- Herramienta 1 -->
-                    <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden">
+                    <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
                         <div>
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-2xl mb-6">
+                            <div class="w-13 h-13 w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-xl mb-5">
                                 <i class="fa-solid fa-wand-magic-sparkles"></i>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-3">Generador de Sitios Web</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            <h3 class="text-lg font-bold text-white mb-2.5">Generador de Sitios Web</h3>
+                            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
                                 Herramienta de IA diseñada para estructurar y crear landing pages y sitios web optimizados para la conversión de manera rápida y eficiente.
                             </p>
                         </div>
-                        <a href="https://gemini.google.com/gem/1RryDrDj5YoSziwz2h7p_Q3ODhdYL4XOH?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-800 hover:bg-emerald-500 text-slate-200 hover:text-slate-950 font-bold py-3.5 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm border border-slate-700 hover:border-emerald-500 group">
+                        <a href="https://gemini.google.com/gem/1RryDrDj5YoSziwz2h7p_Q3ODhdYL4XOH?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-800 hover:bg-emerald-500 text-slate-200 hover:text-slate-950 font-bold py-3.5 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-xs sm:text-sm border border-slate-700 hover:border-emerald-500 group">
                             <span>Abrir Herramienta</span>
                             <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
                         </a>
                     </div>
 
                     <!-- Herramienta 2 -->
-                    <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden">
+                    <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
                         <div>
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-2xl mb-6">
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-xl mb-5">
                                 <i class="fa-solid fa-pen-nib"></i>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-3">Generador de Copywriting y Video Marketing Publicitario</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            <h3 class="text-lg font-bold text-white mb-2.5">Generador de Copywriting & Video Ads</h3>
+                            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
                                 Crea guiones persuasivos, textos publicitarios y estructuras de video marketing enfocadas en captar la atención de tus clientes ideales.
                             </p>
                         </div>
-                        <a href="https://gemini.google.com/share/27e76b236b5f" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-800 hover:bg-emerald-500 text-slate-200 hover:text-slate-950 font-bold py-3.5 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm border border-slate-700 hover:border-emerald-500 group">
+                        <a href="https://gemini.google.com/share/27e76b236b5f" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-800 hover:bg-emerald-500 text-slate-200 hover:text-slate-950 font-bold py-3.5 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-xs sm:text-sm border border-slate-700 hover:border-emerald-500 group">
                             <span>Abrir Herramienta</span>
                             <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
                         </a>
                     </div>
 
                     <!-- Herramienta 3 -->
-                    <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden">
+                    <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
                         <div>
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-2xl mb-6">
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-xl mb-5">
                                 <i class="fa-solid fa-robot"></i>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-3">Generador de Chatbot con IA</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            <h3 class="text-lg font-bold text-white mb-2.5">Generador de Chatbot con IA</h3>
+                            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
                                 Configura prompts y flujos de conversación inteligentes para automatizar el servicio al cliente y las ventas en tu negocio 24/7.
                             </p>
                         </div>
-                        <a href="https://gemini.google.com/share/ed976fcad1c3" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-800 hover:bg-emerald-500 text-slate-200 hover:text-slate-950 font-bold py-3.5 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm border border-slate-700 hover:border-emerald-500 group">
+                        <a href="https://gemini.google.com/share/ed976fcad1c3" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-800 hover:bg-emerald-500 text-slate-200 hover:text-slate-950 font-bold py-3.5 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-xs sm:text-sm border border-slate-700 hover:border-emerald-500 group">
                             <span>Abrir Herramienta</span>
                             <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                        </a>
+                    </div>
+
+                    <!-- Herramienta 4: Skill Video DEMO (Comunidad WhatsApp) -->
+                    <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden border border-emerald-500/30 bg-emerald-950/10">
+                        <div class="absolute -top-3 right-5 bg-gradient-to-r from-emerald-400 to-teal-400 text-slate-950 font-black text-[9px] uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
+                            Gratis • Comunidad
+                        </div>
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-500/20 to-teal-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center text-xl mb-5">
+                                <i class="fa-solid fa-film"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2.5">Skill Video DEMO</h3>
+                            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
+                                Plantilla y prompt base para crear estructuras de video invitaciones dinámicas con IA. Accede a la versión demo uniéndote a nuestra comunidad oficial de WhatsApp.
+                            </p>
+                        </div>
+                        <a href="https://chat.whatsapp.com/L0BfffMGJKm2oaYUT5Ql5N" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-3.5 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-xs sm:text-sm shadow-lg shadow-emerald-500/20 active:scale-95 group text-center">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                            <span>Unirme & Obtener DEMO</span>
                         </a>
                     </div>
 
@@ -268,8 +295,52 @@
             </div>
         </section>
 
+        <!-- SECCIÓN HERRAMIENTAS DIGITALES GOLD PRO (Exclusivo Miembros) -->
+        <section id="herramientas-gold" class="py-20 bg-gradient-to-b from-[#090d16] via-amber-950/10 to-[#090d16] relative border-b border-amber-500/20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider mb-3">
+                        <i class="fa-solid fa-crown text-xs"></i> Acceso Exclusivo • Solo para Miembros
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Herramientas Digitales GOLD PRO</h2>
+                    <p class="text-slate-400 text-sm mt-3">
+                        Recursos avanzados de última generación con Inteligencia Artificial para creadores y marcas que buscan dominar el formato audiovisual de alto impacto.
+                    </p>
+                </div>
+
+                <div class="max-w-xl mx-auto">
+                    <!-- Tarjeta: Skill Video PRO -->
+                    <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden border border-amber-500/30 shadow-2xl shadow-amber-500/5">
+                        <div class="absolute -top-3 right-6 bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md flex items-center gap-1.5">
+                            <i class="fa-solid fa-lock text-[9px]"></i> VIP Member
+                        </div>
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-2xl mb-6">
+                                <i class="fa-solid fa-clapperboard"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Skill Video PRO</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                                Framework avanzado y generador asistido por IA para producción de video publicitario, ganchos de retención en primeros 3 segundos y escalado de formatos de alto engagement (Reels, TikTok y Ads).
+                            </p>
+                            <ul class="space-y-2.5 text-xs text-slate-300 mb-8 border-t border-slate-800/80 pt-5">
+                                <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-400"></i> Estructuras virales probadas en campañas de Ads</li>
+                                <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-400"></i> Prompts maestros para generación de video con IA</li>
+                                <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-amber-400"></i> Optimización de guion para retención en primeros 3 segundos</li>
+                            </ul>
+                        </div>
+                        <a href="https://drive.google.com/drive/folders/1R0wuXL8OL8J4mgoha-coY_8ysJN3tYUv?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 font-black py-4 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm shadow-lg shadow-amber-500/20 active:scale-95 group text-center">
+                            <span>Acceder a Skill Video PRO</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
         <!-- SECCIÓN DE SERVICIOS (Modelo AIDA: Interés) -->
-        <section id="servicios" class="py-20 bg-slate-900/40 relative border-y border-slate-800/80">
+        <section id="servicios" class="py-20 bg-slate-900/40 relative border-b border-slate-800/80">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 <div class="text-center max-w-2xl mx-auto mb-16">
@@ -632,6 +703,7 @@
                                         <option value="Soluciones Digitales para Marketing y Negocios">Soluciones Digitales para Marketing y Negocios</option>
                                         <option value="Creación de Tiendas Online para WhatsApp">Creación de Tiendas Online para WhatsApp</option>
                                         <option value="Chatbots con Inteligencia Artificial">Chatbots con Inteligencia Artificial</option>
+                                        <option value="Skill Video PRO (GOLD PRO)">Skill Video PRO (GOLD PRO - Solo para Miembros)</option>
                                         <option value="Taller: Crea tu Tienda Online con IA">Taller: Crea tu Tienda Online con IA</option>
                                         <option value="Herramientas Digitales PRO">Herramientas Digitales PRO</option>
                                         <option value="Consulta General">Otra consulta / Asesoría personalizada</option>
@@ -696,7 +768,9 @@
         function sendWhatsApp(serviceName) {
             let message = "";
             
-            if (serviceName.includes('General') || serviceName.includes('Hero') || serviceName.includes('Widget')) {
+            if (serviceName.includes('Skill Video PRO') || serviceName.includes('GOLD PRO')) {
+                message = "Hola Fernando, deseo solicitar acceso exclusivo a la herramienta *Skill Video PRO* (GOLD PRO - Solo para Miembros). ¿Cuáles son los requisitos de acceso?";
+            } else if (serviceName.includes('General') || serviceName.includes('Hero') || serviceName.includes('Widget')) {
                 message = "Hola Fernando, estuve revisando tu sitio web personal y me gustaría recibir información sobre tus soluciones digitales.";
             } else {
                 message = `Hola Fernando, estoy interesado en recibir información y cotización sobre el servicio de: *${serviceName}*. ¿Podríamos agendar una conversación?`;
