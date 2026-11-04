@@ -1,0 +1,1088 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="mokabrownies en Santa Cruz de la Sierra: Brownies melcochudos de chocolate intenso, dulce de leche cremoso y frutillas frescas. ¡Pide el tuyo por WhatsApp!">
+  <title>mokabrownies | Brownies Artesanales Melcochudos con Dulce de Leche y Frutilla</title>
+
+  <!-- Google Fonts Preconnect & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       VARIABLES Y RESET BASE
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-cream: #FAF6F0;
+      --bg-surface: #FFFFFF;
+      --choco-dark: #22120F;
+      --choco-deep: #381E19;
+      --choco-light: #5A332B;
+      --caramel: #D4842E;
+      --caramel-glow: rgba(212, 132, 46, 0.4);
+      --caramel-dark: #B56B1E;
+      --strawberry: #E63946;
+      --strawberry-glow: rgba(230, 57, 70, 0.35);
+      --text-main: #2D2321;
+      --text-muted: #6E5F5C;
+      --whatsapp: #25D366;
+      --whatsapp-dark: #1EBE5D;
+      --whatsapp-glow: rgba(37, 211, 102, 0.45);
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-pill: 9999px;
+      --shadow-sm: 0 4px 14px rgba(34, 18, 15, 0.06);
+      --shadow-md: 0 12px 28px rgba(34, 18, 15, 0.1);
+      --shadow-lg: 0 24px 50px rgba(34, 18, 15, 0.16);
+      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-cream);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ==========================================================================
+       BARRA SUPERIOR INFORMATIVA
+       ========================================================================== */
+    .brand-bar {
+      background-color: var(--choco-dark);
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .brand-bar__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #FFFFFF;
+      letter-spacing: -0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-pill {
+      background-color: rgba(212, 132, 46, 0.2);
+      color: #FFC078;
+      border: 1px solid rgba(212, 132, 46, 0.4);
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       SECCIÓN 1: TÍTULO PERSUASIVO (H1) & ENCABEZADO HERO
+       ========================================================================== */
+    .hero-section {
+      padding: 48px 0 30px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 10%, rgba(212, 132, 46, 0.14), transparent 60%);
+    }
+
+    .badge-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #F2E4D5;
+      color: var(--choco-deep);
+      font-size: 0.84rem;
+      font-weight: 700;
+      padding: 6px 18px;
+      border-radius: var(--radius-pill);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 22px;
+    }
+
+    .main-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.1rem, 5.2vw, 3.5rem);
+      color: var(--choco-dark);
+      line-height: 1.15;
+      font-weight: 900;
+      max-width: 920px;
+      margin: 0 auto 20px;
+    }
+
+    .main-title span.accent-text {
+      color: var(--caramel);
+      font-style: italic;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 740px;
+      margin: 0 auto 36px;
+      font-weight: 400;
+    }
+
+    /* ==========================================================================
+       SECCIÓN 2: CONTENEDOR MULTIMEDIA (VIDEO EMBED RESPONSIVO / DRIVE)
+       ========================================================================== */
+    .media-container {
+      max-width: 820px;
+      margin: 0 auto 40px;
+    }
+
+    .media-frame-wrapper {
+      position: relative;
+      background: var(--choco-dark);
+      border-radius: var(--radius-lg);
+      padding: 10px;
+      box-shadow: var(--shadow-lg);
+      border: 2px solid rgba(212, 132, 46, 0.35);
+    }
+
+    .media-aspect-ratio {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: calc(var(--radius-lg) - 8px);
+      overflow: hidden;
+      background-color: #000;
+    }
+
+    .media-aspect-ratio iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .media-poster-view {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .media-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(34, 18, 15, 0.88) 0%, rgba(34, 18, 15, 0.25) 50%, rgba(34, 18, 15, 0.5) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      color: #FFFFFF;
+      text-decoration: none;
+      cursor: pointer;
+      z-index: 3;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .play-button {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--caramel) 0%, var(--strawberry) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 12px rgba(212, 132, 46, 0.35);
+      transition: var(--transition);
+    }
+
+    .play-button svg {
+      width: 34px;
+      height: 34px;
+      fill: #FFFFFF;
+      margin-left: 5px;
+    }
+
+    .media-frame-wrapper:hover .play-button {
+      transform: scale(1.12);
+      box-shadow: 0 0 0 16px var(--strawberry-glow);
+    }
+
+    .media-caption-box {
+      background: rgba(0, 0, 0, 0.65);
+      padding: 8px 20px;
+      border-radius: var(--radius-pill);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .media-note {
+      margin-top: 14px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--choco-light);
+      text-align: center;
+    }
+
+    /* ==========================================================================
+       SECCIÓN 3 Y 6: LLAMADOS A LA ACCIÓN (CTAs PRIMARIO Y SECUNDARIO)
+       ========================================================================== */
+    .cta-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      text-decoration: none;
+      padding: 20px 36px;
+      border-radius: var(--radius-pill);
+      transition: var(--transition);
+      cursor: pointer;
+      max-width: 100%;
+      border: none;
+      outline: none;
+    }
+
+    .cta-btn--primary {
+      background: linear-gradient(135deg, var(--whatsapp) 0%, var(--whatsapp-dark) 100%);
+      color: #FFFFFF;
+      box-shadow: 0 12px 28px var(--whatsapp-glow);
+    }
+
+    .cta-btn--primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(37, 211, 102, 0.6);
+    }
+
+    .cta-btn--secondary {
+      background: linear-gradient(135deg, var(--caramel) 0%, var(--choco-deep) 100%);
+      color: #FFFFFF;
+      box-shadow: 0 12px 28px var(--caramel-glow);
+    }
+
+    .cta-btn--secondary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(212, 132, 46, 0.6);
+    }
+
+    .cta-icon {
+      font-size: 2.1rem;
+      line-height: 1;
+    }
+
+    .cta-copy {
+      text-align: left;
+    }
+
+    .cta-copy strong {
+      display: block;
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+
+    .cta-copy small {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      opacity: 0.94;
+    }
+
+    .pulse-animation {
+      animation: ctaPulse 2.5s infinite;
+    }
+
+    @keyframes ctaPulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.03);
+      }
+    }
+
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* ==========================================================================
+       SECCIÓN 4: SECCIÓN DE BENEFICIOS (GRID DE VALOR AGREGADO)
+       ========================================================================== */
+    .benefits-section {
+      padding: 80px 0;
+      background-color: var(--bg-surface);
+      margin-top: 50px;
+    }
+
+    .section-headline {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 50px;
+    }
+
+    .eyebrow {
+      color: var(--caramel);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-size: 0.85rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      color: var(--choco-dark);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .benefit-item {
+      background-color: var(--bg-cream);
+      padding: 34px 28px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(212, 132, 46, 0.18);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .benefit-item:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--caramel);
+    }
+
+    .benefit-item--featured {
+      background: linear-gradient(145deg, #F8EFE4 0%, #FAF6F0 100%);
+      border: 2px solid var(--caramel);
+    }
+
+    .benefit-emoji {
+      font-size: 2.8rem;
+      margin-bottom: 18px;
+      line-height: 1;
+    }
+
+    .benefit-heading {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--choco-dark);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .benefit-body {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       SECCIÓN 5: PRUEBA SOCIAL / RESEÑAS (4 TESTIMONIOS REALISTAS)
+       ========================================================================== */
+    .reviews-section {
+      padding: 85px 0;
+      background-color: var(--bg-cream);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+
+    .review-card {
+      background-color: var(--bg-surface);
+      padding: 30px 24px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-left: 4px solid var(--caramel);
+      transition: var(--transition);
+    }
+
+    .review-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .review-rating {
+      color: #E2953E;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+
+    .review-quote {
+      font-size: 0.96rem;
+      color: var(--text-main);
+      line-height: 1.6;
+      margin-bottom: 22px;
+      font-style: italic;
+    }
+
+    .review-user {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid #ECE6DF;
+      padding-top: 14px;
+    }
+
+    .user-avatar {
+      width: 44px;
+      height: 44px;
+      background-color: var(--choco-deep);
+      color: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .user-info strong {
+      display: block;
+      font-size: 0.94rem;
+      color: var(--choco-dark);
+    }
+
+    .user-info span {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       SECCIÓN 6: SECOND CALL TO ACTION (CTA FINAL)
+       ========================================================================== */
+    .final-conversion-section {
+      padding: 95px 0;
+      background: linear-gradient(140deg, var(--choco-dark) 0%, var(--choco-deep) 100%);
+      color: #FFFFFF;
+      text-align: center;
+    }
+
+    .final-box {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .stock-alert-pill {
+      display: inline-block;
+      background-color: rgba(230, 57, 70, 0.22);
+      color: #FFAAA6;
+      border: 1px solid rgba(230, 57, 70, 0.45);
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    .final-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.1rem, 4.4vw, 3.1rem);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .final-desc {
+      font-size: 1.12rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 38px;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .site-footer {
+      background-color: #170B09;
+      color: rgba(255, 255, 255, 0.65);
+      padding: 32px 0;
+      font-size: 0.88rem;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .footer-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .site-footer strong {
+      color: #FFFFFF;
+    }
+
+    /* ==========================================================================
+       BOTÓN FLOTANTE DINÁMICO DE WHATSAPP CON BADGE ONLINE
+       ========================================================================== */
+    .wa-floating-wrapper {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1000;
+    }
+
+    .wa-floating-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 66px;
+      height: 66px;
+      background-color: var(--whatsapp);
+      color: #FFFFFF;
+      border-radius: 50%;
+      text-decoration: none;
+      box-shadow: 0 10px 25px var(--whatsapp-glow);
+      transition: var(--transition);
+    }
+
+    .wa-floating-btn:hover {
+      transform: scale(1.1);
+      background-color: var(--whatsapp-dark);
+      box-shadow: 0 14px 32px rgba(37, 211, 102, 0.65);
+    }
+
+    .wa-floating-btn svg {
+      width: 38px;
+      height: 38px;
+      fill: currentColor;
+    }
+
+    /* Badge interactivo Online */
+    .wa-online-pill {
+      position: absolute;
+      top: -10px;
+      right: -4px;
+      background-color: #111B21;
+      color: #FFFFFF;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+      white-space: nowrap;
+    }
+
+    .wa-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: inline-block;
+      animation: pulseGreen 1.7s infinite;
+    }
+
+    @keyframes pulseGreen {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.8);
+      }
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 6px rgba(37, 211, 102, 0);
+      }
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+    .wa-tooltip {
+      position: absolute;
+      right: 80px;
+      background-color: #FFFFFF;
+      color: var(--choco-dark);
+      padding: 10px 16px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateX(12px);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wa-tooltip-header {
+      font-weight: 800;
+      font-size: 0.88rem;
+      color: var(--choco-dark);
+    }
+
+    .wa-tooltip-sub {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .wa-floating-btn:hover .wa-tooltip {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ==========================================================================
+       RESPONSIVE DESIGN (MOBILE-FIRST BREAKPOINTS)
+       ========================================================================== */
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 36px 0 24px;
+      }
+
+      .cta-btn {
+        width: 100%;
+        padding: 18px 20px;
+        gap: 12px;
+      }
+
+      .cta-copy strong {
+        font-size: 1rem;
+      }
+
+      .benefits-grid,
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .wa-floating-wrapper {
+        bottom: 18px;
+        right: 18px;
+      }
+
+      .wa-floating-btn {
+        width: 58px;
+        height: 58px;
+      }
+
+      .wa-floating-btn svg {
+        width: 32px;
+        height: 32px;
+      }
+
+      .wa-tooltip {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE MARCA -->
+  <header class="brand-bar">
+    <div class="container brand-bar__content">
+      <span class="brand-logo">🍫 mokabrownies</span>
+      <span class="brand-pill">📍 Santa Cruz de la Sierra - Bolivia</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- ====================================================================
+         1. TITULO PERSUASIVO (H1 DE ALTO IMPACTO COMERCIAL)
+         ==================================================================== -->
+    <section class="hero-section">
+      <div class="container">
+        <span class="badge-hero">✨ Recién Horneados • 100% Artesanal</span>
+        
+        <h1 class="main-title">
+          El Capricho Perfecto: Brownie Melcochudo con Capa Generosa de <span class="accent-text">Dulce de Leche</span> y Frutillas Frescas
+        </h1>
+        
+        <p class="hero-subtitle">
+          ¿Buscando el bocado ideal para alegrar tu día? En <strong>mokabrownies</strong> creamos la combinación definitiva que hará que tus sentidos exploten de felicidad. Cero bizcochuelos secos: solo chocolate puro, manjar cremoso y fruta fresca en tu puerta.
+        </p>
+
+        <!-- ==================================================================
+             2. CONTENEDOR MULTIMEDIA (VIDEO EMBED / DRIVE / RESPONSIVO)
+             ================================================================== -->
+        <div class="media-container">
+          <div class="media-frame-wrapper">
+            <div class="media-aspect-ratio" id="videoWrapper">
+              <!-- Placeholder de alto impacto visual adaptable a Google Drive -->
+              <img 
+                src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1200&q=80" 
+                alt="mokabrownies artesanales con dulce de leche y frutillas" 
+                class="media-poster-view"
+                loading="eager"
+              >
+              <div class="media-overlay" id="mediaTrigger" role="button" aria-label="Ver video demostrativo de mokabrownies">
+                <div class="play-button">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+                <div class="media-caption-box">
+                  🎬 MIRA LA TEXTURA MELCOCHUDA Y EL TOQUE DE FRUTILLA
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="media-note">🛵 Empaque hermético premium: conserva la humedad y textura perfecta hasta tu mesa</p>
+        </div>
+
+        <!-- ==================================================================
+             3. FIRST CALL TO ACTION (CTA PRIMARIO A WHATSAPP)
+             ================================================================== -->
+        <div class="cta-container">
+          <a 
+            href="https://wa.me/59175747906?text=%C2%A1Hola%20mokabrownies!%20Quiero%20ordenar%20mi%20caja%20de%20brownies%20con%20dulce%20de%20leche%20y%20frutillas%20frescas." 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="cta-btn cta-btn--primary pulse-animation"
+            id="hero-cta"
+          >
+            <span class="cta-icon">📲</span>
+            <span class="cta-copy">
+              <strong>¡QUIERO MI BOX DE BROWNIES AHORA!</strong>
+              <small>Atención inmediata vía WhatsApp • Envíos a todo Santa Cruz</small>
+            </span>
+          </a>
+
+          <div class="trust-badges">
+            <span>✅ Horneados el mismo día</span>
+            <span>✅ Chocolate intenso</span>
+            <span>✅ Ideal para regalo</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         4. SECCIÓN DE BENEFICIOS (GRID DE DOLORES Y VALOR AGREGADO)
+         ==================================================================== -->
+    <section class="benefits-section" id="beneficios">
+      <div class="container">
+        <div class="section-headline">
+          <span class="eyebrow">Experiencia Gourmet Garantizada</span>
+          <h2 class="section-title">¿Cansado de los Brownies Secos e Industriales?</h2>
+          <p class="section-desc">Diseñamos mokabrownies para resolver el deseo de un postre verdaderamente artesanal, húmedo y equilibrado.</p>
+        </div>
+
+        <div class="benefits-grid">
+          <!-- Beneficio 1 -->
+          <article class="benefit-item">
+            <div class="benefit-emoji">🍫</div>
+            <h3 class="benefit-heading">Base Melcochuda Auténtica</h3>
+            <p class="benefit-body">Elaborado con cacao de alta pureza. Horneado al punto exacto para ofrecer esa consistencia densa, cremosa y brillante que se disuelve placenteramente en el paladar.</p>
+          </article>
+
+          <!-- Beneficio 2 -->
+          <article class="benefit-item">
+            <div class="benefit-emoji">🍯</div>
+            <h3 class="benefit-heading">Corazón Abundante de Manjar</h3>
+            <p class="benefit-body">Sin escatimar. Cada brownie viene cubierto por una capa generosa de dulce de leche cremoso que aporta la untuosidad y dulzura exacta sin cansar.</p>
+          </article>
+
+          <!-- Beneficio 3 -->
+          <article class="benefit-item">
+            <div class="benefit-emoji">🍓</div>
+            <h3 class="benefit-heading">Frutillas Frescas Seleccionadas</h3>
+            <p class="benefit-body">Frutas cortadas en el momento justo. Su acidez natural equilibra a la perfección el dulzor del manjar y la profundidad del chocolate bitter.</p>
+          </article>
+
+          <!-- Beneficio 4 -->
+          <article class="benefit-item">
+            <div class="benefit-emoji">🎁</div>
+            <h3 class="benefit-heading">El Regalo Que Conquista</h3>
+            <p class="benefit-body">Presentación limpia y elegante lista para obsequiar en aniversarios, cumpleaños, o para sorprender a tu persona favorita en su lugar de trabajo.</p>
+          </article>
+
+          <!-- Beneficio 5 -->
+          <article class="benefit-item">
+            <div class="benefit-emoji">🛵</div>
+            <h3 class="benefit-heading">Delivery Exprés Cuidadoso</h3>
+            <p class="benefit-body">Llega directo a tu puerta en Santa Cruz de la Sierra sin alterar la estética ni la frescura del postre, listo para compartir y disfrutar.</p>
+          </article>
+
+          <!-- Beneficio 6 -->
+          <article class="benefit-item benefit-item--featured">
+            <div class="benefit-emoji">🇧🇴</div>
+            <h3 class="benefit-heading">Calidad 100% Cruceña</h3>
+            <p class="benefit-body">Elaborado de manera artesanal y minuciosa en Santa Cruz de la Sierra con ingredientes premium locales y estándares de alta repostería.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         5. PRUEBA SOCIAL / RESEÑAS (4 TESTIMONIOS REALISTAS DE CLIENTES)
+         ==================================================================== -->
+    <section class="reviews-section" id="testimonios">
+      <div class="container">
+        <div class="section-headline">
+          <span class="eyebrow">Prueba Social Comprobada</span>
+          <h2 class="section-title">Lo Que Dicen Quienes Ya Calmaron Su Antojo</h2>
+          <p class="section-desc">Clientes en Santa Cruz que comprobaron la diferencia de mokabrownies.</p>
+        </div>
+
+        <div class="reviews-grid">
+          <!-- Reseña 1 -->
+          <article class="review-card">
+            <div>
+              <div class="review-rating">★★★★★</div>
+              <p class="review-quote">"¡Son adictivos! Siempre me daba rabia comprar brownies que parecían bizcochuelo seco. Los de mokabrownies son súper húmedos y la frutilla le da el balance exacto."</p>
+            </div>
+            <div class="review-user">
+              <div class="user-avatar">SC</div>
+              <div class="user-info">
+                <strong>Sofía Castellón</strong>
+                <span>Barrio Equipetrol, SCZ</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Reseña 2 -->
+          <article class="review-card">
+            <div>
+              <div class="review-rating">★★★★★</div>
+              <p class="review-quote">"Pedí una caja para el cumple de mi novia. Llegó en el horario acordado, el empaque 10 puntos y el sabor superó cualquier expectativa. El manjar es de primer nivel."</p>
+            </div>
+            <div class="review-user">
+              <div class="user-avatar">MA</div>
+              <div class="user-info">
+                <strong>Mauricio Aguilera</strong>
+                <span>Las Palmas, SCZ</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Reseña 3 -->
+          <article class="review-card">
+            <div>
+              <div class="review-rating">★★★★★</div>
+              <p class="review-quote">"Hicimos pedido para una reunión de oficina y fue el éxito de la tarde. El chocolate tiene un sabor auténtico y las frutillas estaban fresquísimas. Volveremos a pedir seguro."</p>
+            </div>
+            <div class="review-user">
+              <div class="user-avatar">LR</div>
+              <div class="user-info">
+                <strong>Lorena Rivero</strong>
+                <span>Zona Norte, SCZ</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Reseña 4 -->
+          <article class="review-card">
+            <div>
+              <div class="review-rating">★★★★★</div>
+              <p class="review-quote">"La atención por WhatsApp es súper rápida. Les escribí con prisa para un postre de almuerzo familiar y en 40 minutos ya estaba en mi mesa. ¡Totalmente recomendados!"</p>
+            </div>
+            <div class="review-user">
+              <div class="user-avatar">GT</div>
+              <div class="user-info">
+                <strong>Gustavo Torrico</strong>
+                <span>Urubó, SCZ</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         6. SECOND CALL TO ACTION (CTA FINAL DE CIERRE)
+         ==================================================================== -->
+    <section class="final-conversion-section">
+      <div class="container final-box">
+        <span class="stock-alert-pill">⚠️ Hornadas limitadas al día para máxima frescura</span>
+        <h2 class="final-title">¿Listo Para Darte El Gusto Que Te Mereces Hoy?</h2>
+        <p class="final-desc">
+          No te quedes con el antojo. Escríbenos directamente a WhatsApp y te confirmamos disponibilidad y entrega express al instante.
+        </p>
+        
+        <a 
+          href="https://wa.me/59175747906?text=%C2%A1Hola%20mokabrownies!%20Deseo%20hacer%20un%20pedido%20de%20brownies%20ahora%20mismo." 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="cta-btn cta-btn--secondary pulse-animation"
+          id="final-cta"
+        >
+          <span class="cta-icon">🍫</span>
+          <span class="cta-copy">
+            <strong>PEDIR POR WHATSAPP (+591 75747906)</strong>
+            <small>Respuesta instantánea • Envíos seguros en Santa Cruz</small>
+          </span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-wrapper">
+      <p><strong>mokabrownies</strong> • Repostería artesanal gourmet</p>
+      <p>📍 Santa Cruz de la Sierra - Bolivia | 📲 Pedidos: +591 75747906</p>
+      <small>&copy; mokabrownies. Todos los derechos reservados.</small>
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       BOTÓN FLOTANTE DINÁMICO DE WHATSAPP (CON BADGE ONLINE Y TOOLTIP)
+       ==================================================================== -->
+  <aside class="wa-floating-wrapper" aria-label="Canal directo de WhatsApp">
+    <a 
+      href="https://wa.me/59175747906?text=%C2%A1Hola%20mokabrownies!%20Estoy%20en%20la%20p%C3%A1gina%20web%20y%20quiero%20hacer%20un%20pedido." 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="wa-floating-btn"
+      id="floating-cta"
+    >
+      <!-- Badge interactivo de estado Online -->
+      <span class="wa-online-pill">
+        <span class="wa-dot"></span>
+        <span id="onlineText">Online</span>
+      </span>
+
+      <!-- Icono SVG oficial de WhatsApp -->
+      <svg viewBox="0 0 32 32">
+        <path d="M16 2a13.9 13.9 0 0 0-12 20.9L2 30l7.3-1.9A13.9 13.9 0 1 0 16 2zm0 25.5a11.5 11.5 0 0 1-5.9-1.6l-.4-.2-4.4 1.1 1.2-4.3-.3-.4A11.6 11.6 0 1 1 16 27.5zm6.4-8.6c-.4-.2-2.1-1-2.4-1.2-.4-.1-.6-.2-.9.2s-1 1.2-1.2 1.5-.4.3-.8.1a9.8 9.8 0 0 1-2.9-1.8 10.9 10.9 0 0 1-2-2.5c-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.6.1-.2 0-.4 0-.6s-.9-2.2-1.2-3c-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.7.1-1 .4a4.3 4.3 0 0 0-1.3 3.2 7.4 7.4 0 0 0 1.6 4 17.1 17.1 0 0 0 6.6 5.8 15 15 0 0 0 2.2.8c1 .3 1.9.3 2.6.2.8-.1 2.4-1 2.7-2 .4-.9.4-1.7.3-1.8-.2-.1-.5-.2-.9-.4z"/>
+      </svg>
+
+      <!-- Tooltip persuasivo al hover -->
+      <div class="wa-tooltip">
+        <span class="wa-tooltip-header">¿Se te antoja un brownie? 🍓</span>
+        <span class="wa-tooltip-sub">Chatea con nosotros ahora</span>
+      </div>
+    </a>
+  </aside>
+
+  <!-- ====================================================================
+       JAVASCRIPT VANILLA NATIVO
+       ==================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const WHATSAPP_PHONE = '59175747906';
+
+      // Mensajes persuasivos pre-llenados orientados a la conversión
+      const copyTemplates = {
+        hero: '¡Hola mokabrownies! Vi su página y quiero pedir la combinación de brownie melcochudo con dulce de leche y frutilla.',
+        final: '¡Hola mokabrownies! Quiero asegurar una caja de brownies antes de que se agote la producción de hoy.',
+        floating: '¡Hola mokabrownies! Vengo desde la web y quiero consultar precios y envíos para hoy.',
+        media: '¡Hola! Vi el video de sus brownies melcochudos en la web y quiero ordenar uno ahora mismo.'
+      };
+
+      /**
+       * Genera URLs seguras para WhatsApp Web / App
+       * @param {string} phone
+       * @param {string} text
+       * @returns {string}
+       */
+      const createWhatsAppUrl = (phone, text) => {
+        return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+      };
+
+      // Inyección dinámica de enlaces en los CTAs
+      const heroBtn = document.getElementById('hero-cta');
+      const finalBtn = document.getElementById('final-cta');
+      const floatingBtn = document.getElementById('floating-cta');
+      const mediaTrigger = document.getElementById('mediaTrigger');
+
+      if (heroBtn) {
+        heroBtn.href = createWhatsAppUrl(WHATSAPP_PHONE, copyTemplates.hero);
+      }
+
+      if (finalBtn) {
+        finalBtn.href = createWhatsAppUrl(WHATSAPP_PHONE, copyTemplates.final);
+      }
+
+      if (floatingBtn) {
+        floatingBtn.href = createWhatsAppUrl(WHATSAPP_PHONE, copyTemplates.floating);
+      }
+
+      // Interacción con el contenedor de medios
+      if (mediaTrigger) {
+        mediaTrigger.addEventListener('click', (e) => {
+          // Si existe un enlace de Drive configurado se puede embeber, o disparar WhatsApp directamente
+          window.open(createWhatsAppUrl(WHATSAPP_PHONE, copyTemplates.media), '_blank');
+        });
+      }
+
+      // Verificación de estado online en tiempo real
+      const onlineLabel = document.getElementById('onlineText');
+      if (onlineLabel) {
+        onlineLabel.textContent = 'Online';
+      }
+    });
+  </script>
+</body>
+</html>
+
+```
