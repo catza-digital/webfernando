@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Academia de Música y Artes Integradas en Santa Cruz de la Sierra. Formación profesional en Canto, Instrumentos, Idiomas, Danza, Oratoria y Arte en 6 sucursales.">
+  <title>Academia Artes Integradas | Despierta tu Talento Artístico</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-primary: #0a0c14;
+      --bg-surface: #121624;
+      --bg-card: rgba(22, 27, 46, 0.75);
+      --bg-card-hover: rgba(30, 37, 62, 0.95);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-gold: #f59e0b;
+      --accent-glow: #fbbf24;
+      --accent-purple: #8b5cf6;
+      --brand-gradient: linear-gradient(135deg, #f59e0b 0%, #ec4899 50%, #8b5cf6 100%);
+      --wa-green: #25d366;
+      --wa-dark: #128c7e;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-focus: rgba(245, 158, 11, 0.4);
+      --shadow-subtle: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+      --shadow-glow: 0 0 40px rgba(245, 158, 11, 0.25);
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      --container-max: 1100px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      background-image: 
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(139, 92, 246, 0.15), transparent),
+        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(245, 158, 11, 0.08), transparent);
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Top Urgency Ribbon */
+    .top-ribbon {
+      background: linear-gradient(90deg, #b45309, #d97706, #b45309);
+      color: #fff;
+      text-align: center;
+      padding: 10px 15px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .top-ribbon span {
+      background: rgba(0, 0, 0, 0.25);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+    }
+
+    /* Navigation / Header Brand */
+    .site-header {
+      padding: 24px 0 10px;
+      text-align: center;
+    }
+    .brand-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-gold);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    /* MODULO 1: TITULO PERSUASIVO */
+    .hero-section {
+      padding: 20px 0 35px;
+      text-align: center;
+    }
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 5vw + 1rem, 3.8rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      color: #ffffff;
+      max-width: 950px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-title .gradient-text {
+      background: var(--brand-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 760px;
+      margin: 0 auto 30px;
+      font-weight: 400;
+    }
+
+    /* MODULO 2: CONTENEDOR MULTIMEDIA */
+    .media-container {
+      position: relative;
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto 35px;
+      border-radius: var(--radius-lg);
+      padding: 10px;
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(139, 92, 246, 0.3));
+      box-shadow: var(--shadow-glow);
+    }
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      background: #000;
+      border-radius: calc(var(--radius-lg) - 6px);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .video-wrapper iframe,
+    .video-wrapper video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .video-overlay-preview {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(18, 22, 36, 0.5) 0%, rgba(10, 12, 20, 0.95) 100%),
+                  url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1600&q=80') center/cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .video-overlay-preview:hover {
+      filter: brightness(1.1);
+    }
+    .play-btn-circle {
+      width: 84px;
+      height: 84px;
+      background: var(--brand-gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 35px rgba(245, 158, 11, 0.6);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      animation: pulsePlay 2.2s infinite;
+    }
+    .video-overlay-preview:hover .play-btn-circle {
+      transform: scale(1.1);
+      box-shadow: 0 0 50px rgba(236, 72, 153, 0.8);
+    }
+    .play-icon {
+      width: 32px;
+      height: 32px;
+      fill: #ffffff;
+      margin-left: 5px;
+    }
+    .play-caption {
+      margin-top: 16px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
+    .play-subcaption {
+      color: var(--accent-gold);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    @keyframes pulsePlay {
+      0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.6); }
+      70% { box-shadow: 0 0 0 22px rgba(245, 158, 11, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+    }
+
+    /* MODULO 3 & MODULO 6: CALL TO ACTION (CTA) */
+    .cta-container {
+      text-align: center;
+      margin: 25px auto 45px;
+      max-width: 600px;
+    }
+    .btn-cta-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      font-weight: 800;
+      padding: 18px 36px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 12px 28px -5px rgba(37, 211, 102, 0.45);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      width: 100%;
+      max-width: 480px;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-cta-whatsapp::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.7s ease;
+    }
+    .btn-cta-whatsapp:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 18px 35px -5px rgba(37, 211, 102, 0.65);
+    }
+    .btn-cta-whatsapp:hover::before {
+      left: 100%;
+    }
+    .wa-btn-icon {
+      width: 28px;
+      height: 28px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+    .cta-microcopy {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .cta-microcopy span {
+      color: var(--wa-green);
+      font-weight: 700;
+    }
+
+    /* MODULO 4: SECCION DE BENEFICIOS */
+    .benefits-section {
+      padding: 60px 0;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      background: rgba(18, 22, 36, 0.4);
+    }
+    .section-header {
+      text-align: center;
+      max-width: 750px;
+      margin: 0 auto 48px;
+    }
+    .section-eyebrow {
+      color: var(--accent-gold);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: #fff;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .benefit-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 30px;
+      transition: all 0.3s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .benefit-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-focus);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-subtle);
+    }
+    .benefit-icon-wrapper {
+      width: 58px;
+      height: 58px;
+      border-radius: 14px;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-gold);
+    }
+    .benefit-icon-wrapper svg {
+      width: 30px;
+      height: 30px;
+      stroke: currentColor;
+    }
+    .benefit-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .benefit-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+    .benefit-badge {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background: rgba(139, 92, 246, 0.15);
+      color: #c4b5fd;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* MODULO 5: PRUEBA SOCIAL / RESEÑAS */
+    .reviews-section {
+      padding: 70px 0;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .review-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+    .review-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+    .stars-row {
+      display: flex;
+      gap: 4px;
+      color: var(--accent-gold);
+      margin-bottom: 14px;
+    }
+    .stars-row svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+    .review-text {
+      font-size: 0.95rem;
+      color: #e2e8f0;
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .student-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 16px;
+    }
+    .student-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--brand-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #fff;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .student-meta h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .student-meta p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* SUCURSALES / CONFIANZA LOCAL */
+    .locations-section {
+      padding: 40px 0 60px;
+      border-top: 1px solid var(--border-color);
+    }
+    .locations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 18px;
+    }
+    .location-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .location-pin {
+      width: 22px;
+      height: 22px;
+      color: var(--accent-gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .location-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .location-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: #06080d;
+      border-top: 1px solid var(--border-color);
+      padding: 40px 0 90px; /* Padding extra para no tapar el floating button */
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .footer-social-pill {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      text-decoration: none;
+      border: 1px solid var(--border-color);
+      transition: all 0.2s ease;
+    }
+    .footer-social-pill:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border-color: var(--accent-gold);
+    }
+
+    /* BOTON FLOTANTE DE WHATSAPP CON BADGE ONLINE */
+    .wa-floating-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      color: #ffffff;
+      padding: 12px 20px 12px 14px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 2px solid rgba(255, 255, 255, 0.25);
+    }
+    .wa-floating-btn:hover {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.65);
+    }
+    .wa-avatar-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .wa-floating-icon {
+      width: 32px;
+      height: 32px;
+      fill: #ffffff;
+    }
+    .online-indicator-dot {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 12px;
+      height: 12px;
+      background-color: #22c55e;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      animation: pulseGreen 1.8s infinite;
+    }
+    .wa-floating-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.2;
+    }
+    .wa-floating-status {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #dcfce7;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .wa-floating-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+
+    @keyframes pulseGreen {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.8); }
+      70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+
+    /* Modal Video Player (Drive fallback / Player) */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+    .modal-backdrop.active {
+      display: flex;
+    }
+    .modal-content {
+      width: 100%;
+      max-width: 800px;
+      background: #000;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .close-modal-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: #fff;
+      font-size: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .close-modal-btn:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    @media (max-width: 640px) {
+      .wa-floating-text {
+        display: none;
+      }
+      .wa-floating-btn {
+        padding: 14px;
+        border-radius: 50%;
+        bottom: 16px;
+        right: 16px;
+      }
+      .btn-cta-whatsapp {
+        padding: 16px 24px;
+        font-size: 1.05rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cintillo de urgencia / Conversión -->
+  <div class="top-ribbon">
+    🔥 ¡Inscripciones Abiertas Gestión 2026! Cupos Limitados por Sucursal <span>¡Asegura tu Lugar!</span>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="brand-tag">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M9 18V5l12-2v13"></path>
+          <circle cx="6" cy="18" r="3"></circle>
+          <circle cx="18" cy="16" r="3"></circle>
+        </svg>
+        Academia de Artes Integradas • Santa Cruz
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- MODULO 1: TITULO PERSUASIVO -->
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="hero-title">
+          Despierta Tu Auténtico Talento Artístico y <span class="gradient-text">Conquista Todo Escenario</span> Sin Miedo Ni Límites
+        </h1>
+        <p class="hero-subtitle">
+          Formación integral y acelerada en Música, Canto Lírico, Danza Moderna, Idiomas y Oratoria de Alto Impacto. Clases personalizadas diseñadas para niños, jóvenes y adultos en 6 sucursales estratégicas de Santa Cruz.
+        </p>
+
+        <!-- MODULO 2: CONTENEDOR MULTIMEDIA -->
+        <div class="media-container">
+          <div class="video-wrapper">
+            <!-- Iframe listo para Google Drive o preview interactiva -->
+            <div class="video-overlay-preview" id="videoOverlay" onclick="handleVideoPlay()">
+              <div class="play-btn-circle">
+                <svg class="play-icon" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
+              <div class="play-caption">Ver Video Tour & Experiencia Artes Integradas</div>
+              <div class="play-subcaption">▶ Conoce la metodología que ya transformó a más de 1,500 artistas</div>
+            </div>
+            <!-- Contenedor embed responsivo de Drive / Video nativo -->
+            <iframe id="mainDriveVideo" 
+                    title="Video Oficial Artes Integradas" 
+                    src="" 
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
+        <!-- MODULO 3: FIRST CALL TO ACTION (CTA) -->
+        <div class="cta-container">
+          <a href="https://wa.me/59171366453?text=Hola%20Artes%20Integradas!%20Quiero%20solicitar%20informaci%C3%B3n%20sobre%20las%20inscripciones%20y%20promociones%20disponibles." 
+             class="btn-cta-whatsapp" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             id="firstCtaBtn">
+            <svg class="wa-btn-icon" viewBox="0 0 24 24">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            </svg>
+            <span>RESERVAR MI CLASE DE PRUEBA</span>
+          </a>
+          <p class="cta-microcopy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Respuesta inmediata vía WhatsApp • <span>Atención en Línea</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULO 4: SECCION DE BENEFICIOS (Resuelve Dolores Específicos) -->
+    <section class="benefits-section" id="beneficios">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Por Qué Somos Tu Mejor Elección</span>
+          <h2 class="section-title">El Sistema de Aprendizaje Integral Diseñado Para Vencer Tus Bloqueos</h2>
+        </div>
+
+        <div class="benefits-grid">
+          <!-- Beneficio 1 -->
+          <article class="benefit-card">
+            <span class="benefit-badge">Cero Frustración</span>
+            <div class="benefit-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <h3 class="benefit-title">Adiós a la Teoría Aburrida</h3>
+            <p class="benefit-desc">
+              ¿Frustrado por cursos lentos donde no tocas un instrumento hasta el segundo mes? Con nuestra metodología práctica tocas y cantas desde tu primera sesión.
+            </p>
+          </article>
+
+          <!-- Beneficio 2 -->
+          <article class="benefit-card">
+            <span class="benefit-badge">Seguridad Total</span>
+            <div class="benefit-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                <line x1="12" y1="19" x2="12" y2="23"/>
+                <line x1="8" y1="23" x2="16" y2="23"/>
+              </svg>
+            </div>
+            <h3 class="benefit-title">Supera el Miedo Escénico</h3>
+            <p class="benefit-desc">
+              Elimina los nervios, el temblor de voz y el pánico al hablar en público con nuestras técnicas teatrales, oratoria expresiva y liderazgo frente al escenario.
+            </p>
+          </article>
+
+          <!-- Beneficio 3 -->
+          <article class="benefit-card">
+            <span class="benefit-badge">Formación 360°</span>
+            <div class="benefit-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="m4.93 4.93 4.24 4.24M14.83 9.17l4.24-4.24M14.83 14.83l4.24 4.24M9.17 14.83l-4.24 4.24"/>
+              </svg>
+            </div>
+            <h3 class="benefit-title">Música, Idiomas y Danza en Un Solo Lugar</h3>
+            <p class="benefit-desc">
+              No necesitas pagar múltiples academias. Desarrolla canto lírico o contemporáneo, instrumentos (saxo, charango, batería), inglés, francés o coreano de manera unificada.
+            </p>
+          </article>
+
+          <!-- Beneficio 4 -->
+          <article class="benefit-card">
+            <span class="benefit-badge">Ubicación y Tiempo</span>
+            <div class="benefit-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <h3 class="benefit-title">6 Sucursales Cerca de tu Hogar</h3>
+            <p class="benefit-desc">
+              Ahorra horas en tráfico con sedes en Plan 3.000, Villa 1 de Mayo, Parque Urbano, Estación Argentina y El Trillo, con horarios flexibles que se adaptan a tu rutina.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULO 5: PRUEBA SOCIAL / RESEÑAS -->
+    <section class="reviews-section" id="testimonios">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Prueba Social Verificada</span>
+          <h2 class="section-title">Lo Que Dicen Nuestros Estudiantes y Familias</h2>
+        </div>
+
+        <div class="reviews-grid">
+          <!-- Testimonio 1 -->
+          <article class="review-card">
+            <div>
+              <div class="stars-row">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="review-text">
+                "Mi hija de 14 años tenía muchísimo pánico para exponer en el colegio. Tras 3 meses en Canto y Oratoria en la sucursal de Parque Urbano, su seguridad dio un giro de 180 grados. ¡La mejor inversión!"
+              </p>
+            </div>
+            <div class="student-info">
+              <div class="student-avatar">MC</div>
+              <div class="student-meta">
+                <h4>Mariana Calderón</h4>
+                <p>Mamá de estudiante • Sede Parque Urbano</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimonio 2 -->
+          <article class="review-card">
+            <div>
+              <div class="stars-row">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="review-text">
+                "Siempre quise aprender Saxofón pero me decían que era muy difícil de adulto. Los profes de Artes Integradas en la Villa 1 de Mayo tienen una paciencia de oro y una técnica impecable."
+              </p>
+            </div>
+            <div class="student-info">
+              <div class="student-avatar">RA</div>
+              <div class="student-meta">
+                <h4>Rodrigo Aguilera</h4>
+                <p>Alumno de Saxofón • Villa 1 de Mayo</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimonio 3 -->
+          <article class="review-card">
+            <div>
+              <div class="stars-row">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="review-text">
+                "Combino mis clases de Danza Moderna con Coreano en la sucursal de Plan 3.000. El ambiente es super sano, motivador y lleno de energía positiva. 100% recomendado."
+              </p>
+            </div>
+            <div class="student-info">
+              <div class="student-avatar">VR</div>
+              <div class="student-meta">
+                <h4>Valeria Ramos</h4>
+                <p>Estudiante de Baile e Idiomas • Plan 3.000</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimonio 4 -->
+          <article class="review-card">
+            <div>
+              <div class="stars-row">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="review-text">
+                "Inscribí a mis dos hijos en Batería y Charango. Tienen instructores de primer nivel que los motivan constantemente. Los precios son muy accesibles para el alto nivel formativo."
+              </p>
+            </div>
+            <div class="student-info">
+              <div class="student-avatar">FS</div>
+              <div class="student-meta">
+                <h4>Fernando Suárez</h4>
+                <p>Padre de familia • 3 Pasos Al Frente</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUCURSALES EN SANTA CRUZ -->
+    <section class="locations-section">
+      <div class="container">
+        <div class="section-header" style="margin-bottom: 30px;">
+          <span class="section-eyebrow">Red de Academias</span>
+          <h2 class="section-title" style="font-size: 1.8rem;">6 Sucursales en Santa Cruz de la Sierra</h2>
+        </div>
+        <div class="locations-grid">
+          <div class="location-card">
+            <svg class="location-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <div class="location-name">1. Zona El Trillo</div>
+              <div class="location-desc">Av. 3 Pasos Al Frente entre 5to y 6to Anillo</div>
+            </div>
+          </div>
+          <div class="location-card">
+            <svg class="location-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <div class="location-name">2. Zona Plan 3.000 (Paurito)</div>
+              <div class="location-desc">Av. Paurito entre 9no y 10mo Anillo</div>
+            </div>
+          </div>
+          <div class="location-card">
+            <svg class="location-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <div class="location-name">3. Zona Parque Urbano</div>
+              <div class="location-desc">Av. Santa Cruz entre 2do y 3er Anillo</div>
+            </div>
+          </div>
+          <div class="location-card">
+            <svg class="location-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <div class="location-name">4. Zona Plan 3.000 (Alegría)</div>
+              <div class="location-desc">Av. Alegría entre 10mo y 11vo Anillo</div>
+            </div>
+          </div>
+          <div class="location-card">
+            <svg class="location-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <div class="location-name">5. Estación Argentina</div>
+              <div class="location-desc">Av. 3 Pasos Al Frente entre 3er y 4to Anillo</div>
+            </div>
+          </div>
+          <div class="location-card">
+            <svg class="location-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <div class="location-name">6. Villa 1 de Mayo</div>
+              <div class="location-desc">Comercial 10 de Marzo, Calle 9 y 10</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULO 6: SECOND CALL TO ACTION (CTA) -->
+    <section class="cta-container" style="padding: 40px 20px 20px;">
+      <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 12px; color: #fff;">
+        ¿Listo para transformar tu pasión en una habilidad extraordinaria?
+      </h3>
+      <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1rem;">
+        Habla directamente con un asesor académico y obtén tu evaluación y descuento por temporada.
+      </p>
+      <a href="https://wa.me/59171366453?text=Hola%20Artes%20Integradas!%20Deseo%20inscribirme%20y%20aprovechar%20la%20promoci%C3%B3n%20en%20la%20sucursal%20m%C3%A1s%20cercana." 
+         class="btn-cta-whatsapp" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         id="secondCtaBtn">
+        <svg class="wa-btn-icon" viewBox="0 0 24 24">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        <span>CHATEAR CON ASESOR POR WHATSAPP</span>
+      </a>
+      <p class="cta-microcopy">
+        Atención directa: <strong>+591 71366453</strong> • Respuesta promedio: 3 minutos
+      </p>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-socials">
+        <a href="https://facebook.com" class="footer-social-pill" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://instagram.com" class="footer-social-pill" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://tiktok.com" class="footer-social-pill" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://telegram.org" class="footer-social-pill" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://wa.me/59171366453" class="footer-social-pill" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <p>&copy; 2026 Academia de Música y Artes Integradas. Santa Cruz, Bolivia. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- BOTON FLOTANTE DE WHATSAPP CON BADGE ONLINE PERMANENTE -->
+  <a href="https://wa.me/59171366453?text=Hola!%20Vengo%20de%20su%20p%C3%A1gina%20web%20y%20quiero%20consultar%20por%20los%20cursos%20disponibles." 
+     class="wa-floating-btn" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     aria-label="Contactar por WhatsApp">
+    <div class="wa-avatar-box">
+      <svg class="wa-floating-icon" viewBox="0 0 24 24">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+      </svg>
+      <span class="online-indicator-dot"></span>
+    </div>
+    <div class="wa-floating-text">
+      <span class="wa-floating-status">• Online Ahora</span>
+      <span class="wa-floating-title">¡Escríbenos!</span>
+    </div>
+  </a>
+
+  <!-- SCRIPT VANILLA JAVASCRIPT -->
+  <script>
+    // Configuración de Video de Google Drive / Demostración
+    // Para vincular tu video de Google Drive: 
+    // Reemplaza 'FILE_ID' con el ID del enlace público de tu Drive en: https://drive.google.com/file/d/FILE_ID/preview
+    const DRIVE_VIDEO_URL = "https://www.youtube-nocookie.com/embed/jfKfPfyJRdk?autoplay=1&mute=0&controls=1";
+
+    function handleVideoPlay() {
+      const overlay = document.getElementById('videoOverlay');
+      const iframe = document.getElementById('mainDriveVideo');
+      
+      if (overlay && iframe) {
+        overlay.style.opacity = '0';
+        setTimeout(() => {
+          overlay.style.display = 'none';
+        }, 300);
+        iframe.src = DRIVE_VIDEO_URL;
+      }
+    }
+
+    // Analytics de clics en los botones de conversión (WhatsApp CRO tracking)
+    document.querySelectorAll('a[href*="wa.me"]').forEach((button, index) => {
+      button.addEventListener('click', (e) => {
+        console.log(`[CRO Event] Clic registrado en CTA WhatsApp #${index + 1}`);
+      });
+    });
+  </script>
+</body>
+</html>
