@@ -23,7 +23,25 @@ header p{margin:0;color:var(--muted);line-height:1.5}
 .btn-chatgpt{background:linear-gradient(100deg,#07966b,#12b981)}
 .btn-whatsapp{background:linear-gradient(100deg,#126bd6,#7952e8)}
 .note{margin:22px auto 0;width:min(900px,100%);color:#94a3b8;font-size:12px;line-height:1.5;text-align:center}
-@media(max-width:720px){body{padding:24px 12px 36px}.actions{grid-template-columns:1fr;gap:12px}.product{padding:17px}.product p{min-height:0}.promo-image{border-radius:12px;margin-bottom:18px}}
+.app-modal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(4,7,17,.84);backdrop-filter:blur(8px)}
+.app-modal.is-open{display:flex}
+.app-window{width:min(1160px,100%);height:min(86vh,820px);display:flex;flex-direction:column;background:#0c1326;border:1px solid #2d3d63;border-radius:16px;overflow:hidden;box-shadow:0 28px 80px rgba(0,0,0,.75);transition:width .2s ease,height .2s ease,border-radius .2s ease}
+.app-window.is-fullscreen{width:100vw;height:100vh;border-radius:0;border:none}
+.app-modal.is-fullscreen-mode{padding:0}
+.app-titlebar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px;background:linear-gradient(90deg,#101a34,#162447);border-bottom:1px solid #273659;user-select:none}
+.app-title{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:700;color:#f7f8ff}
+.app-dot{width:10px;height:10px;border-radius:50%;background:#10b981;box-shadow:0 0 10px #10b981}
+.app-controls{display:flex;align-items:center;gap:6px}
+.app-ctrl-btn{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:32px;padding:0 10px;border:1px solid #33456e;border-radius:8px;background:#182649;color:#e2e8f0;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s ease,border-color .15s ease}
+.app-ctrl-btn:hover{background:#233666;border-color:#4b649c}
+.app-ctrl-btn.close:hover{background:#dc2626;border-color:#ef4444;color:#fff}
+.app-body{position:relative;flex:1;background:#080d1c}
+.app-loader{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:#080d1c;color:#cbd5e1;font-size:13px;pointer-events:none;transition:opacity .2s ease}
+.app-loader.is-hidden{opacity:0}
+.app-spinner{width:34px;height:34px;border:3px solid rgba(18,185,129,.2);border-top-color:#12b981;border-radius:50%;animation:appSpin .8s linear infinite}
+.app-iframe{width:100%;height:100%;border:0;display:block;background:#fff}
+@keyframes appSpin{to{transform:rotate(360deg)}}
+@media(max-width:720px){body{padding:24px 12px 36px}.actions{grid-template-columns:1fr;gap:12px}.product{padding:17px}.product p{min-height:0}.promo-image{border-radius:12px;margin-bottom:18px}.app-modal{padding:8px}.app-window{height:90vh;border-radius:12px}}
 </style>
 </head>
 <body>
@@ -43,7 +61,8 @@ header p{margin:0;color:var(--muted);line-height:1.5}
 <p>Acceso directo a la cuenta de entrega.</p>
 <a class="btn btn-chatgpt"
    href="https://delivery.gamsgo.pro/delivery_account/v/5K7ZEF1FPBB4KZN6GBZC?lang=es"
-   target="_blank" rel="noopener noreferrer">Acceder a ChatGPT Plus</a>
+   target="_blank" rel="noopener noreferrer"
+   onclick="abrirChatGPTPlus(event)">Acceder a ChatGPT Plus</a>
 </article>
 
 <article class="product">
@@ -65,5 +84,88 @@ header p{margin:0;color:var(--muted);line-height:1.5}
 
 <p class="note">Los botones de solicitud abren WhatsApp al número 75069812 con el mensaje preconfigurado.</p>
 </main>
+
+<!-- Ventana web embebida sin barra de direcciones -->
+<div id="chatgpt-modal" class="app-modal" role="dialog" aria-modal="true" aria-labelledby="app-window-title" onclick="if(event.target===this)cerrarChatGPTPlus()">
+  <div id="chatgpt-window" class="app-window">
+    <div class="app-titlebar">
+      <div class="app-title" id="app-window-title">
+        <span class="app-dot" aria-hidden="true"></span>
+        <span>ChatGPT Plus — Acceso Directo</span>
+      </div>
+      <div class="app-controls">
+        <button type="button" class="app-ctrl-btn" onclick="recargarChatGPTPlus()" title="Recargar ventana" aria-label="Recargar ventana">↻</button>
+        <button type="button" class="app-ctrl-btn" id="btn-fullscreen" onclick="togglePantallaCompleta()" title="Expandir o restaurar" aria-label="Expandir o restaurar">⛶</button>
+        <button type="button" class="app-ctrl-btn close" onclick="cerrarChatGPTPlus()" title="Cerrar ventana" aria-label="Cerrar ventana">✕</button>
+      </div>
+    </div>
+    <div class="app-body">
+      <div id="chatgpt-loader" class="app-loader">
+        <div class="app-spinner"></div>
+        <span>Cargando acceso a ChatGPT Plus...</span>
+      </div>
+      <iframe id="chatgpt-iframe"
+              class="app-iframe"
+              title="Acceso a ChatGPT Plus"
+              allow="clipboard-read; clipboard-write; fullscreen"
+              onload="document.getElementById('chatgpt-loader').classList.add('is-hidden')"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+let chatgptAccessUrl = '';
+
+// Abre el acceso dentro de una ventana flotante embebida (sin barra de direcciones)
+function abrirChatGPTPlus(event) {
+  event.preventDefault();
+  chatgptAccessUrl = event.currentTarget.href;
+
+  const modal = document.getElementById('chatgpt-modal');
+  const loader = document.getElementById('chatgpt-loader');
+  const iframe = document.getElementById('chatgpt-iframe');
+
+  loader.classList.remove('is-hidden');
+  iframe.src = chatgptAccessUrl;
+  modal.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+
+// Cierra la ventana embebida y limpia el contenido activo
+function cerrarChatGPTPlus() {
+  const modal = document.getElementById('chatgpt-modal');
+  const win = document.getElementById('chatgpt-window');
+  const iframe = document.getElementById('chatgpt-iframe');
+
+  modal.classList.remove('is-open', 'is-fullscreen-mode');
+  win.classList.remove('is-fullscreen');
+  iframe.src = 'about:blank';
+  document.body.style.overflow = '';
+}
+
+// Recarga el contenido dentro de la ventana embebida
+function recargarChatGPTPlus() {
+  if (!chatgptAccessUrl) return;
+  const loader = document.getElementById('chatgpt-loader');
+  const iframe = document.getElementById('chatgpt-iframe');
+  loader.classList.remove('is-hidden');
+  iframe.src = chatgptAccessUrl;
+}
+
+// Alterna entre vista ventana y pantalla completa
+function togglePantallaCompleta() {
+  const modal = document.getElementById('chatgpt-modal');
+  const win = document.getElementById('chatgpt-window');
+  modal.classList.toggle('is-fullscreen-mode');
+  win.classList.toggle('is-fullscreen');
+}
+
+// Permite cerrar la ventana presionando la tecla Escape
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && document.getElementById('chatgpt-modal').classList.contains('is-open')) {
+    cerrarChatGPTPlus();
+  }
+});
+</script>
 </body>
 </html>
