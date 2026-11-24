@@ -627,100 +627,24 @@
                         </a>
                     </div>
 
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SECCIÓN UBICACIÓN Y FORMULARIO DE CONTACTO (Modelo AIDA: Acción) -->
-        <section id="contacto" class="py-20 relative">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-2 block">Contacto Directo</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">¿Listo para Impulsar tu Negocio?</h2>
-                    <p class="text-slate-400 text-sm mt-3">Envía un mensaje para analizar tus requerimientos y definir la mejor estrategia.</p>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                    
-                    <!-- Tarjeta de Información Física y Atributos -->
-                    <div class="lg:col-span-5 space-y-6">
-                        
-                        <div class="glass-card p-6 rounded-2xl border border-slate-800">
-                            <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 text-xl">
-                                    <i class="fa-solid fa-map-location-dot"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-white text-base">Ubicación Física</h4>
-                                    <p class="text-slate-300 text-sm mt-1 leading-relaxed">
-                                        4to anillo doble vía La Guardia
-                                    </p>
-                                    <p class="text-slate-400 text-xs">Santa Cruz de la Sierra, Bolivia</p>
-                                </div>
+                    <!-- Skill 5: Skill Generador de Aplicaciones (WEB) de alta conversión -->
+                    <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden border border-sky-500/30 bg-sky-950/10">
+                        <div class="absolute -top-3 right-6 bg-gradient-to-r from-sky-400 to-blue-400 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md">
+                            PRO • Web IA
+                        </div>
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-sky-500/20 to-blue-500/20 border border-sky-500/40 text-sky-400 flex items-center justify-center text-2xl mb-6">
+                                <i class="fa-solid fa-laptop-code"></i>
                             </div>
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">Skill Generador de Aplicaciones (WEB) de alta conversión</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                                Plantillas, estructuras y prompts especializados para diseñar y crear páginas web y landing pages profesionales de alta conversión con Inteligencia Artificial.
+                            </p>
                         </div>
-
-                        <div class="glass-card p-6 rounded-2xl border border-slate-800">
-                            <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 text-xl">
-                                    <i class="fa-brands fa-whatsapp"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-white text-base">Atención Directa por WhatsApp</h4>
-                                    <p class="text-slate-300 text-sm mt-1 font-mono">+591 75069812</p>
-                                    <p class="text-emerald-400 text-xs font-semibold mt-1">
-                                        <i class="fa-solid fa-circle text-[8px] animate-pulse"></i> Online y Disponible
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Botón directo de acción rápida -->
-                        <button onclick="sendWhatsApp('Contacto Directo desde Ubicación')" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-4 rounded-xl transition-all shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-3 text-sm">
-                            <i class="fa-brands fa-whatsapp text-2xl"></i>
-                            <span>Abrir Chat Directo en WhatsApp</span>
-                        </button>
-
-                    </div>
-
-                    <!-- Formulario Interactivo con API Forms HTML5 (Validación JS en tiempo real) -->
-                    <div class="lg:col-span-7">
-                        <div class="glass-card p-8 rounded-2xl border border-slate-800">
-                            <h3 class="text-xl font-bold text-white mb-2">Envía una Consulta Rápida</h3>
-                            <p class="text-slate-400 text-xs mb-6">El mensaje se formateará automáticamente y se abrirá en tu WhatsApp.</p>
-
-                            <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
-                                <div>
-                                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2" for="user-name">Tu Nombre Completo *</label>
-                                    <input type="text" id="user-name" required placeholder="Ej. Ana María Gutiérrez" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 transition-colors">
-                                </div>
-
-                                <div>
-                                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2" for="user-service">Servicio de Interés *</label>
-                                    <select id="user-service" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 transition-colors">
-                                        <option value="Soluciones Digitales para Marketing y Negocios">Soluciones Digitales para Marketing y Negocios</option>
-                                        <option value="Creación de Tiendas Online para WhatsApp">Creación de Tiendas Online para WhatsApp</option>
-                                        <option value="Chatbots con Inteligencia Artificial">Chatbots con Inteligencia Artificial</option>
-                                        <option value="Skill Video PRO (GOLD PRO)">Skill Video PRO (GOLD PRO - Solo para Miembros)</option>
-                                        <option value="Taller: Crea tu Tienda Online con IA">Taller: Crea tu Tienda Online con IA</option>
-                                        <option value="Herramientas Digitales PRO">Herramientas Digitales PRO</option>
-                                        <option value="Consulta General">Otra consulta / Asesoría personalizada</option>
-                                    </select>
-                                </div>
-
-                                <div>
-                                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2" for="user-message">Detalles del Proyecto *</label>
-                                    <textarea id="user-message" required rows="4" placeholder="Cuéntame brevemente sobre tu negocio o qué objetivo deseas lograr..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 transition-colors"></textarea>
-                                </div>
-
-                                <button type="submit" class="w-full bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-black py-4 rounded-xl transition-all shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2 text-sm">
-                                    <i class="fa-paper-plane"></i>
-                                    <span>Enviar Mensaje a WhatsApp</span>
-                                </button>
-                            </form>
-                        </div>
+                        <a href="https://drive.google.com/drive/folders/1WRd4sRA3dkvOu4Cy-bMSdma3q66yxSFU?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-sky-400 to-cyan-400 hover:from-sky-300 hover:to-cyan-300 text-slate-950 font-black py-4 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm shadow-lg shadow-sky-500/20 active:scale-95 group text-center">
+                            <span>Acceder a Generador de Páginas Web</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                        </a>
                     </div>
 
                 </div>
