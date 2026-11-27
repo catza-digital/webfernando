@@ -20,8 +20,13 @@ header p{margin:0;color:var(--muted);line-height:1.5}
 .product p{min-height:36px;margin:0;color:var(--muted);font-size:13px;line-height:1.4}
 .btn{display:inline-flex;min-height:48px;align-items:center;justify-content:center;padding:12px 14px;border-radius:10px;color:white;text-decoration:none;font-size:14px;font-weight:700;line-height:1.25;transition:transform .15s ease,filter .15s ease}
 .btn:hover{transform:translateY(-2px);filter:brightness(1.1)}
-.btn-chatgpt{background:linear-gradient(100deg,#07966b,#12b981)}
+.btn-chatgpt{background:linear-gradient(100deg,#126bd6,#7952e8)}
 .btn-whatsapp{background:linear-gradient(100deg,#126bd6,#7952e8)}
+.pack-banner{width:min(900px,100%);margin:0 auto 22px;padding:20px 22px;background:linear-gradient(145deg,rgba(245,158,11,.16),rgba(217,119,6,.08));border:1px solid rgba(251,191,36,.55);border-radius:16px;text-align:center;box-shadow:0 12px 36px rgba(245,158,11,.18)}
+.pack-banner h2{margin:0 0 6px;font-size:20px;color:#fde68a;letter-spacing:.2px}
+.pack-banner p{margin:0 0 14px;color:#e2e8f0;font-size:13.5px;line-height:1.45}
+.btn-gold{display:inline-flex;width:100%;max-width:460px;min-height:54px;align-items:center;justify-content:center;gap:8px;padding:14px 22px;border-radius:12px;background:linear-gradient(110deg,#fde047 0%,#f59e0b 50%,#d97706 100%);color:#1c1200;text-decoration:none;font-size:16px;font-weight:800;letter-spacing:.3px;box-shadow:0 8px 26px rgba(245,158,11,.45),inset 0 1px 0 rgba(255,255,255,.65);border:1px solid #fef08a;transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}
+.btn-gold:hover{transform:translateY(-3px) scale(1.015);filter:brightness(1.06);box-shadow:0 14px 34px rgba(245,158,11,.62),inset 0 1px 0 rgba(255,255,255,.8)}
 .note{margin:22px auto 0;width:min(900px,100%);color:#94a3b8;font-size:12px;line-height:1.5;text-align:center}
 .app-modal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(4,7,17,.84);backdrop-filter:blur(8px)}
 .app-modal.is-open{display:flex}
@@ -41,7 +46,7 @@ header p{margin:0;color:var(--muted);line-height:1.5}
 .app-spinner{width:34px;height:34px;border:3px solid rgba(18,185,129,.2);border-top-color:#12b981;border-radius:50%;animation:appSpin .8s linear infinite}
 .app-iframe{width:100%;height:100%;border:0;display:block;background:#fff}
 @keyframes appSpin{to{transform:rotate(360deg)}}
-@media(max-width:720px){body{padding:24px 12px 36px}.actions{grid-template-columns:1fr;gap:12px}.product{padding:17px}.product p{min-height:0}.promo-image{border-radius:12px;margin-bottom:18px}.app-modal{padding:8px}.app-window{height:90vh;border-radius:12px}}
+@media(max-width:720px){body{padding:24px 12px 36px}.pack-banner{padding:16px;margin-bottom:14px}.btn-gold{font-size:15px;min-height:50px}.actions{grid-template-columns:1fr;gap:12px}.product{padding:17px}.product p{min-height:0}.promo-image{border-radius:12px;margin-bottom:18px}.app-modal{padding:8px}.app-window{height:90vh;border-radius:12px}}
 </style>
 </head>
 <body>
@@ -55,29 +60,37 @@ header p{margin:0;color:var(--muted);line-height:1.5}
      src="https://raw.githubusercontent.com/catza-digital/webfernando/refs/heads/main/img/promo-herramientas-ia.jpeg"
      alt="Promoción anual de ChatGPT Plus, Gemini Plus y Canva Pro">
 
+<section class="pack-banner" aria-label="Acceso Pack Completo">
+<h2>★ Pack Completo — Acceso Total</h2>
+<p>Ingreso unificado a ChatGPT Plus, Gemini Plus y Canva Pro en un solo lugar.</p>
+<a class="btn-gold"
+   href="https://drive.google.com/drive/folders/1Gm-ZGQEltUvjmESJLAkQ5tuSpTTvOVfY?usp=sharing"
+   target="_blank" rel="noopener noreferrer">Acceder al Pack Completo</a>
+</section>
+
 <section class="actions" aria-label="Acceso y solicitudes de promoción">
 <article class="product">
 <h2>ChatGPT Plus</h2>
 <p>Acceso directo a la cuenta de entrega.</p>
 <a class="btn btn-chatgpt"
-   href="https://drive.google.com/drive/folders/1Gm-ZGQEltUvjmESJLAkQ5tuSpTTvOVfY?usp=sharing"
+   href="https://docs.google.com/document/d/12x9WzXZTrdyWA1JfPHs_v41kqitA_rAw0Gp-KwKj6RI/edit?usp=sharing"
    target="_blank" rel="noopener noreferrer">Acceder a ChatGPT Plus</a>
 </article>
 
 <article class="product">
 <h2>Gemini Plus</h2>
 <p>Solicita información para obtener esta promoción.</p>
-<a class="btn btn-whatsapp"
-   href="https://wa.me/59175069812?text=solicitar.promo.IA"
-   target="_blank" rel="noopener noreferrer">Solicitar Promoción</a>
+<a class="btn btn-chatgpt"
+   href="https://docs.google.com/document/d/12x9WzXZTrdyWA1JfPHs_v41kqitA_rAw0Gp-KwKj6RI/edit?usp=sharing"
+   target="_blank" rel="noopener noreferrer">Acceder a Gemini Plus</a>
 </article>
 
 <article class="product">
 <h2>Canva Pro</h2>
 <p>Solicita información para obtener esta promoción.</p>
-<a class="btn btn-whatsapp"
-   href="https://wa.me/59175069812?text=solicitar.promo.IA"
-   target="_blank" rel="noopener noreferrer">Solicitar Promoción</a>
+<a class="btn btn-chatgpt"
+   href="https://docs.google.com/document/d/1Mbaza1oWjEYsM1thlpyN_TlWg5DwpOLvZIT7edXzB58/edit?usp=sharing"
+   target="_blank" rel="noopener noreferrer">Acceder a Canva Pro</a>
 </article>
 </section>
 
