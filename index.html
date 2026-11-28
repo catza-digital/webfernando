@@ -1,776 +1,1188 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fernando Yupanqui Rojas - Soluciones Digitales & CRO</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            50: '#f0fdf4',
-                            500: '#10b981',
-                            600: '#059669',
-                            700: '#047857',
-                            dark: '#090d16',
-                            card: '#111827',
-                            border: '#1f2937'
-                        }
-                    }
-                }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fernando Yupanqui Rojas - Soluciones Digitales &amp; CRO</title>
+  <meta name="description" content="Diseño estrategias de marketing, tiendas virtuales integradas con WhatsApp y Chatbots con Inteligencia Artificial para acelerar tus ventas y automatizar la atención a clientes." />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#070B14',
+              card: '#0F172A',
+              border: '#1E293B',
+              emerald: '#10B981',
+              cyan: '#06B6D4',
+              gold: '#F59E0B',
             }
+          }
         }
-    </script>
-    <style>
-        @keyframes pulse-glow {
-            0%, 100% { opacity: 0.8; transform: scale(1); }
-            50% { opacity: 0.3; transform: scale(1.15); }
-        }
-        .animate-pulse-glow {
-            animation: pulse-glow 2.5s infinite ease-in-out;
-        }
+      }
+    };
+  </script>
 
-        .glass-card {
-            background: rgba(17, 24, 39, 0.75);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .glass-card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .glass-card-hover:hover {
-            transform: translateY(-4px);
-            border-color: rgba(16, 185, 129, 0.4);
-            box-shadow: 0 20px 30px -10px rgba(16, 185, 129, 0.15);
-        }
-
-        /* Estilos de scrollbar personalizados */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #090d16;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1f2937;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #10b981;
-        }
-    </style>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #070B14;
+      color: #F8FAFC;
+      overflow-x: hidden;
+    }
+    .glass-nav {
+      background: rgba(7, 11, 20, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .hero-glow {
+      background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.16) 0%, rgba(6, 182, 212, 0.08) 38%, rgba(7, 11, 20, 0) 70%);
+    }
+    .card-hover {
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      border-color: rgba(16, 185, 129, 0.45);
+      box-shadow: 0 20px 40px -15px rgba(16, 185, 129, 0.15);
+    }
+    .gold-card:hover {
+      border-color: rgba(245, 158, 11, 0.6);
+      box-shadow: 0 20px 40px -15px rgba(245, 158, 11, 0.2);
+    }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #070B14;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1E293B;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+  </style>
 </head>
-<body class="bg-[#090d16] text-slate-100 font-sans antialiased selection:bg-emerald-500 selection:text-slate-950 min-h-screen flex flex-col justify-between overflow-x-hidden">
+<body class="antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
 
-    <!-- Header / Barra de Navegación -->
-    <header class="sticky top-0 z-40 bg-[#090d16]/85 backdrop-blur-md border-b border-slate-800/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            
-            <!-- Logotipo y Nombre de Marca -->
-            <a href="#inicio" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center font-black text-slate-950 text-xl shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform">
-                    FY
-                </div>
-                <div>
-                    <span class="font-extrabold text-base sm:text-lg text-white block leading-tight group-hover:text-emerald-400 transition-colors">
-                        Fernando Yupanqui
-                    </span>
-                    <span class="text-[11px] font-mono text-emerald-400 font-medium tracking-wide">
-                        Soluciones Digitales & CRO
-                    </span>
-                </div>
-            </a>
+  <!-- =========================================================
+       HEADER / NAVEGACIÓN PRINCIPAL
+  ========================================================== -->
+  <header class="sticky top-0 z-50 glass-nav border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo FY -->
+        <a href="#inicio" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+            FY
+          </div>
+          <div class="flex flex-col">
+            <span class="text-white font-bold text-base sm:text-lg leading-tight tracking-tight">Fernando Yupanqui</span>
+            <span class="text-emerald-400 text-xs font-medium tracking-wide">Soluciones Digitales &amp; CRO</span>
+          </div>
+        </a>
 
-            <!-- Menú Desktop -->
-            <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
-                <a href="#inicio" class="hover:text-emerald-400 transition-colors">Inicio</a>
-                <a href="#pack-promo-ia" class="text-cyan-300 hover:text-cyan-200 font-bold transition-colors flex items-center gap-1.5">
-                    <i class="fa-solid fa-bolt text-xs text-amber-400"></i> Pack IA
-                </a>
-                <a href="#servicios" class="hover:text-emerald-400 transition-colors">Servicios</a>
-                <a href="#talleres" class="hover:text-emerald-400 transition-colors">Talleres y Seminarios</a>
-                <a href="#cursos-presenciales" class="hover:text-emerald-400 transition-colors">Cursos Presenciales</a>
-                <a href="#herramientas-pro" class="hover:text-emerald-400 transition-colors">Herramientas PRO</a>
-                <a href="#skill-pro" class="hover:text-emerald-400 transition-colors">Skill PRO</a>
-                <a href="#herramientas-gold" class="text-amber-400 hover:text-amber-300 font-bold transition-colors flex items-center gap-1.5">
-                    <i class="fa-solid fa-crown text-xs"></i> GOLD PRO
-                </a>
-                <a href="#sobre-mi" class="hover:text-emerald-400 transition-colors">Sobre Mí</a>
-                <a href="#testimonios" class="hover:text-emerald-400 transition-colors">Testimonios</a>
-                <a href="#contacto" class="hover:text-emerald-400 transition-colors">Ubicación y Contacto</a>
-            </nav>
+        <!-- Desktop Navigation -->
+        <nav class="hidden xl:flex items-center gap-5 text-sm font-medium text-slate-300">
+          <a href="#inicio" class="hover:text-emerald-400 transition-colors">Inicio</a>
+          <a href="#pack-ia" class="hover:text-emerald-400 transition-colors flex items-center gap-1">
+            Pack IA <span class="px-1.5 py-0.5 text-[10px] font-bold bg-emerald-500/20 text-emerald-300 rounded-full">1 Año</span>
+          </a>
+          <a href="#servicios" class="hover:text-emerald-400 transition-colors">Servicios</a>
+          <a href="#talleres" class="hover:text-emerald-400 transition-colors">Talleres y Seminarios</a>
+          <a href="#cursos" class="hover:text-emerald-400 transition-colors">Cursos Presenciales</a>
+          <a href="#herramientas-pro" class="hover:text-emerald-400 transition-colors">Herramientas PRO</a>
+          <a href="#skill-pro" class="hover:text-emerald-400 transition-colors">Skill PRO</a>
+          <a href="#gold-pro" class="hover:text-amber-400 text-amber-300/90 transition-colors font-semibold">GOLD PRO</a>
+          <a href="#sobre-mi" class="hover:text-emerald-400 transition-colors">Sobre Mí</a>
+          <a href="#testimonios" class="hover:text-emerald-400 transition-colors">Testimonios</a>
+          <a href="#contacto" class="hover:text-emerald-400 transition-colors">Contacto</a>
+        </nav>
 
-            <!-- CTA Menú Superior -->
-            <div class="flex items-center gap-3">
-                <button onclick="sendWhatsApp('General - Header')" class="hidden sm:inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-emerald-500/20 text-xs sm:text-sm">
-                    <i class="fa-brands fa-whatsapp text-base"></i>
-                    <span>Contactar Ahora</span>
-                </button>
+        <!-- Action CTA & Mobile Toggle -->
+        <div class="flex items-center gap-3">
+          <a href="https://wa.me/59175069812?text=Hola%20Fernando%2C%20me%20interesa%20impulsar%20mi%20negocio%20con%20tus%20soluciones%20digitales."
+             target="_blank" rel="noopener noreferrer"
+             class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-emerald-500/25">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+            Contactar Ahora
+          </a>
 
-                <!-- Botón Menú Mobile -->
-                <button onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white p-2 rounded-lg bg-slate-900 border border-slate-800">
-                    <i class="fa-solid fa-bars text-lg" id="menu-icon"></i>
-                </button>
-            </div>
+          <button id="mobile-menu-btn" type="button" aria-label="Abrir menú"
+                  class="xl:hidden p-2.5 rounded-xl bg-slate-800/80 border border-slate-700 text-slate-200 hover:text-white hover:bg-slate-800 transition-colors">
+            <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
-
-        <!-- Menú Mobile Desplegable -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 border-b border-slate-800 px-4 py-5 space-y-3">
-            <a href="#inicio" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-300 hover:text-emerald-400 py-1.5">Inicio</a>
-            <a href="#pack-promo-ia" onclick="toggleMobileMenu()" class="block text-sm font-bold text-cyan-300 hover:text-cyan-200 py-1.5 flex items-center gap-2">
-                <i class="fa-solid fa-bolt text-xs text-amber-400"></i> Pack Promo IA (1 Año)
-            </a>
-            <a href="#servicios" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-300 hover:text-emerald-400 py-1.5">Servicios</a>
-            <a href="#talleres" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-300 hover:text-emerald-400 py-1.5">Talleres y Seminarios</a>
-            <a href="#cursos-presenciales" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-300 hover:text-emerald-400 py-1.5">Cursos Presenciales</a>
-            <a href="#herramientas-pro" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-300 hover:text-emerald-400 py-1.5">Herramientas PRO</a>
-            <a href="#skill-pro" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-300 hover:text-emerald-400 py-1.5">Skill PRO</a>
-            <a href="#herramientas-gold" onclick="toggleMobileMenu()" class="block text-sm font-semibold text-amber-400 hover:text-amber-300 py-1.5 flex items-center gap-2">
-                <i class="fa-solid fa-crown text-xs"></i> Herramientas GOLD PRO
-            </a>
-            <a href="#sobre-mi" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-300 hover:text-emerald-400 py-1.5">Sobre Mí</a>
-            <a href="#testimonios" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-300 hover:text-emerald-400 py-1.5">Testimonios</a>
-            <a href="#contacto" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-300 hover:text-emerald-400 py-1.5">Ubicación y Contacto</a>
-            <button onclick="sendWhatsApp('General - Mobile Menu')" class="w-full mt-3 flex items-center justify-center gap-2 bg-emerald-500 text-slate-950 font-bold py-3 rounded-xl text-sm">
-                <i class="fa-brands fa-whatsapp text-lg"></i>
-                <span>Enviar WhatsApp Directo</span>
-            </button>
-        </div>
-    </header>
-
-    <main>
-        <!-- SECCIÓN HERO (Modelo AIDA: Atención) -->
-        <section id="inicio" class="relative pt-12 pb-20 md:pt-24 md:pb-32 overflow-hidden">
-            <!-- Luces Neón de Fondo -->
-            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
-            <div class="absolute top-1/3 right-10 w-[350px] h-[350px] bg-teal-500/10 rounded-full blur-[120px] pointer-events-none"></div>
-
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                
-                <!-- Badge de Disponibilidad y Estado Online -->
-                <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-900/90 border border-slate-800 mb-8 shadow-inner">
-                    <span class="relative flex h-3 w-3">
-                        <span class="animate-pulse-glow absolute inline-flex h-full w-full rounded-full bg-emerald-400"></span>
-                        <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                    </span>
-                    <span class="text-xs font-semibold text-slate-300">
-                        Disponible para proyectos en Santa Cruz, Bolivia & Online
-                    </span>
-                </div>
-
-                <!-- Headline Persuasivo -->
-                <h1 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight mb-6 text-white">
-                    Transforma tu Negocio con <br class="hidden sm:inline"/>
-                    <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
-                        Soluciones Digitales de Alta Conversión
-                    </span>
-                </h1>
-
-                <!-- Sub-headline de Beneficios -->
-                <p class="text-slate-400 text-base sm:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
-                    Diseño estrategias de marketing, tiendas virtuales integradas con WhatsApp y Chatbots con Inteligencia Artificial para acelerar tus ventas y automatizar la atención a clientes.
-                </p>
-
-                <!-- Botones Call to Action Principal -->
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <button onclick="sendWhatsApp('Atención - Hero Principal')" class="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold px-8 py-4 rounded-xl transition-all transform hover:-translate-y-1 shadow-xl shadow-emerald-500/25 flex items-center justify-center gap-3 text-base">
-                        <i class="fa-brands fa-whatsapp text-2xl"></i>
-                        <span>Iniciar Proyecto por WhatsApp</span>
-                    </button>
-                    <a href="#servicios" class="w-full sm:w-auto glass-card hover:bg-slate-800 text-slate-200 font-semibold px-8 py-4 rounded-xl transition-all text-base text-center border border-slate-800">
-                        Ver Servicios & Cotizaciones
-                    </a>
-                </div>
-
-                <!-- Métricas e Indicadores de Confianza -->
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto mt-16 pt-10 border-t border-slate-800/80">
-                    <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/50">
-                        <span class="block text-2xl sm:text-3xl font-black text-emerald-400 mb-1">+100%</span>
-                        <span class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">Enfoque en Ventas</span>
-                    </div>
-                    <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/50">
-                        <span class="block text-2xl sm:text-3xl font-black text-white mb-1">WhatsApp</span>
-                        <span class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">Integración Directa</span>
-                    </div>
-                    <div class="col-span-2 md:col-span-1 p-4 rounded-xl bg-slate-900/40 border border-slate-800/50">
-                        <span class="block text-2xl sm:text-3xl font-black text-cyan-400 mb-1">IA Nativa</span>
-                        <span class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">Atención 24/7</span>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SECCIÓN PACK PROMOCIONAL IA (3 Herramientas por 1 Año) -->
-        <section id="pack-promo-ia" class="py-20 bg-gradient-to-b from-[#090d16] via-indigo-950/20 to-[#090d16] relative overflow-hidden border-y border-purple-500/25">
-            <!-- Resplandores de fondo inspirados en la pieza gráfica -->
-            <div class="absolute top-1/4 left-10 w-[400px] h-[400px] bg-purple-600/15 rounded-full blur-[140px] pointer-events-none"></div>
-            <div class="absolute bottom-1/4 right-10 w-[400px] h-[400px] bg-cyan-500/15 rounded-full blur-[140px] pointer-events-none"></div>
-
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                
-                <!-- Encabezado de la Promoción -->
-                <div class="text-center max-w-3xl mx-auto mb-14">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs font-black uppercase tracking-wider mb-4 shadow-lg shadow-purple-500/30">
-                        <i class="fa-solid fa-calendar-check"></i>
-                        <span>Pack Premium por 1 Año</span>
-                    </div>
-                    <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-                        ¡Potencia tu <span class="bg-gradient-to-r from-cyan-400 via-sky-300 to-purple-400 bg-clip-text text-transparent">Creatividad con IA!</span>
-                    </h2>
-                    <p class="text-slate-300 text-sm sm:text-base mt-3 max-w-2xl mx-auto">
-                        3 Herramientas de Inteligencia Artificial para crear, producir y diseñar contenido de alto impacto durante todo un año.
-                    </p>
-                </div>
-
-                <!-- Grid de las 3 Herramientas del Pack -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-7 mb-12">
-                    
-                    <!-- 1. ChatGPT Plus -->
-                    <div class="glass-card glass-card-hover rounded-2xl p-7 flex flex-col justify-between border border-emerald-500/40 shadow-xl shadow-emerald-500/10 relative overflow-hidden">
-                        <div>
-                            <div class="flex items-center justify-between mb-5">
-                                <div class="w-13 h-13 w-12 h-12 rounded-2xl bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 flex items-center justify-center text-2xl">
-                                    <i class="fa-solid fa-brain"></i>
-                                </div>
-                                <span class="text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">
-                                    Suscripción 1 Año
-                                </span>
-                            </div>
-                            <h3 class="text-2xl font-black text-white mb-4">
-                                ChatGPT <span class="text-emerald-400">Plus</span>
-                            </h3>
-                            <ul class="space-y-3 text-sm text-slate-200">
-                                <li class="flex items-start gap-2.5">
-                                    <i class="fa-solid fa-circle-check text-emerald-400 mt-0.5 shrink-0"></i>
-                                    <span>Creación de imágenes publicitarias de alto valor</span>
-                                </li>
-                                <li class="flex items-start gap-2.5">
-                                    <i class="fa-solid fa-circle-check text-emerald-400 mt-0.5 shrink-0"></i>
-                                    <span>Generación de conceptos creativos</span>
-                                </li>
-                                <li class="flex items-start gap-2.5">
-                                    <i class="fa-solid fa-circle-check text-emerald-400 mt-0.5 shrink-0"></i>
-                                    <span>Diseños visuales profesionales con IA</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- 2. Gemini Plus -->
-                    <div class="glass-card glass-card-hover rounded-2xl p-7 flex flex-col justify-between border border-purple-500/50 shadow-xl shadow-purple-500/15 relative overflow-hidden">
-                        <div>
-                            <div class="flex items-center justify-between mb-5">
-                                <div class="w-12 h-12 rounded-2xl bg-purple-500/20 border border-purple-500/40 text-purple-300 flex items-center justify-center text-2xl">
-                                    <!-- Ícono SVG de estrella estilo Gemini -->
-                                    <svg class="w-6 h-6 text-purple-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                        <path d="M12 2C12.4 7.2 16.8 11.6 22 12C16.8 12.4 12.4 16.8 12 22C11.6 16.8 7.2 12.4 2 12C7.2 11.6 11.6 7.2 12 2Z" />
-                                    </svg>
-                                </div>
-                                <span class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-purple-500/15 text-purple-300 border border-purple-500/30">
-                                    <i class="fa-solid fa-calendar-check text-purple-400"></i>
-                                    <span>Suscripción 1 Año</span>
-                                </span>
-                            </div>
-                            <h3 class="text-2xl font-black text-white mb-3">
-                                Gemini <span class="text-purple-400">Plus</span>
-                            </h3>
-                            <!-- Pill 400 Gigas de almacenamiento -->
-                            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-amber-400 text-slate-950 font-extrabold text-xs mb-4 shadow-md">
-                                <i class="fa-brands fa-google-drive text-sm"></i>
-                                <span>400 Gigas de almacenamiento</span>
-                            </div>
-                            <ul class="space-y-3 text-sm text-slate-200">
-                                <li class="flex items-start gap-2.5">
-                                    <i class="fa-solid fa-circle-check text-purple-400 mt-0.5 shrink-0"></i>
-                                    <span>Creación de videos con inteligencia artificial</span>
-                                </li>
-                                <li class="flex items-start gap-2.5">
-                                    <i class="fa-solid fa-circle-check text-purple-400 mt-0.5 shrink-0"></i>
-                                    <span>Producción de contenido audiovisual</span>
-                                </li>
-                                <li class="flex items-start gap-2.5">
-                                    <i class="fa-solid fa-circle-check text-purple-400 mt-0.5 shrink-0"></i>
-                                    <span>Videos publicitarios de alta conversión</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- 3. Canva Pro -->
-                    <div class="glass-card glass-card-hover rounded-2xl p-7 flex flex-col justify-between border border-cyan-500/40 shadow-xl shadow-cyan-500/10 relative overflow-hidden">
-                        <div>
-                            <div class="flex items-center justify-between mb-5">
-                                <div class="w-12 h-12 rounded-2xl bg-cyan-500/15 border border-cyan-500/40 text-cyan-400 flex items-center justify-center text-2xl">
-                                    <i class="fa-solid fa-palette"></i>
-                                </div>
-                                <span class="text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
-                                    Suscripción 1 Año
-                                </span>
-                            </div>
-                            <h3 class="text-2xl font-black text-white mb-4 flex items-center gap-2">
-                                <span>Canva</span>
-                                <span class="bg-cyan-500 text-slate-950 text-xs font-black px-2.5 py-0.5 rounded-lg uppercase">Pro</span>
-                            </h3>
-                            <ul class="space-y-3 text-sm text-slate-200">
-                                <li class="flex items-start gap-2.5">
-                                    <i class="fa-solid fa-circle-check text-cyan-400 mt-0.5 shrink-0"></i>
-                                    <span>Edición profesional de imágenes</span>
-                                </li>
-                                <li class="flex items-start gap-2.5">
-                                    <i class="fa-solid fa-circle-check text-cyan-400 mt-0.5 shrink-0"></i>
-                                    <span>Diseño de campañas publicitarias</span>
-                                </li>
-                                <li class="flex items-start gap-2.5">
-                                    <i class="fa-solid fa-circle-check text-cyan-400 mt-0.5 shrink-0"></i>
-                                    <span>Creación de anuncios para redes sociales</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Bloque de Oferta, Comparativa de Precio y Redirección -->
-                <div class="glass-card rounded-3xl p-6 sm:p-10 border border-purple-500/40 bg-gradient-to-r from-purple-950/40 via-slate-900/90 to-indigo-950/40 shadow-2xl">
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                        
-                        <!-- Precio Promocional Principal -->
-                        <div class="lg:col-span-5 text-center lg:text-left bg-purple-900/30 border border-purple-500/40 rounded-2xl p-6 relative">
-                            <span class="inline-block bg-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider px-3.5 py-1 rounded-lg mb-3 shadow">
-                                Precio Promocional
-                            </span>
-                            <div class="flex items-baseline justify-center lg:justify-start gap-2">
-                                <span class="text-2xl sm:text-3xl font-extrabold text-purple-200">Bs</span>
-                                <span class="text-5xl sm:text-6xl font-black text-white tracking-tight">350</span>
-                            </div>
-                            <p class="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-amber-300 mt-2">
-                                Los 3 servicios por 1 año
-                            </p>
-                        </div>
-
-                        <!-- Comparativa de Ahorro y Botón CTA -->
-                        <div class="lg:col-span-7 flex flex-col justify-between space-y-5">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
-                                <div class="p-4 rounded-xl bg-slate-950/70 border border-slate-800 text-center sm:text-left">
-                                    <span class="block text-xs text-slate-400">Precio individual:</span>
-                                    <span class="text-sm font-bold text-white">Bs 150 por año <span class="font-normal text-slate-400">(cada servicio)</span></span>
-                                </div>
-                                <div class="p-4 rounded-xl bg-slate-950/70 border border-slate-800 text-center sm:text-left">
-                                    <span class="block text-xs text-slate-400">Precio total por separado:</span>
-                                    <span class="text-xl font-black text-red-400 line-through">Bs 450</span>
-                                </div>
-                            </div>
-
-                            <!-- Banner de Ahorro -->
-                            <div class="bg-gradient-to-r from-red-600 to-rose-600 text-white font-black text-center py-2.5 px-4 rounded-xl text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-red-600/20">
-                                ¡Ahorra Bs 100 con el pack completo!
-                            </div>
-
-                            <!-- Acciones: Acceso Exclusivo Miembros + Adquisición por WhatsApp -->
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                                <!-- Botón Acceso para Miembros de la Promo -->
-                                <a href="https://catzadigital.me/promoIA" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-purple-600 via-indigo-500 to-cyan-500 hover:from-purple-500 hover:to-cyan-400 text-white font-black py-4 px-5 rounded-xl transition-all transform hover:-translate-y-0.5 shadow-xl shadow-purple-500/30 border border-purple-300/30 flex flex-col items-center justify-center text-center group">
-                                    <span class="flex items-center gap-2 text-xs sm:text-sm tracking-wide">
-                                        <i class="fa-solid fa-key text-amber-300"></i>
-                                        <span>ACCESO MIEMBROS PROMO</span>
-                                        <i class="fa-solid fa-arrow-up-right-from-square text-[11px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
-                                    </span>
-                                    <span class="text-[10px] font-medium text-purple-100/90 mt-0.5">
-                                        Ingreso exclusivo con tu membresía activa
-                                    </span>
-                                </a>
-
-                                <!-- Botón para Adquirir el Pack por WhatsApp -->
-                                <button onclick="sendWhatsApp('Pack Creatividad con IA (Bs 350 - 1 Año)')" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-4 px-5 rounded-xl transition-all transform hover:-translate-y-0.5 shadow-xl shadow-emerald-500/20 flex flex-col items-center justify-center text-center">
-                                    <span class="flex items-center gap-2 text-xs sm:text-sm tracking-wide">
-                                        <i class="fa-brands fa-whatsapp text-base"></i>
-                                        <span>ADQUIRIR PACK IA</span>
-                                    </span>
-                                    <span class="text-[10px] font-bold text-slate-900/80 mt-0.5">
-                                        Solicitar suscripción por WhatsApp
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SECCIÓN CURSOS Y CAPACITACIONES PRESENCIALES -->
-        <section id="cursos-presenciales" class="py-20 bg-slate-900/40 relative border-b border-slate-800/80">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-2 block">Formación Práctica & Presencial</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Cursos y Capacitaciones Presenciales</h2>
-                    <p class="text-slate-400 text-sm mt-3">Aprende habilidades clave para impulsar tus ventas y dominar las redes sociales con herramientas avanzadas e Inteligencia Artificial.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-
-                    <!-- Curso 1: META ADS CON IA -->
-                    <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden border border-slate-800">
-                        <div>
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-500/20 to-teal-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-2xl mb-6">
-                                <i class="fa-solid fa-bullhorn"></i>
-                            </div>
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">META ADS CON IA</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                                Domina la creación y optimización de campañas publicitarias en Meta (Facebook e Instagram) potencianado tus estrategias con herramientas de Inteligencia Artificial.
-                            </p>
-                        </div>
-                        <a href="https://drive.google.com/drive/folders/19OqMQ_A8IfwEPs8GjeKUIIeRAd5uoACS?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-4 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm shadow-lg shadow-emerald-500/20 active:scale-95 group text-center">
-                            <span>Ver Información del Curso</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
-                        </a>
-                    </div>
-
-                    <!-- Curso 2: MARKETING DIGITAL Y VENTAS EN REDES SOCIALES -->
-                    <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden border border-slate-800">
-                        <div>
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-500/20 to-teal-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-2xl mb-6">
-                                <i class="fa-solid fa-chart-line"></i>
-                            </div>
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">MARKETING DIGITAL Y VENTAS EN REDES SOCIALES</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                                Estrategias integrales de comunicación, atracción de prospectos y técnicas de ventas en plataformas sociales para hacer crecer tu negocio.
-                            </p>
-                        </div>
-                        <a href="https://drive.google.com/drive/folders/1O9vyVufJ_308U_CcqKwHeH1mlrTyFB2d?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-4 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm shadow-lg shadow-emerald-500/20 active:scale-95 group text-center">
-                            <span>Ver Información del Curso</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
-                        </a>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SECCIÓN HERRAMIENTAS DIGITALES PRO -->
-        <section id="herramientas-pro" class="py-20 bg-slate-900/40 relative border-b border-slate-800/80">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-2 block">Recursos de Inteligencia Artificial</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Herramientas Digitales PRO</h2>
-                    <p class="text-slate-400 text-sm mt-3">Accede directamente a nuestros generadores impulsados por IA para optimizar la creación de tu negocio digital.</p>
-                </div>
-
-                <!-- Grid de 3 columnas para las Herramientas Digitales PRO -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    
-                    <!-- Herramienta 1 -->
-                    <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
-                        <div>
-                            <div class="w-13 h-13 w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-xl mb-5">
-                                <i class="fa-solid fa-wand-magic-sparkles"></i>
-                            </div>
-                            <h3 class="text-lg font-bold text-white mb-2.5">Generador de Sitios Web</h3>
-                            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
-                                Herramienta de IA diseñada para estructurar y crear landing pages y sitios web optimizados para la conversión de manera rápida y eficiente.
-                            </p>
-                        </div>
-                        <a href="https://gemini.google.com/gem/1RryDrDj5YoSziwz2h7p_Q3ODhdYL4XOH?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-800 hover:bg-emerald-500 text-slate-200 hover:text-slate-950 font-bold py-3.5 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-xs sm:text-sm border border-slate-700 hover:border-emerald-500 group">
-                            <span>Abrir Herramienta</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
-                        </a>
-                    </div>
-
-                    <!-- Herramienta 2 -->
-                    <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
-                        <div>
-                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-xl mb-5">
-                                <i class="fa-solid fa-pen-nib"></i>
-                            </div>
-                            <h3 class="text-lg font-bold text-white mb-2.5">Generador de Copywriting & Video Ads</h3>
-                            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
-                                Crea guiones persuasivos, textos publicitarios y estructuras de video marketing enfocadas en captar la atención de tus clientes ideales.
-                            </p>
-                        </div>
-                        <a href="https://gemini.google.com/share/27e76b236b5f" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-800 hover:bg-emerald-500 text-slate-200 hover:text-slate-950 font-bold py-3.5 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-xs sm:text-sm border border-slate-700 hover:border-emerald-500 group">
-                            <span>Abrir Herramienta</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
-                        </a>
-                    </div>
-
-                    <!-- Herramienta 3 -->
-                    <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
-                        <div>
-                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-xl mb-5">
-                                <i class="fa-solid fa-robot"></i>
-                            </div>
-                            <h3 class="text-lg font-bold text-white mb-2.5">Generador de Chatbot con IA</h3>
-                            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
-                                Configura prompts y flujos de conversación inteligentes para automatizar el servicio al cliente y las ventas en tu negocio 24/7.
-                            </p>
-                        </div>
-                        <a href="https://gemini.google.com/share/ed976fcad1c3" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-800 hover:bg-emerald-500 text-slate-200 hover:text-slate-950 font-bold py-3.5 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-xs sm:text-sm border border-slate-700 hover:border-emerald-500 group">
-                            <span>Abrir Herramienta</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
-                        </a>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SECCIÓN SKILL PRO -->
-        <section id="skill-pro" class="py-20 bg-[#090d16] relative border-b border-slate-800/80">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="text-xs font-bold uppercase tracking-widest text-cyan-400 mb-2 block">Skills & Plantillas Especializadas</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Skill PRO</h2>
-                    <p class="text-slate-400 text-sm mt-3">Potencia tu producción creativa con nuestras Skills diseñadas para generar videos dinámicos e imágenes profesionales con Inteligencia Artificial.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-
-                    <!-- Skill 1: Skill VIDEO CREATIVO PUBLICITARIO IA -->
-                    <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden border border-emerald-500/30 bg-emerald-950/10">
-                        <div class="absolute -top-3 right-6 bg-gradient-to-r from-emerald-400 to-teal-400 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md">
-                            PRO • Video IA
-                        </div>
-                        <div>
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-500/20 to-teal-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center text-2xl mb-6">
-                                <i class="fa-solid fa-film"></i>
-                            </div>
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">Skill VIDEO CREATIVO PUBLICITARIO IA</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                                Plantilla y estructura de prompts especializados para crear videos creativos y publicitarios de alto impacto con Inteligencia Artificial.
-                            </p>
-                        </div>
-                        <a href="https://drive.google.com/drive/folders/1xD0xLtHzebneCUEp1-h46J-3rY3w7sIY?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-4 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm shadow-lg shadow-emerald-500/20 active:scale-95 group text-center">
-                            <span>Acceder a Skill Video IA</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
-                        </a>
-                    </div>
-
-                    <!-- Skill 2: Skill imagen profesional IA -->
-                    <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden border border-cyan-500/30 bg-cyan-950/10">
-                        <div class="absolute -top-3 right-6 bg-gradient-to-r from-cyan-400 to-sky-400 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md">
-                            Nuevo • IA Visual
-                        </div>
-                        <div>
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-cyan-500/20 to-indigo-500/20 border border-cyan-500/40 text-cyan-400 flex items-center justify-center text-2xl mb-6">
-                                <i class="fa-solid fa-image"></i>
-                            </div>
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">Skill imagen profesional IA</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                                Estructura especializada y prompts optimizados para generar fotografías e imágenes publicitarias con acabado de estudio profesional mediante Inteligencia Artificial.
-                            </p>
-                        </div>
-                        <a href="https://drive.google.com/drive/folders/1R00otLNsb5ThQWfZkL1VRP0KB2OeU4iG?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-cyan-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 text-slate-950 font-black py-4 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm shadow-lg shadow-cyan-500/20 active:scale-95 group text-center">
-                            <span>Acceder a Skill Imagen IA</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
-                        </a>
-                    </div>
-
-                    <!-- Skill 3: Skill Generador de Prompt -->
-                    <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden border border-purple-500/30 bg-purple-950/10">
-                        <div class="absolute -top-3 right-6 bg-gradient-to-r from-purple-400 to-indigo-400 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md">
-                            PRO • Prompts IA
-                        </div>
-                        <div>
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-500/20 to-indigo-500/20 border border-purple-500/40 text-purple-400 flex items-center justify-center text-2xl mb-6">
-                                <i class="fa-solid fa-terminal"></i>
-                            </div>
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">Skill Generador de Prompt</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                                Metodología y estructuras avanzadas diseñadas para crear prompts claros, precisos y altamente efectivos para cualquier modelo de Inteligencia Artificial.
-                            </p>
-                        </div>
-                        <a href="https://drive.google.com/drive/folders/10a6ENRvisC7iXI5oXbvcf3Fy6YdJXy1b?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-purple-400 to-indigo-400 hover:from-purple-300 hover:to-indigo-300 text-slate-950 font-black py-4 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm shadow-lg shadow-purple-500/20 active:scale-95 group text-center">
-                            <span>Acceder a Generador de Prompt</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
-                        </a>
-                    </div>
-
-                    <!-- Skill 4: Skill Generador de Aplicaciones (Microapps) -->
-                    <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden border border-teal-500/30 bg-teal-950/10">
-                        <div class="absolute -top-3 right-6 bg-gradient-to-r from-teal-400 to-emerald-400 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md">
-                            PRO • Microapps IA
-                        </div>
-                        <div>
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-teal-500/20 to-emerald-500/20 border border-teal-500/40 text-teal-400 flex items-center justify-center text-2xl mb-6">
-                                <i class="fa-solid fa-cubes"></i>
-                            </div>
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">Skill Generador de Aplicaciones (Microapps)</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                                Guías y plantillas estructuradas para conceptualizar, diseñar y construir microaplicaciones web funcionales de forma ágil con Inteligencia Artificial.
-                            </p>
-                        </div>
-                        <a href="https://drive.google.com/drive/folders/1dK1QNvHEUry-LIcHD43EM0FzNTfFFElM?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-teal-400 to-emerald-400 hover:from-teal-300 hover:to-emerald-300 text-slate-950 font-black py-4 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm shadow-lg shadow-teal-500/20 active:scale-95 group text-center">
-                            <span>Acceder a Generador de Microapps</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
-                        </a>
-                    </div>
-
-                    <!-- Skill 5: Skill Generador de Aplicaciones (WEB) de alta conversión -->
-                    <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden border border-sky-500/30 bg-sky-950/10">
-                        <div class="absolute -top-3 right-6 bg-gradient-to-r from-sky-400 to-blue-400 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md">
-                            PRO • Web IA
-                        </div>
-                        <div>
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-sky-500/20 to-blue-500/20 border border-sky-500/40 text-sky-400 flex items-center justify-center text-2xl mb-6">
-                                <i class="fa-solid fa-laptop-code"></i>
-                            </div>
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">Skill Generador de Aplicaciones (WEB) de alta conversión</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                                Plantillas, estructuras y prompts especializados para diseñar y crear páginas web y landing pages profesionales de alta conversión con Inteligencia Artificial.
-                            </p>
-                        </div>
-                        <a href="https://drive.google.com/drive/folders/1WRd4sRA3dkvOu4Cy-bMSdma3q66yxSFU?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-sky-400 to-cyan-400 hover:from-sky-300 hover:to-cyan-300 text-slate-950 font-black py-4 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm shadow-lg shadow-sky-500/20 active:scale-95 group text-center">
-                            <span>Acceder a Generador de Páginas Web</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
-                        </a>
-                    </div>
-
-                    <!-- Skill 6: skill_WEB_DESIGN_STUDIO_AI -->
-                    <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden border border-indigo-500/30 bg-indigo-950/10">
-                        <div class="absolute -top-3 right-6 bg-gradient-to-r from-indigo-400 to-purple-400 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md">
-                            PRO • Web Studio IA
-                        </div>
-                        <div>
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-indigo-500/20 to-purple-500/20 border border-indigo-500/40 text-indigo-400 flex items-center justify-center text-2xl mb-6">
-                                <i class="fa-solid fa-layer-group"></i>
-                            </div>
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 break-words">skill_WEB_DESIGN_STUDIO_AI</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                                Estudio de diseño web impulsado por Inteligencia Artificial con arquitecturas visuales, sistemas de diseño y prompts avanzados para crear interfaces modernas de alto impacto.
-                            </p>
-                        </div>
-                        <a href="https://drive.google.com/drive/folders/16K0bBgbc_QCuH4CWM8q1wyHapvji_1Xo?usp=drive_link" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-indigo-400 to-purple-400 hover:from-indigo-300 hover:to-purple-300 text-slate-950 font-black py-4 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm shadow-lg shadow-indigo-500/20 active:scale-95 group text-center">
-                            <span>Acceder a Web Design Studio AI</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
-                        </a>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="py-8 bg-slate-950 border-t border-slate-800 text-center text-xs text-slate-500">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p>© 2026 Fernando Yupanqui Rojas. Todos los derechos reservados.</p>
-            <p class="font-mono text-[11px] text-slate-400">Santa Cruz de la Sierra, Bolivia • GitHub Pages Ready</p>
-        </div>
-    </footer>
-
-    <!-- BOTÓN FLOTANTE DE WHATSAPP CON BADGE DINÁMICO "• ONLINE" -->
-    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
-        <!-- Globito informativo de estado -->
-        <div class="hidden sm:flex items-center gap-2 bg-slate-900/95 border border-slate-700 text-slate-200 text-xs font-medium py-2 px-3.5 rounded-2xl shadow-2xl backdrop-blur-md">
-            <span class="relative flex h-2.5 w-2.5">
-                <span class="animate-pulse-glow absolute inline-flex h-full w-full rounded-full bg-emerald-400"></span>
-                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-            </span>
-            <span class="font-semibold text-slate-200">¡Hola! Estoy online</span>
-        </div>
-
-        <!-- Botón flotante interactivo -->
-        <button onclick="sendWhatsApp('Widget Flotante')" aria-label="Contacto WhatsApp" class="relative group w-14 h-14 bg-emerald-500 hover:bg-emerald-400 text-slate-950 rounded-full flex items-center justify-center text-3xl shadow-2xl shadow-emerald-500/50 transition-all transform hover:scale-110 active:scale-95">
-            <i class="fa-brands fa-whatsapp"></i>
-            
-            <!-- Badge Pequeño de Notificación -->
-            <span class="absolute -top-1 -right-1 flex h-4 w-4">
-                <span class="animate-pulse-glow absolute inline-flex h-full w-full rounded-full bg-emerald-400"></span>
-                <span class="relative inline-flex rounded-full h-4 w-4 bg-emerald-600 text-[9px] text-white font-bold items-center justify-center">1</span>
-            </span>
-        </button>
+      </div>
     </div>
 
-    <!-- Script Vanilla JS para Integración de WhatsApp y Validación HTML5 -->
-    <script>
-        const whatsappNumber = "59175069812";
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden xl:hidden bg-slate-900/98 border-b border-slate-800 px-4 pt-3 pb-6 space-y-2">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-sm font-medium">
+        <a href="#inicio" class="mobile-nav-link px-3 py-2.5 rounded-xl text-slate-200 hover:bg-slate-800">Inicio</a>
+        <a href="#pack-ia" class="mobile-nav-link px-3 py-2.5 rounded-xl text-emerald-400 hover:bg-slate-800 font-semibold">Pack Promo IA (1 Año)</a>
+        <a href="#servicios" class="mobile-nav-link px-3 py-2.5 rounded-xl text-slate-200 hover:bg-slate-800">Servicios</a>
+        <a href="#talleres" class="mobile-nav-link px-3 py-2.5 rounded-xl text-slate-200 hover:bg-slate-800">Talleres y Seminarios</a>
+        <a href="#cursos" class="mobile-nav-link px-3 py-2.5 rounded-xl text-slate-200 hover:bg-slate-800">Cursos Presenciales</a>
+        <a href="#herramientas-pro" class="mobile-nav-link px-3 py-2.5 rounded-xl text-slate-200 hover:bg-slate-800">Herramientas PRO</a>
+        <a href="#skill-pro" class="mobile-nav-link px-3 py-2.5 rounded-xl text-slate-200 hover:bg-slate-800">Skill PRO</a>
+        <a href="#gold-pro" class="mobile-nav-link px-3 py-2.5 rounded-xl text-amber-400 hover:bg-slate-800 font-semibold">Herramientas GOLD PRO</a>
+        <a href="#sobre-mi" class="mobile-nav-link px-3 py-2.5 rounded-xl text-slate-200 hover:bg-slate-800">Sobre Mí</a>
+        <a href="#testimonios" class="mobile-nav-link px-3 py-2.5 rounded-xl text-slate-200 hover:bg-slate-800">Testimonios</a>
+        <a href="#contacto" class="mobile-nav-link px-3 py-2.5 rounded-xl text-slate-200 hover:bg-slate-800">Ubicación y Contacto</a>
+      </div>
+      <div class="pt-3 border-t border-slate-800">
+        <a href="https://wa.me/59175069812?text=Hola%20Fernando%2C%20quisiera%20consultar%20sobre%20tus%20servicios."
+           target="_blank" rel="noopener noreferrer"
+           class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm transition-colors">
+          Enviar WhatsApp Directo
+        </a>
+      </div>
+    </div>
+  </header>
 
-        // Función para enviar mensaje directo a WhatsApp
-        function sendWhatsApp(serviceName) {
-            let message = "";
-            
-            if (serviceName.includes('Skill Video PRO') || serviceName.includes('GOLD PRO')) {
-                message = "Hola Fernando, deseo solicitar acceso exclusivo a la herramienta *Skill Video PRO* (GOLD PRO - Solo para Miembros). ¿Cuáles son los requisitos de acceso?";
-            } else if (serviceName.includes('Pack Creatividad con IA')) {
-                message = "Hola Fernando, quiero adquirir el *Pack Premium de IA por 1 Año* (ChatGPT Plus + Gemini Plus 400GB + Canva Pro) al precio promocional de *Bs 350*. ¿Cómo realizo el pago y la activación?";
-            } else if (serviceName.includes('General') || serviceName.includes('Hero') || serviceName.includes('Widget')) {
-                message = "Hola Fernando, estuve revisando tu sitio web personal y me gustaría recibir información sobre tus soluciones digitales.";
-            } else {
-                message = `Hola Fernando, estoy interesado en recibir información y cotización sobre el servicio de: *${serviceName}*. ¿Podríamos agendar una conversación?`;
-            }
+  <!-- =========================================================
+       HERO SECTION
+  ========================================================== -->
+  <section id="inicio" class="relative hero-glow pt-16 pb-20 sm:pt-24 sm:pb-28 border-b border-slate-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <!-- Availability Pill -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs sm:text-sm font-medium mb-8">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+        </span>
+        Disponible para proyectos en Santa Cruz, Bolivia &amp; Online
+      </div>
 
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-            window.open(whatsappUrl, '_blank');
+      <!-- Main Headline -->
+      <h1 class="max-w-4xl mx-auto text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.12] mb-6">
+        Transforma tu Negocio con <br class="hidden sm:block" />
+        <span class="bg-gradient-to-r from-emerald-400 via-cyan-300 to-emerald-400 bg-clip-text text-transparent">
+          Soluciones Digitales de Alta Conversión
+        </span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-300 leading-relaxed mb-10">
+        Diseño estrategias de marketing, tiendas virtuales integradas con WhatsApp y Chatbots con Inteligencia Artificial para acelerar tus ventas y automatizar la atención a clientes.
+      </p>
+
+      <!-- Hero CTA Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+        <a href="https://wa.me/59175069812?text=Hola%20Fernando%2C%20quiero%20iniciar%20un%20proyecto%20digital%20para%20mi%20negocio."
+           target="_blank" rel="noopener noreferrer"
+           class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-base shadow-xl shadow-emerald-500/25 transition-all hover:scale-[1.02]">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+          Iniciar Proyecto por WhatsApp
+        </a>
+        <a href="#servicios"
+           class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-base border border-slate-700/80 transition-all">
+          Ver Servicios &amp; Cotizaciones
+          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Value Pillars -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <div class="p-5 rounded-2xl bg-slate-900/70 border border-slate-800/90 flex flex-col items-center">
+          <span class="text-2xl sm:text-3xl font-black text-emerald-400">+100%</span>
+          <span class="text-sm font-medium text-slate-300 mt-1">Enfoque en Ventas</span>
+        </div>
+        <div class="p-5 rounded-2xl bg-slate-900/70 border border-slate-800/90 flex flex-col items-center">
+          <span class="text-2xl sm:text-3xl font-black text-cyan-400">WhatsApp</span>
+          <span class="text-sm font-medium text-slate-300 mt-1">Integración Directa</span>
+        </div>
+        <div class="p-5 rounded-2xl bg-slate-900/70 border border-slate-800/90 flex flex-col items-center">
+          <span class="text-2xl sm:text-3xl font-black text-purple-400">IA Nativa</span>
+          <span class="text-sm font-medium text-slate-300 mt-1">Atención 24/7</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PACK PREMIUM POR 1 AÑO (CHATGPT PLUS + GEMINI PLUS + CANVA PRO)
+  ========================================================== -->
+  <section id="pack-ia" class="py-20 sm:py-24 border-b border-slate-800/60 bg-gradient-to-b from-slate-950 to-slate-900/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="inline-block px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          Pack Premium por 1 Año
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">
+          ¡Potencia tu Creatividad con IA!
+        </h2>
+        <p class="text-slate-300 text-base sm:text-lg">
+          3 Herramientas de Inteligencia Artificial para crear, producir y diseñar contenido de alto impacto durante todo un año.
+        </p>
+      </div>
+
+      <!-- 3 AI Subscriptions Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <!-- Card 1: ChatGPT Plus -->
+        <div class="p-7 rounded-2xl bg-slate-900/90 border border-slate-800 card-hover flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <span class="px-3 py-1 rounded-lg bg-emerald-500/15 text-emerald-400 text-xs font-bold">Suscripción 1 Año</span>
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold">
+                GPT
+              </div>
+            </div>
+            <h3 class="text-2xl font-extrabold text-white mb-4">ChatGPT Plus</h3>
+            <ul class="space-y-3 text-sm text-slate-300">
+              <li class="flex items-start gap-2.5">
+                <svg class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Creación de imágenes publicitarias de alto valor</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Generación de conceptos creativos</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Diseños visuales profesionales con IA</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-800/80 text-xs text-slate-400">
+            Incluido en el Pack Anual Completo
+          </div>
+        </div>
+
+        <!-- Card 2: Gemini Plus -->
+        <div class="p-7 rounded-2xl bg-slate-900/90 border border-cyan-500/40 card-hover flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute top-0 right-0 px-3 py-1 bg-cyan-500 text-slate-950 text-[11px] font-black rounded-bl-xl">
+            +400 GB NUBE
+          </div>
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <span class="px-3 py-1 rounded-lg bg-cyan-500/15 text-cyan-300 text-xs font-bold">Suscripción 1 Año</span>
+              <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-300 font-bold">
+                AI
+              </div>
+            </div>
+            <h3 class="text-2xl font-extrabold text-white mb-1">Gemini Plus</h3>
+            <p class="text-xs font-semibold text-cyan-400 mb-4">400 Gigas de almacenamiento</p>
+            <ul class="space-y-3 text-sm text-slate-300">
+              <li class="flex items-start gap-2.5">
+                <svg class="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Creación de videos con inteligencia artificial</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Producción de contenido audiovisual</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Videos publicitarios de alta conversión</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-800/80 text-xs text-slate-400">
+            Incluido en el Pack Anual Completo
+          </div>
+        </div>
+
+        <!-- Card 3: Canva Pro -->
+        <div class="p-7 rounded-2xl bg-slate-900/90 border border-slate-800 card-hover flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <span class="px-3 py-1 rounded-lg bg-purple-500/15 text-purple-300 text-xs font-bold">Suscripción 1 Año</span>
+              <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-300 font-bold">
+                PRO
+              </div>
+            </div>
+            <h3 class="text-2xl font-extrabold text-white mb-4">Canva Pro</h3>
+            <ul class="space-y-3 text-sm text-slate-300">
+              <li class="flex items-start gap-2.5">
+                <svg class="w-5 h-5 text-purple-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Edición profesional de imágenes</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="w-5 h-5 text-purple-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Diseño de campañas publicitarias</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="w-5 h-5 text-purple-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Creación de anuncios para redes sociales</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-800/80 text-xs text-slate-400">
+            Incluido en el Pack Anual Completo
+          </div>
+        </div>
+      </div>
+
+      <!-- Promotional Pricing Banner -->
+      <div class="rounded-3xl bg-gradient-to-r from-slate-900 via-emerald-950/30 to-slate-900 border border-emerald-500/35 p-8 sm:p-10 shadow-2xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7 space-y-3 text-center lg:text-left">
+            <span class="inline-block px-3 py-1 rounded-full bg-emerald-500 text-slate-950 text-xs font-black uppercase tracking-wider">
+              Precio Promocional
+            </span>
+            <div class="flex flex-wrap items-baseline justify-center lg:justify-start gap-3">
+              <span class="text-4xl sm:text-6xl font-black text-white">Bs 350</span>
+              <span class="text-lg sm:text-xl font-bold text-emerald-400">Los 3 servicios por 1 año</span>
+            </div>
+            <div class="text-sm text-slate-300 space-y-1">
+              <p>Precio individual: <span class="font-semibold text-white">Bs 150 por año</span> (cada servicio) • Precio total por separado: <span class="line-through text-slate-400">Bs 450</span></p>
+              <p class="text-emerald-400 font-bold text-base">¡Ahorra Bs 100 con el pack completo!</p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3">
+            <a href="https://wa.me/59175069812?text=Hola%20Fernando%2C%20quiero%20adquirir%20el%20PACK%20IA%20ANUAL%20(ChatGPT%20Plus%20%2B%20Gemini%20Plus%20%2B%20Canva%20Pro)%20por%20Bs%20350."
+               target="_blank" rel="noopener noreferrer"
+               class="flex-1 flex flex-col items-center justify-center px-6 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-base transition-all shadow-lg shadow-emerald-500/25 text-center">
+              <span>ADQUIRIR PACK IA</span>
+              <span class="text-xs font-semibold opacity-90">Solicitar suscripción por WhatsApp</span>
+            </a>
+            <a href="promoIA/index.html"
+               class="flex-1 flex flex-col items-center justify-center px-6 py-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-slate-700 text-white font-bold text-sm transition-all text-center">
+              <span>ACCESO MIEMBROS PROMO</span>
+              <span class="text-xs font-normal text-slate-400">Ingreso exclusivo con tu membresía activa</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CURSOS Y CAPACITACIONES PRESENCIALES
+  ========================================================== -->
+  <section id="cursos" class="py-20 border-b border-slate-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="inline-block px-3.5 py-1.5 rounded-full bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 text-xs font-bold uppercase tracking-wider mb-4">
+          Formación Práctica &amp; Presencial
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">
+          Cursos y Capacitaciones Presenciales
+        </h2>
+        <p class="text-slate-300 text-base sm:text-lg">
+          Aprende habilidades clave para impulsar tus ventas y dominar las redes sociales con herramientas avanzadas e Inteligencia Artificial.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Curso 1 -->
+        <div class="p-8 rounded-3xl bg-slate-900/90 border border-slate-800 card-hover flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
+            </div>
+            <h3 class="text-2xl font-extrabold text-white mb-3">META ADS CON IA</h3>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+              Domina la creación y optimización de campañas publicitarias en Meta (Facebook e Instagram) potenciando tus estrategias con herramientas de Inteligencia Artificial.
+            </p>
+          </div>
+          <a href="meta-ads-ia/index.html"
+             class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition-colors">
+            Ver Información del Curso
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+
+        <!-- Curso 2 -->
+        <div class="p-8 rounded-3xl bg-slate-900/90 border border-slate-800 card-hover flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            </div>
+            <h3 class="text-2xl font-extrabold text-white mb-3">MARKETING DIGITAL Y VENTAS EN REDES SOCIALES</h3>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+              Estrategias integrales de comunicación, atracción de prospectos y técnicas de ventas en plataformas sociales para hacer crecer tu negocio.
+            </p>
+          </div>
+          <a href="marketing/index.html"
+             class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm transition-colors">
+            Ver Información del Curso
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       HERRAMIENTAS DIGITALES PRO
+  ========================================================== -->
+  <section id="herramientas-pro" class="py-20 border-b border-slate-800/60 bg-slate-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="inline-block px-3.5 py-1.5 rounded-full bg-purple-500/15 border border-purple-500/30 text-purple-300 text-xs font-bold uppercase tracking-wider mb-4">
+          Recursos de Inteligencia Artificial
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">
+          Herramientas Digitales PRO
+        </h2>
+        <p class="text-slate-300 text-base sm:text-lg">
+          Accede directamente a nuestros generadores impulsados por IA para optimizar la creación de tu negocio digital.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <!-- Tool 2 -->
+        <div class="p-7 rounded-2xl bg-slate-900 border border-slate-800 card-hover flex flex-col justify-between">
+          <div>
+            <div class="w-11 h-11 rounded-xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2.5">Generador de Copywriting &amp; Video Ads</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mb-6">
+              Crea guiones persuasivos, textos publicitarios y estructuras de video marketing enfocadas en captar la atención de tus clientes ideales.
+            </p>
+          </div>
+          <a href="https://wa.me/59175069812?text=Hola%20Fernando%2C%20quiero%20acceder%20al%20Generador%20de%20Copywriting%20%26%20Video%20Ads%20PRO."
+             target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 font-bold text-sm border border-slate-700 hover:border-cyan-500 transition-all">
+            Abrir Herramienta
+          </a>
+        </div>
+
+        <!-- Tool 3 -->
+        <div class="p-7 rounded-2xl bg-slate-900 border border-slate-800 card-hover flex flex-col justify-between">
+          <div>
+            <div class="w-11 h-11 rounded-xl bg-purple-500/15 text-purple-400 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2.5">Generador de Chatbot con IA</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mb-6">
+              Configura prompts y flujos de conversación inteligentes para automatizar el servicio al cliente y las ventas en tu negocio 24/7.
+            </p>
+          </div>
+          <a href="https://wa.me/59175069812?text=Hola%20Fernando%2C%20quiero%20acceder%20al%20Generador%20de%20Chatbot%20con%20IA%20PRO."
+             target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-slate-800 hover:bg-purple-500 hover:text-slate-950 text-purple-400 font-bold text-sm border border-slate-700 hover:border-purple-500 transition-all">
+            Abrir Herramienta
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SKILL PRO — SKILLS & PLANTILLAS ESPECIALIZADAS
+  ========================================================== -->
+  <section id="skill-pro" class="py-20 border-b border-slate-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="inline-block px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-4">
+          Skills &amp; Plantillas Especializadas
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">
+          Skill PRO
+        </h2>
+        <p class="text-slate-300 text-base sm:text-lg">
+          Potencia tu producción creativa con nuestras Skills diseñadas para generar videos dinámicos e imágenes profesionales con Inteligencia Artificial.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Skill 1 -->
+        <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 card-hover flex flex-col justify-between">
+          <div>
+            <span class="inline-block px-2.5 py-1 rounded-md bg-emerald-500/15 text-emerald-400 text-xs font-bold mb-3">PRO • Video IA</span>
+            <h3 class="text-lg font-extrabold text-white mb-2">Skill VIDEO CREATIVO PUBLICITARIO IA</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mb-5">
+              Plantilla y estructura de prompts especializados para crear videos creativos y publicitarios de alto impacto con Inteligencia Artificial.
+            </p>
+          </div>
+          <a href="https://wa.me/59175069812?text=Hola%20Fernando%2C%20quiero%20acceder%20a%20Skill%20VIDEO%20CREATIVO%20PUBLICITARIO%20IA."
+             target="_blank" rel="noopener noreferrer"
+             class="w-full text-center px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 text-white font-semibold text-sm transition-colors">
+            Acceder a Skill Video IA
+          </a>
+        </div>
+
+        <!-- Skill 2 -->
+        <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 card-hover flex flex-col justify-between">
+          <div>
+            <span class="inline-block px-2.5 py-1 rounded-md bg-cyan-500/15 text-cyan-300 text-xs font-bold mb-3">Nuevo • IA Visual</span>
+            <h3 class="text-lg font-extrabold text-white mb-2">Skill imagen profesional IA</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mb-5">
+              Estructura especializada y prompts optimizados para generar fotografías e imágenes publicitarias con acabado de estudio profesional mediante Inteligencia Artificial.
+            </p>
+          </div>
+          <a href="https://wa.me/59175069812?text=Hola%20Fernando%2C%20quiero%20acceder%20a%20Skill%20Imagen%20Profesional%20IA."
+             target="_blank" rel="noopener noreferrer"
+             class="w-full text-center px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-white font-semibold text-sm transition-colors">
+            Acceder a Skill Imagen IA
+          </a>
+        </div>
+
+        <!-- Skill 3 -->
+        <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 card-hover flex flex-col justify-between">
+          <div>
+            <span class="inline-block px-2.5 py-1 rounded-md bg-purple-500/15 text-purple-300 text-xs font-bold mb-3">PRO • Prompts IA</span>
+            <h3 class="text-lg font-extrabold text-white mb-2">Skill Generador de Prompt</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mb-5">
+              Metodología y estructuras avanzadas diseñadas para crear prompts claros, precisos y altamente efectivos para cualquier modelo de Inteligencia Artificial.
+            </p>
+          </div>
+          <a href="https://wa.me/59175069812?text=Hola%20Fernando%2C%20quiero%20acceder%20a%20Skill%20Generador%20de%20Prompt."
+             target="_blank" rel="noopener noreferrer"
+             class="w-full text-center px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-purple-500 hover:text-slate-950 text-white font-semibold text-sm transition-colors">
+            Acceder a Generador de Prompt
+          </a>
+        </div>
+
+        <!-- Skill 4 -->
+        <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 card-hover flex flex-col justify-between">
+          <div>
+            <span class="inline-block px-2.5 py-1 rounded-md bg-emerald-500/15 text-emerald-400 text-xs font-bold mb-3">PRO • Microapps IA</span>
+            <h3 class="text-lg font-extrabold text-white mb-2">Skill Generador de Aplicaciones (Microapps)</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mb-5">
+              Guías y plantillas estructuradas para conceptualizar, diseñar y construir microaplicaciones web funcionales de forma ágil con Inteligencia Artificial.
+            </p>
+          </div>
+          <a href="microapps/index.html"
+             class="w-full text-center px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 text-white font-semibold text-sm transition-colors">
+            Acceder a Generador de Microapps
+          </a>
+        </div>
+
+        <!-- Skill 5 -->
+        <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 card-hover flex flex-col justify-between">
+          <div>
+            <span class="inline-block px-2.5 py-1 rounded-md bg-cyan-500/15 text-cyan-300 text-xs font-bold mb-3">PRO • Web IA</span>
+            <h3 class="text-lg font-extrabold text-white mb-2">Skill Generador de Aplicaciones (WEB) de alta conversión</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mb-5">
+              Plantillas, estructuras y prompts especializados para diseñar y crear páginas web y landing pages profesionales de alta conversión con Inteligencia Artificial.
+            </p>
+          </div>
+          <a href="https://wa.me/59175069812?text=Hola%20Fernando%2C%20quiero%20acceder%20a%20Skill%20Generador%20de%20Paginas%20Web%20de%20alta%20conversion."
+             target="_blank" rel="noopener noreferrer"
+             class="w-full text-center px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-white font-semibold text-sm transition-colors">
+            Acceder a Generador de Páginas Web
+          </a>
+        </div>
+
+        <!-- Skill 6 -->
+        <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 card-hover flex flex-col justify-between">
+          <div>
+            <span class="inline-block px-2.5 py-1 rounded-md bg-indigo-500/15 text-indigo-300 text-xs font-bold mb-3">PRO • Web Studio IA</span>
+            <h3 class="text-lg font-extrabold text-white mb-2">skill_WEB_DESIGN_STUDIO_AI</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mb-5">
+              Estudio de diseño web impulsado por Inteligencia Artificial con arquitecturas visuales, sistemas de diseño y prompts avanzados para crear interfaces modernas de alto impacto.
+            </p>
+          </div>
+          <a href="https://wa.me/59175069812?text=Hola%20Fernando%2C%20quiero%20acceder%20a%20skill_WEB_DESIGN_STUDIO_AI."
+             target="_blank" rel="noopener noreferrer"
+             class="w-full text-center px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-indigo-500 hover:text-white text-white font-semibold text-sm transition-colors">
+            Acceder a Web Design Studio AI
+          </a>
+        </div>
+      </div>
+
+      <!-- Free Community Demo Card -->
+      <div class="mt-8 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-emerald-950/40 via-slate-900 to-slate-900 border border-emerald-500/30 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold mb-2">
+            Gratis • Comunidad
+          </span>
+          <h3 class="text-xl sm:text-2xl font-extrabold text-white mb-1">Skill Video DEMO</h3>
+          <p class="text-sm text-slate-300 max-w-2xl">
+            Plantilla y prompt base para crear estructuras de video invitaciones dinámicas con IA. Accede a la versión demo uniéndote a nuestra comunidad oficial de WhatsApp.
+          </p>
+        </div>
+        <a href="https://wa.me/59175069812?text=Hola%20Fernando%2C%20quiero%20unirme%20a%20la%20comunidad%20y%20obtener%20Skill%20Video%20DEMO."
+           target="_blank" rel="noopener noreferrer"
+           class="shrink-0 w-full md:w-auto text-center px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm transition-all">
+          Unirme &amp; Obtener DEMO
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       HERRAMIENTAS DIGITALES GOLD PRO (VIP MEMBER)
+  ========================================================== -->
+  <section id="gold-pro" class="py-20 border-b border-slate-800/60 bg-gradient-to-b from-amber-950/15 via-slate-950 to-slate-950">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="inline-block px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/40 text-amber-300 text-xs font-bold uppercase tracking-wider mb-4">
+          Acceso Exclusivo • Solo para Miembros
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">
+          Herramientas Digitales <span class="text-amber-400">GOLD PRO</span>
+        </h2>
+        <p class="text-slate-300 text-base sm:text-lg">
+          Recursos avanzados de última generación con Inteligencia Artificial para creadores y marcas que buscan dominar el formato audiovisual de alto impacto.
+        </p>
+      </div>
+
+      <div class="p-8 sm:p-10 rounded-3xl bg-slate-900/95 border border-amber-500/40 gold-card shadow-2xl">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 text-xs font-black uppercase tracking-wider">
+            ★ VIP Member
+          </span>
+          <span class="text-xs font-semibold text-amber-300/90">Reels • TikTok • Meta Ads</span>
+        </div>
+
+        <h3 class="text-2xl sm:text-3xl font-black text-white mb-4">Skill Video PRO</h3>
+        <p class="text-slate-300 text-base leading-relaxed mb-6">
+          Framework avanzado y generador asistido por IA para producción de video publicitario, ganchos de retención en primeros 3 segundos y escalado de formatos de alto engagement (Reels, TikTok y Ads).
+        </p>
+
+        <ul class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 text-sm">
+          <li class="p-4 rounded-2xl bg-slate-950/70 border border-amber-500/20 text-slate-200 flex items-start gap-2.5">
+            <span class="text-amber-400 font-bold">✓</span>
+            <span>Estructuras virales probadas en campañas de Ads</span>
+          </li>
+          <li class="p-4 rounded-2xl bg-slate-950/70 border border-amber-500/20 text-slate-200 flex items-start gap-2.5">
+            <span class="text-amber-400 font-bold">✓</span>
+            <span>Prompts maestros para generación de video con IA</span>
+          </li>
+          <li class="p-4 rounded-2xl bg-slate-950/70 border border-amber-500/20 text-slate-200 flex items-start gap-2.5">
+            <span class="text-amber-400 font-bold">✓</span>
+            <span>Optimización de guion para retención en primeros 3 segundos</span>
+          </li>
+        </ul>
+
+        <a href="https://wa.me/59175069812?text=Hola%20Fernando%2C%20solicito%20acceso%20VIP%20a%20Skill%20Video%20PRO%20(GOLD%20PRO)."
+           target="_blank" rel="noopener noreferrer"
+           class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-amber-400 hover:to-yellow-300 text-slate-950 font-black text-base transition-all shadow-lg shadow-amber-500/25">
+          Acceder a Skill Video PRO
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CATÁLOGO DE SERVICIOS
+  ========================================================== -->
+  <section id="servicios" class="py-20 sm:py-24 border-b border-slate-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="inline-block px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          Catálogo de Servicios
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">
+          Soluciones Especializadas para tu Empresa
+        </h2>
+        <p class="text-slate-300 text-base sm:text-lg">
+          Diseñadas para maximizar la tasa de conversión y eliminar la fricción en la venta.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Servicio 1 -->
+        <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 card-hover flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <h3 class="text-2xl font-extrabold text-white mb-3">Soluciones Digitales para Marketing y Negocios</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mb-6">
+              Estrategias digitales integrales enfocadas en la optimización de la tasa de conversión (CRO), embudos de ventas eficaces, posicionamiento de marca y captación de clientes potenciales de alto valor.
+            </p>
+            <ul class="space-y-2.5 text-sm text-slate-300 mb-8">
+              <li class="flex items-center gap-2"><span class="text-cyan-400 font-bold">✓</span> Optimización de Landing Pages (AIDA)</li>
+              <li class="flex items-center gap-2"><span class="text-cyan-400 font-bold">✓</span> Auditoría de Embudos de Conversión</li>
+              <li class="flex items-center gap-2"><span class="text-cyan-400 font-bold">✓</span> Carga Ultra Rápida (Core Web Vitals)</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/59175069812?text=Hola%20Fernando%2C%20quisiera%20solicitar%20cotizaci%C3%B3n%20para%20Soluciones%20Digitales%20de%20Marketing%20y%20CRO."
+             target="_blank" rel="noopener noreferrer"
+             class="w-full text-center px-5 py-3.5 rounded-xl bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-white font-bold text-sm transition-all">
+            Solicitar Cotización
+          </a>
+        </div>
+
+        <!-- Servicio 2 (Featured) -->
+        <div class="p-8 rounded-3xl bg-slate-900 border-2 border-emerald-500/60 card-hover flex flex-col justify-between relative shadow-2xl shadow-emerald-500/10">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-emerald-500 text-slate-950 text-xs font-black uppercase tracking-wider">
+            Más Solicitado
+          </div>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </div>
+            <h3 class="text-2xl font-extrabold text-white mb-3">Creación de Tiendas Online para WhatsApp</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mb-6">
+              E-commerce ágil e interactivo con catálogo de productos y carrito de compra. Tus clientes seleccionan sus ítems y te envían el pedido desglosado directamente a tu WhatsApp.
+            </p>
+            <ul class="space-y-2.5 text-sm text-slate-200 mb-8">
+              <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Carrito Interactivo en Tiempo Real</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Desglose de Pedido Formateado</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Cero comisiones por pasarela</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/59175069812?text=Hola%20Fernando%2C%20quiero%20cotizar%20una%20Tienda%20Online%20integrada%20con%20WhatsApp."
+             target="_blank" rel="noopener noreferrer"
+             class="w-full text-center px-5 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm transition-all shadow-lg shadow-emerald-500/20">
+            Cotizar Tienda en WhatsApp
+          </a>
+        </div>
+
+        <!-- Servicio 3 -->
+        <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 card-hover flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-purple-500/15 text-purple-400 flex items-center justify-center mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+            </div>
+            <h3 class="text-2xl font-extrabold text-white mb-3">Chatbots con Inteligencia Artificial</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mb-6">
+              Automatiza la atención de tu negocio las 24 horas del día. Respuestas contextuales inteligentes, calificación automática de prospectos y agendamiento de citas sin intervención humana constante.
+            </p>
+            <ul class="space-y-2.5 text-sm text-slate-300 mb-8">
+              <li class="flex items-center gap-2"><span class="text-purple-400 font-bold">✓</span> Respuestas automatizadas con IA</li>
+              <li class="flex items-center gap-2"><span class="text-purple-400 font-bold">✓</span> Calificación previa de clientes</li>
+              <li class="flex items-center gap-2"><span class="text-purple-400 font-bold">✓</span> Operación continua 24/7</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/59175069812?text=Hola%20Fernando%2C%20me%20interesa%20implementar%20un%20Chatbot%20con%20Inteligencia%20Artificial."
+             target="_blank" rel="noopener noreferrer"
+             class="w-full text-center px-5 py-3.5 rounded-xl bg-slate-800 hover:bg-purple-500 hover:text-slate-950 text-white font-bold text-sm transition-all">
+            Implementar Chatbot IA
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TALLERES Y SEMINARIOS
+  ========================================================== -->
+  <section id="talleres" class="py-20 border-b border-slate-800/60 bg-slate-900/40">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="inline-block px-3.5 py-1.5 rounded-full bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 text-xs font-bold uppercase tracking-wider mb-4">
+          Capacitación Especializada
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">
+          Talleres y Seminarios
+        </h2>
+        <p class="text-slate-300 text-base sm:text-lg">
+          Aprende de forma práctica a potenciar tu negocio con herramientas digitales e Inteligencia Artificial.
+        </p>
+      </div>
+
+      <div class="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-slate-900 to-slate-950 border border-cyan-500/35 shadow-xl">
+        <div class="flex flex-wrap items-center gap-3 mb-4">
+          <span class="px-3 py-1 rounded-full bg-red-500/20 border border-red-500/40 text-red-300 text-xs font-bold flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+            Taller Online en Vivo
+          </span>
+          <span class="text-xs text-slate-400">Cupos limitados para atención personalizada</span>
+        </div>
+
+        <h3 class="text-2xl sm:text-3xl font-black text-white mb-6">
+          CREA TU TIENDA ONLINE CON IA Y VENDE CON FACEBOOK ADS + WHATSAPP
+        </h3>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+          <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800">
+            <span class="block text-xs text-slate-400 uppercase font-semibold mb-1">Inicio del Taller</span>
+            <span class="text-base font-bold text-emerald-400">Lunes 3 de Agosto</span>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800">
+            <span class="block text-xs text-slate-400 uppercase font-semibold mb-1">Modalidad</span>
+            <span class="text-sm font-bold text-white">3 Clases Online en Vivo (Lunes - Miércoles - Viernes)</span>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800">
+            <span class="block text-xs text-slate-400 uppercase font-semibold mb-1">Horario</span>
+            <span class="text-base font-bold text-cyan-400">8:00 PM a 10:00 PM</span>
+          </div>
+        </div>
+
+        <p class="text-sm text-slate-300 mb-7">
+          Cupos limitados para garantizar atención personalizada durante las sesiones en vivo.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="https://wa.me/59175069812?text=Hola%20Fernando%2C%20quiero%20inscribirme%20al%20Taller%20Online%3A%20CREA%20TU%20TIENDA%20ONLINE%20CON%20IA%20Y%20VENDE%20CON%20FACEBOOK%20ADS%20%2B%20WHATSAPP."
+             target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm transition-all">
+            Inscribirme por WhatsApp
+          </a>
+          <a href="taller/index.html"
+             class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm border border-slate-700 transition-all">
+            Ver Temario del Taller
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SOBRE MÍ — PERFIL PROFESIONAL
+  ========================================================== -->
+  <section id="sobre-mi" class="py-20 border-b border-slate-800/60">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <!-- Profile Photo Card -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-sm rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 shadow-2xl">
+            <img src="https://catzadigital.me/img/fer.jpg"
+                 onerror="this.onerror=null;this.src='https://placehold.co/600x700/0f172a/10b981?text=Fernando+Yupanqui';"
+                 alt="Fernando Yupanqui Rojas"
+                 class="w-full h-80 sm:h-96 object-cover object-top" />
+            <div class="p-5 bg-slate-900/95 border-t border-slate-800">
+              <h3 class="text-xl font-extrabold text-white">Fernando Yupanqui Rojas</h3>
+              <p class="text-sm font-medium text-emerald-400">Especialista en Soluciones Digitales</p>
+              <p class="text-xs text-slate-400 mt-1">Santa Cruz de la Sierra, Bolivia</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bio & Engineering Approach -->
+        <div class="lg:col-span-7 space-y-6">
+          <span class="inline-block px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+            Perfil Profesional
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black text-white leading-tight">
+            Ingeniería Web orientada a Resultados Comerciales
+          </h2>
+          <p class="text-slate-300 text-base leading-relaxed">
+            Mi objetivo principal es eliminar la complejidad tecnológica para que emprendedores y empresas puedan implementar herramientas digitales simples, veloces y enfocadas en cerrar ventas.
+          </p>
+          <p class="text-slate-300 text-base leading-relaxed">
+            Aplico arquitectura limpia HTML5, metodologías CRO (Optimización de Tasa de Conversión), diseño de interacción amigable e integración nativa con la API de WhatsApp para convertir cada visita en una oportunidad real de negocio.
+          </p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+            <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-center">
+              <span class="text-xs font-bold text-emerald-400 block">Santa Cruz</span>
+              <span class="text-[11px] text-slate-400">Bolivia</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-center">
+              <span class="text-xs font-bold text-cyan-400 block">Respuesta</span>
+              <span class="text-[11px] text-slate-400">Inmediata</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-center">
+              <span class="text-xs font-bold text-purple-400 block">Frontend</span>
+              <span class="text-[11px] text-slate-400">Nativo</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-center">
+              <span class="text-xs font-bold text-amber-400 block">Ventas</span>
+              <span class="text-[11px] text-slate-400">por WhatsApp</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TESTIMONIOS — PRUEBA SOCIAL
+  ========================================================== -->
+  <section id="testimonios" class="py-20 border-b border-slate-800/60 bg-slate-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="inline-block px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          Prueba Social
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">
+          Lo que Dicen Quienes Ya Trabajaron Conmigo
+        </h2>
+        <p class="text-slate-300 text-base sm:text-lg">
+          Experiencias reales de clientes que impulsaron su canal digital.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Testimonial 1 -->
+        <div class="p-7 rounded-2xl bg-slate-900 border border-slate-800 card-hover">
+          <div class="flex text-amber-400 text-sm mb-3">★★★★★</div>
+          <p class="text-slate-200 text-sm sm:text-base italic leading-relaxed mb-5">
+            "La tienda online de WhatsApp que implementó Fernando duplicó la velocidad en que tomamos pedidos. Nuestros clientes quedan encantados con el carrito."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center text-sm">CM</div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Carlos Mendoza</h4>
+              <p class="text-xs text-slate-400">Comercializador - Sta. Cruz</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="p-7 rounded-2xl bg-slate-900 border border-slate-800 card-hover">
+          <div class="flex text-amber-400 text-sm mb-3">★★★★★</div>
+          <p class="text-slate-200 text-sm sm:text-base italic leading-relaxed mb-5">
+            "El chatbot con IA responde consultas a cualquier hora de la noche. Pasamos de perder prospectos fuera de horario a agendar citas en automático."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-cyan-500/20 text-cyan-400 font-bold flex items-center justify-center text-sm">VR</div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Valeria Ríos</h4>
+              <p class="text-xs text-slate-400">Centro Médico Estético</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="p-7 rounded-2xl bg-slate-900 border border-slate-800 card-hover">
+          <div class="flex text-amber-400 text-sm mb-3">★★★★★</div>
+          <p class="text-slate-200 text-sm sm:text-base italic leading-relaxed mb-5">
+            "Excelente atención y rápida entrega. Entendió exactamente lo que nuestro negocio necesitaba para captar leads en redes sociales."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex items-center justify-center text-sm">RA</div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Roberto Aguilera</h4>
+              <p class="text-xs text-slate-400">Inmobiliaria y Raíces</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="p-7 rounded-2xl bg-slate-900 border border-slate-800 card-hover">
+          <div class="flex text-amber-400 text-sm mb-3">★★★★★</div>
+          <p class="text-slate-200 text-sm sm:text-base italic leading-relaxed mb-5">
+            "La landing page carga instantáneamente en teléfonos móviles. Se notó de inmediato el incremento en mensajes recibidos por WhatsApp."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-sm">MS</div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Mariana Suárez</h4>
+              <p class="text-xs text-slate-400">Servicios Financieros</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       UBICACIÓN Y CONTACTO DIRECTO
+  ========================================================== -->
+  <section id="contacto" class="py-20 sm:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="inline-block px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          Contacto Directo
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">
+          ¿Listo para Impulsar tu Negocio?
+        </h2>
+        <p class="text-slate-300 text-base sm:text-lg">
+          Envía un mensaje para analizar tus requerimientos y definir la mejor estrategia.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Info Cards -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+            <div class="flex items-start gap-4">
+              <div class="w-11 h-11 rounded-xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-white mb-1">Ubicación Física</h3>
+                <p class="text-sm text-slate-300">4to anillo doble vía La Guardia</p>
+                <p class="text-xs text-slate-400 mt-0.5">Santa Cruz de la Sierra, Bolivia</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-900 border border-emerald-500/30">
+            <div class="flex items-start gap-4 mb-5">
+              <div class="w-11 h-11 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-white mb-1">Atención Directa por WhatsApp</h3>
+                <p class="text-lg font-extrabold text-emerald-400">+591 75069812</p>
+                <span class="inline-flex items-center gap-1.5 text-xs text-emerald-300 mt-1">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Online y Disponible
+                </span>
+              </div>
+            </div>
+            <a href="https://wa.me/59175069812?text=Hola%20Fernando%2C%20me%20comunico%20desde%20tu%20sitio%20web."
+               target="_blank" rel="noopener noreferrer"
+               class="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm transition-all">
+              Abrir Chat Directo en WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick WhatsApp Form -->
+        <div class="lg:col-span-7 p-7 sm:p-9 rounded-3xl bg-slate-900 border border-slate-800 shadow-xl">
+          <h3 class="text-xl font-extrabold text-white mb-1">Envía una Consulta Rápida</h3>
+          <p class="text-xs sm:text-sm text-slate-400 mb-6">
+            El mensaje se formateará automáticamente y se abrirá en tu WhatsApp.
+          </p>
+
+          <!-- Feedback Notification Banner (No alert() used) -->
+          <div id="form-feedback" class="hidden mb-5 p-4 rounded-xl bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-sm"></div>
+
+          <form id="whatsapp-form" class="space-y-4">
+            <div>
+              <label for="client-name" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                Tu Nombre Completo *
+              </label>
+              <input type="text" id="client-name" required placeholder="Ej. Juan Pérez"
+                     class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-emerald-500 transition-colors" />
+            </div>
+
+            <div>
+              <label for="client-service" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                Servicio de Interés *
+              </label>
+              <select id="client-service" required
+                      class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors">
+                <option value="Soluciones Digitales para Marketing y Negocios">Soluciones Digitales para Marketing y Negocios</option>
+                <option value="Creación de Tiendas Online para WhatsApp" selected>Creación de Tiendas Online para WhatsApp</option>
+                <option value="Chatbots con Inteligencia Artificial">Chatbots con Inteligencia Artificial</option>
+                <option value="Skill Video PRO (GOLD PRO - Solo para Miembros)">Skill Video PRO (GOLD PRO - Solo para Miembros)</option>
+                <option value="Taller: Crea tu Tienda Online con IA">Taller: Crea tu Tienda Online con IA</option>
+                <option value="Herramientas Digitales PRO">Herramientas Digitales PRO</option>
+                <option value="Otra consulta / Asesoría personalizada">Otra consulta / Asesoría personalizada</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="client-details" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                Detalles del Proyecto *
+              </label>
+              <textarea id="client-details" rows="3" required placeholder="Cuéntame brevemente sobre tu negocio y qué objetivo buscas alcanzar..."
+                        class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-emerald-500 transition-colors"></textarea>
+            </div>
+
+            <button type="submit"
+                    class="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm transition-all shadow-lg shadow-emerald-500/20">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+              Enviar Mensaje a WhatsApp
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+  <footer class="py-10 bg-slate-950 border-t border-slate-800/80 text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-2">
+      <p class="text-sm text-slate-300 font-medium">
+        © 2026 Fernando Yupanqui Rojas. Todos los derechos reservados.
+      </p>
+      <p class="text-xs text-slate-500">
+        Santa Cruz de la Sierra, Bolivia • GitHub Pages Ready
+      </p>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       FLOATING WHATSAPP WIDGET ("¡Hola! Estoy online")
+  ========================================================== -->
+  <div class="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-2">
+    <a href="https://wa.me/59175069812?text=Hola%20Fernando%2C%20te%20escribo%20desde%20tu%20p%C3%A1gina%20web."
+       target="_blank" rel="noopener noreferrer"
+       class="group flex items-center gap-3">
+      <span class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white text-xs font-semibold shadow-xl group-hover:border-emerald-500/60 transition-colors">
+        ¡Hola! Estoy online
+      </span>
+      <div class="relative w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 flex items-center justify-center shadow-2xl shadow-emerald-500/40 transition-transform group-hover:scale-105">
+        <span class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-red-500 text-white text-[11px] font-black flex items-center justify-center border-2 border-slate-950">
+          1
+        </span>
+        <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+      </div>
+    </a>
+  </div>
+
+  <!-- =========================================================
+       JAVASCRIPT: MENÚ MÓVIL Y FORMULARIO WHATSAPP
+  ========================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Mobile Navigation Drawer Toggle
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('menu-icon-open');
+      const iconClose = document.getElementById('menu-icon-close');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function toggleMobileMenu() {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          iconOpen.classList.add('hidden');
+          iconClose.classList.remove('hidden');
+        } else {
+          mobileMenu.classList.add('hidden');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
         }
+      }
 
-        // Manejo del formulario con validación HTML5
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            
-            const name = document.getElementById('user-name').value;
-            const service = document.getElementById('user-service').value;
-            const messageText = document.getElementById('user-message').value;
+      if (menuBtn) {
+        menuBtn.addEventListener('click', toggleMobileMenu);
+      }
 
-            const fullMessage = `Hola Fernando, mi nombre es *${name}*.\n\nEstoy interesado en: *${service}*.\n\nDetalles de mi consulta:\n${messageText}`;
-            
-            const encodedMessage = encodeURIComponent(fullMessage);
-            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-            
-            window.open(whatsappUrl, '_blank');
-        }
-
-        // Validación dinámica de inputs usando ValidityState API
-        document.querySelectorAll('#contact-form input, #contact-form textarea').forEach(input => {
-            input.addEventListener('input', function(e) {
-                const element = e.target;
-                if (element.validity.valid) {
-                    element.classList.remove('border-red-500');
-                    element.classList.add('border-emerald-500');
-                } else {
-                    element.classList.remove('border-emerald-500');
-                    element.classList.add('border-red-500');
-                }
-            });
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
         });
+      });
 
-        // Alternar Menú Móvil
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const icon = document.getElementById('menu-icon');
-            menu.classList.toggle('hidden');
-            
-            if (menu.classList.contains('hidden')) {
-                icon.classList.remove('fa-xmark');
-                icon.classList.add('fa-bars');
-            } else {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-xmark');
-            }
-        }
-    </script>
+      // 2. Quick WhatsApp Consultation Form
+      const whatsappForm = document.getElementById('whatsapp-form');
+      const formFeedback = document.getElementById('form-feedback');
+
+      if (whatsappForm) {
+        whatsappForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          const name = document.getElementById('client-name').value.trim();
+          const service = document.getElementById('client-service').value;
+          const details = document.getElementById('client-details').value.trim();
+
+          if (!name || !details) {
+            formFeedback.textContent = 'Por favor completa todos los campos obligatorios.';
+            formFeedback.classList.remove('hidden', 'bg-emerald-500/15', 'border-emerald-500/40', 'text-emerald-300');
+            formFeedback.classList.add('bg-red-500/15', 'border-red-500/40', 'text-red-300');
+            return;
+          }
+
+          const message = `Hola Fernando, mi nombre es *${name}*.\n\n` +
+                          `Estoy interesado en: *${service}*\n\n` +
+                          `Detalles de mi proyecto:\n${details}`;
+
+          const whatsappUrl = `https://wa.me/59175069812?text=${encodeURIComponent(message)}`;
+
+          formFeedback.textContent = '¡Mensaje listo! Redirigiendo a WhatsApp...';
+          formFeedback.classList.remove('hidden', 'bg-red-500/15', 'border-red-500/40', 'text-red-300');
+          formFeedback.classList.add('bg-emerald-500/15', 'border-emerald-500/40', 'text-emerald-300');
+
+          window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+        });
+      }
+    });
+  </script>
 </body>
 </html>
